@@ -22,7 +22,11 @@
     "nft": {
       "name": "nft",
       "deployments": [],
-      "language": "ink"
+      "language": "ink",
+      "build": {
+        "timestamp": 1676344521328,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676344521328"
+      }
     }
   },
   "networks": {

@@ -28,6 +28,26 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 3. コンテンツ一覧表示画面
 4. コンテンツ完了後NFT画面
 
+
+### NFT コントラクトオブジェクトの中身
+
+```json
+query
+    mintToken
+    mintWithAttribute
+    psp34::allowance
+    psp34::approve
+    psp34::balanceOf
+    psp34::collectionId
+    psp34::ownerOf
+    psp34::totalSupply
+    psp34::transfer
+    psp34Burnable::burn
+    psp34Enumerable::ownersTokenByIndex
+    psp34Enumerable::tokenByIndex
+    psp34Metadata::getAttribute
+```
+
 ## 参考文献
 1. [https://openbrush.io/](https://openbrush.io/)
 2. [psp34_contract](https://github.com/k-c-h-a-n/psp34_contract)

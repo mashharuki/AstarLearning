@@ -8,7 +8,7 @@
     "test": "mocha -r ts-node/register \"test/**/*.test.ts\" --exit --timeout 20000",
     "test:contract": "cd contracts/nft && cargo +nightly contract test",
     "build": "cd contracts/nft && cargo +nightly contract build",
-    "compile": "swanky contract compile flipper -v",
+    "compile": "swanky contract compile nft -v",
     "postinstall": "patch-package"
   },
   "engines": {

@@ -10,7 +10,7 @@ import type { InjectedAccountWithMeta, InjectedExtension } from '@polkadot/exten
 import {BLOCKCHAINS} from '../common/Constant';
 
 // Specify the metadata of the contract.
-import abi from '../../metadata/flipper.json';
+import abi from '../../metadata/nft.json';
 
 const proofSize = 131072
 const refTime = 6219235328
@@ -93,6 +93,8 @@ const IndexCanvas = () => {
 
     const contract = new ContractPromise(api, abi, contractAddress);
     const account = accounts.filter(data => data.address === actingAddress);
+
+    console.log("nft contract:", contract);
     
     const flipExtrinsic =
       await contract.tx.flip({

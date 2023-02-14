@@ -85,28 +85,28 @@ const SampleContractsList = (): JSX.Element => {
     <div className="text-left max-w-6xl p-2 m-auto mt-5 w-11/12 border-[#d8d2c5] dark:border-[#323943] bg-[#f4efe2] dark:bg-[#121923] border border-1 rounded">
       <h3 className="m-1 text-xl text-center">Sample Contracts</h3>
       <ContractsList
-        networkName="Shiden"
+        networkName="shiden"
         navigation={navigation}
         contractLabel={shidenContractLabel}
         saveContractInfo={saveContractInfo}
         contractAddress={shidenContractAddress}
       />
       <ContractsList
-        networkName="Shibuya"
+        networkName="shibuya"
         navigation={navigation}
         contractLabel={shibuyaContractLabel}
         saveContractInfo={saveContractInfo}
         contractAddress={shibuyaContractAddress}
       />
       <ContractsList
-        networkName="Local"
+        networkName="local"
         navigation={navigation}
         contractLabel={localContractLabel}
         saveContractInfo={saveContractInfo}
         contractAddress={localContractAddress}
       />
       <ContractsList
-        networkName="Custom"
+        networkName="custom"
         navigation={navigation}
         contractLabel={customContractLabel}
         saveContractInfo={saveContractInfo}
