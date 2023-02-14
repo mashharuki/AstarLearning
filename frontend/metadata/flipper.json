@@ -1,0 +1,232 @@
+{
+  "source": {
+    "hash": "0x315b277354b5c3e158a3c08be38cd59dc4dbd62560d6a05335d2904650e47373",
+    "language": "ink! 3.4.0",
+    "compiler": "rustc 1.68.0-nightly"
+  },
+  "contract": {
+    "name": "flipper",
+    "version": "0.1.0",
+    "authors": [
+      "mashharuki"
+    ]
+  },
+  "V3": {
+    "spec": {
+      "constructors": [
+        {
+          "args": [
+            {
+              "label": "init_value",
+              "type": {
+                "displayName": [
+                  "bool"
+                ],
+                "type": 0
+              }
+            },
+            {
+              "label": "init_count",
+              "type": {
+                "displayName": [
+                  "u32"
+                ],
+                "type": 1
+              }
+            },
+            {
+              "label": "init_text",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 2
+              }
+            }
+          ],
+          "docs": [
+            "* コンストラクター"
+          ],
+          "label": "new",
+          "payable": false,
+          "selector": "0x9bae9d5e"
+        },
+        {
+          "args": [],
+          "docs": [
+            "* default メソッド"
+          ],
+          "label": "default",
+          "payable": false,
+          "selector": "0xed4b9d1b"
+        }
+      ],
+      "docs": [
+        "\n * flipperコントラクト\n "
+      ],
+      "events": [],
+      "messages": [
+        {
+          "args": [],
+          "docs": [
+            "\n         * flipメソッド\n         "
+          ],
+          "label": "flip",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "bool"
+            ],
+            "type": 0
+          },
+          "selector": "0x633aa551"
+        },
+        {
+          "args": [],
+          "docs": [
+            "\n         * 変数を加算させる関数\n         "
+          ],
+          "label": "increment",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "u32"
+            ],
+            "type": 1
+          },
+          "selector": "0x12bd51d3"
+        },
+        {
+          "args": [
+            {
+              "label": "new_text",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 2
+              }
+            }
+          ],
+          "docs": [
+            "\n         * テキストを変更する関数\n         "
+          ],
+          "label": "change_text",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0xedecffaf"
+        },
+        {
+          "args": [],
+          "docs": [
+            "\n         * get メソッド\n         "
+          ],
+          "label": "get",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "bool"
+            ],
+            "type": 0
+          },
+          "selector": "0x2f865bd9"
+        },
+        {
+          "args": [],
+          "docs": [
+            "\n         * 変数を取得する関数\n         "
+          ],
+          "label": "get_number",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "u32"
+            ],
+            "type": 1
+          },
+          "selector": "0xbf71f9f8"
+        },
+        {
+          "args": [],
+          "docs": [
+            "\n         * 文字列を取得する関数\n         "
+          ],
+          "label": "get_text",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "String"
+            ],
+            "type": 2
+          },
+          "selector": "0x10e78e52"
+        }
+      ]
+    },
+    "storage": {
+      "struct": {
+        "fields": [
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "ty": 0
+              }
+            },
+            "name": "value"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                "ty": 1
+              }
+            },
+            "name": "count"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
+                "ty": 2
+              }
+            },
+            "name": "text"
+          }
+        ]
+      }
+    },
+    "types": [
+      {
+        "id": 0,
+        "type": {
+          "def": {
+            "primitive": "bool"
+          }
+        }
+      },
+      {
+        "id": 1,
+        "type": {
+          "def": {
+            "primitive": "u32"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": {
+          "def": {
+            "primitive": "str"
+          }
+        }
+      }
+    ]
+  }
+}

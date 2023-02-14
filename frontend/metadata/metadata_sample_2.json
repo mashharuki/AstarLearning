@@ -1,0 +1,162 @@
+{
+  "source": {
+    "hash": "0x4dc770014a3863bdb5e2f828b45dbdfd12b924759d692bfe66c3e6ff8e8af73e",
+    "language": "ink! 3.4.0",
+    "compiler": "rustc 1.68.0-nightly"
+  },
+  "contract": {
+    "name": "flipper_plus",
+    "version": "0.1.0",
+    "authors": [
+      "CieloChiara"
+    ]
+  },
+  "V3": {
+    "spec": {
+      "constructors": [
+        {
+          "args": [
+            {
+              "label": "init_value",
+              "type": {
+                "displayName": [
+                  "bool"
+                ],
+                "type": 0
+              }
+            },
+            {
+              "label": "init_number",
+              "type": {
+                "displayName": [
+                  "u32"
+                ],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [
+            "Constructor that initializes the `bool` value to the given `init_value`."
+          ],
+          "label": "new",
+          "payable": false,
+          "selector": "0x9bae9d5e"
+        },
+        {
+          "args": [],
+          "docs": [
+            "Constructor that initializes the `bool` value to `false`.",
+            "",
+            "Constructors can delegate to other constructors."
+          ],
+          "label": "default",
+          "payable": false,
+          "selector": "0xed4b9d1b"
+        }
+      ],
+      "docs": [],
+      "events": [],
+      "messages": [
+        {
+          "args": [],
+          "docs": [
+            " A message that can be called on instantiated contracts.",
+            " This one flips the value of the stored `bool` from `true`",
+            " to `false` and vice versa."
+          ],
+          "label": "flip",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "bool"
+            ],
+            "type": 0
+          },
+          "selector": "0x633aa551"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "increment",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x12bd51d3"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Simply returns the current value of our `bool`."
+          ],
+          "label": "get",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "bool"
+            ],
+            "type": 0
+          },
+          "selector": "0x2f865bd9"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "get_number",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "u32"
+            ],
+            "type": 1
+          },
+          "selector": "0xbf71f9f8"
+        }
+      ]
+    },
+    "storage": {
+      "struct": {
+        "fields": [
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "ty": 0
+              }
+            },
+            "name": "value"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                "ty": 1
+              }
+            },
+            "name": "increment_number"
+          }
+        ]
+      }
+    },
+    "types": [
+      {
+        "id": 0,
+        "type": {
+          "def": {
+            "primitive": "bool"
+          }
+        }
+      },
+      {
+        "id": 1,
+        "type": {
+          "def": {
+            "primitive": "u32"
+          }
+        }
+      }
+    ]
+  }
+}
