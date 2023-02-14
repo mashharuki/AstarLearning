@@ -44,19 +44,17 @@ export class IdBuilder {
 
 export type AccountId = string | number[]
 
-export type Key = string | number[]
-
 export interface PSP34Error {
-	custom ? : string,
+	custom ? : Array<(number | string | BN)>,
 	selfApprove ? : null,
 	notApproved ? : null,
 	tokenExists ? : null,
 	tokenNotExists ? : null,
-	safeTransferCheckFailed ? : string
+	safeTransferCheckFailed ? : Array<(number | string | BN)>
 }
 
 export class PSP34ErrorBuilder {
-	static Custom(value: string): PSP34Error {
+	static Custom(value: Array<(number | string | BN)>): PSP34Error {
 		return {
 			custom: value,
 		};
@@ -81,10 +79,15 @@ export class PSP34ErrorBuilder {
 			tokenNotExists: null,
 		};
 	}
-	static SafeTransferCheckFailed(value: string): PSP34Error {
+	static SafeTransferCheckFailed(value: Array<(number | string | BN)>): PSP34Error {
 		return {
 			safeTransferCheckFailed: value,
 		};
 	}
+}
+
+export enum OwnableError {
+	callerIsNotOwner = 'CallerIsNotOwner',
+	newOwnerIsZero = 'NewOwnerIsZero'
 }
 

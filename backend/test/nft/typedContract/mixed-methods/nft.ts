@@ -35,53 +35,6 @@ export default class Methods {
 	}
 
 	/**
-	* mintToken
-	*
-	* @returns { void }
-	*/
-	"mintToken" (
-		__options: GasLimit,
-	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "mintToken", (events: EventRecord) => {
-			return decodeEvents(events, this.__nativeContract, "nft");
-		}, [], __options);
-	}
-
-	/**
-	* mintWithAttribute
-	*
-	* @param { string } title,
-	* @param { string } author,
-	* @param { string } date,
-	* @param { string } cid,
-	* @returns { void }
-	*/
-	"mintWithAttribute" (
-		title: string,
-		author: string,
-		date: string,
-		cid: string,
-		__options: GasLimit,
-	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "mintWithAttribute", (events: EventRecord) => {
-			return decodeEvents(events, this.__nativeContract, "nft");
-		}, [title, author, date, cid], __options);
-	}
-
-	/**
-	* balanceOf
-	*
-	* @param { ArgumentTypes.AccountId } owner,
-	* @returns { number }
-	*/
-	"balanceOf" (
-		owner: ArgumentTypes.AccountId,
-		__options: GasLimit,
-	): Promise< QueryReturnType< number > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::balanceOf", [owner], __options);
-	}
-
-	/**
 	* ownerOf
 	*
 	* @param { ArgumentTypes.Id } id,
@@ -92,64 +45,6 @@ export default class Methods {
 		__options: GasLimit,
 	): Promise< QueryReturnType< ReturnTypes.AccountId | null > >{
 		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::ownerOf", [id], __options, (result) => { return handleReturnType(result, getTypeDescription(19, 'nft')); });
-	}
-
-	/**
-	* transfer
-	*
-	* @param { ArgumentTypes.AccountId } to,
-	* @param { ArgumentTypes.Id } id,
-	* @param { Array<(number | string | BN)> } data,
-	* @returns { void }
-	*/
-	"transfer" (
-		to: ArgumentTypes.AccountId,
-		id: ArgumentTypes.Id,
-		data: Array<(number | string | BN)>,
-		__options: GasLimit,
-	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "psp34::transfer", (events: EventRecord) => {
-			return decodeEvents(events, this.__nativeContract, "nft");
-		}, [to, id, data], __options);
-	}
-
-	/**
-	* totalSupply
-	*
-	* @returns { ReturnNumber }
-	*/
-	"totalSupply" (
-		__options: GasLimit,
-	): Promise< QueryReturnType< ReturnNumber > >{
-		return queryJSON< ReturnNumber >( this.__nativeContract, this.__callerAddress, "psp34::totalSupply", [], __options, (result) => { return new ReturnNumber(result as (number | string)); });
-	}
-
-	/**
-	* allowance
-	*
-	* @param { ArgumentTypes.AccountId } owner,
-	* @param { ArgumentTypes.AccountId } operator,
-	* @param { ArgumentTypes.Id | null } id,
-	* @returns { boolean }
-	*/
-	"allowance" (
-		owner: ArgumentTypes.AccountId,
-		operator: ArgumentTypes.AccountId,
-		id: ArgumentTypes.Id | null,
-		__options: GasLimit,
-	): Promise< QueryReturnType< boolean > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::allowance", [owner, operator, id], __options);
-	}
-
-	/**
-	* collectionId
-	*
-	* @returns { ReturnTypes.Id }
-	*/
-	"collectionId" (
-		__options: GasLimit,
-	): Promise< QueryReturnType< ReturnTypes.Id > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::collectionId", [], __options, (result) => { return handleReturnType(result, getTypeDescription(1, 'nft')); });
 	}
 
 	/**
@@ -172,48 +67,130 @@ export default class Methods {
 	}
 
 	/**
-	* getAttribute
+	* transfer
 	*
+	* @param { ArgumentTypes.AccountId } to,
 	* @param { ArgumentTypes.Id } id,
-	* @param { Array<(number | string | BN)> } key,
-	* @returns { Array<number> | null }
+	* @param { Array<(number | string | BN)> } data,
+	* @returns { void }
 	*/
-	"getAttribute" (
+	"transfer" (
+		to: ArgumentTypes.AccountId,
 		id: ArgumentTypes.Id,
-		key: Array<(number | string | BN)>,
+		data: Array<(number | string | BN)>,
 		__options: GasLimit,
-	): Promise< QueryReturnType< Array<number> | null > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34Metadata::getAttribute", [id, key], __options, (result) => { return handleReturnType(result, getTypeDescription(33, 'nft')); });
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "psp34::transfer", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, "nft");
+		}, [to, id, data], __options);
 	}
 
 	/**
-	* burn
+	* balanceOf
+	*
+	* @param { ArgumentTypes.AccountId } owner,
+	* @returns { number }
+	*/
+	"balanceOf" (
+		owner: ArgumentTypes.AccountId,
+		__options: GasLimit,
+	): Promise< QueryReturnType< number > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::balanceOf", [owner], __options);
+	}
+
+	/**
+	* totalSupply
+	*
+	* @returns { ReturnNumber }
+	*/
+	"totalSupply" (
+		__options: GasLimit,
+	): Promise< QueryReturnType< ReturnNumber > >{
+		return queryJSON< ReturnNumber >( this.__nativeContract, this.__callerAddress, "psp34::totalSupply", [], __options, (result) => { return new ReturnNumber(result as (number | string)); });
+	}
+
+	/**
+	* collectionId
+	*
+	* @returns { ReturnTypes.Id }
+	*/
+	"collectionId" (
+		__options: GasLimit,
+	): Promise< QueryReturnType< ReturnTypes.Id > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::collectionId", [], __options, (result) => { return handleReturnType(result, getTypeDescription(1, 'nft')); });
+	}
+
+	/**
+	* allowance
+	*
+	* @param { ArgumentTypes.AccountId } owner,
+	* @param { ArgumentTypes.AccountId } operator,
+	* @param { ArgumentTypes.Id | null } id,
+	* @returns { boolean }
+	*/
+	"allowance" (
+		owner: ArgumentTypes.AccountId,
+		operator: ArgumentTypes.AccountId,
+		id: ArgumentTypes.Id | null,
+		__options: GasLimit,
+	): Promise< QueryReturnType< boolean > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::allowance", [owner, operator, id], __options);
+	}
+
+	/**
+	* owner
+	*
+	* @returns { ReturnTypes.AccountId }
+	*/
+	"owner" (
+		__options: GasLimit,
+	): Promise< QueryReturnType< ReturnTypes.AccountId > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "ownable::owner", [], __options, (result) => { return handleReturnType(result, getTypeDescription(8, 'nft')); });
+	}
+
+	/**
+	* transferOwnership
+	*
+	* @param { ArgumentTypes.AccountId } newOwner,
+	* @returns { void }
+	*/
+	"transferOwnership" (
+		newOwner: ArgumentTypes.AccountId,
+		__options: GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "ownable::transferOwnership", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, "nft");
+		}, [newOwner], __options);
+	}
+
+	/**
+	* renounceOwnership
+	*
+	* @returns { void }
+	*/
+	"renounceOwnership" (
+		__options: GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "ownable::renounceOwnership", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, "nft");
+		}, [], __options);
+	}
+
+	/**
+	* mint
 	*
 	* @param { ArgumentTypes.AccountId } account,
 	* @param { ArgumentTypes.Id } id,
 	* @returns { void }
 	*/
-	"burn" (
+	"mint" (
 		account: ArgumentTypes.AccountId,
 		id: ArgumentTypes.Id,
 		__options: GasLimit,
 	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "psp34Burnable::burn", (events: EventRecord) => {
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "psp34Mintable::mint", (events: EventRecord) => {
 			return decodeEvents(events, this.__nativeContract, "nft");
 		}, [account, id], __options);
-	}
-
-	/**
-	* tokenByIndex
-	*
-	* @param { (string | number | BN) } index,
-	* @returns { Result<ReturnTypes.Id, ReturnTypes.PSP34Error> }
-	*/
-	"tokenByIndex" (
-		index: (string | number | BN),
-		__options: GasLimit,
-	): Promise< QueryReturnType< Result<ReturnTypes.Id, ReturnTypes.PSP34Error> > >{
-		return queryOkJSON( this.__nativeContract, this.__callerAddress, "psp34Enumerable::tokenByIndex", [index], __options, (result) => { return handleReturnType(result, getTypeDescription(34, 'nft')); });
 	}
 
 	/**
@@ -228,7 +205,35 @@ export default class Methods {
 		index: (string | number | BN),
 		__options: GasLimit,
 	): Promise< QueryReturnType< Result<ReturnTypes.Id, ReturnTypes.PSP34Error> > >{
-		return queryOkJSON( this.__nativeContract, this.__callerAddress, "psp34Enumerable::ownersTokenByIndex", [owner, index], __options, (result) => { return handleReturnType(result, getTypeDescription(34, 'nft')); });
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "psp34Enumerable::ownersTokenByIndex", [owner, index], __options, (result) => { return handleReturnType(result, getTypeDescription(31, 'nft')); });
+	}
+
+	/**
+	* tokenByIndex
+	*
+	* @param { (string | number | BN) } index,
+	* @returns { Result<ReturnTypes.Id, ReturnTypes.PSP34Error> }
+	*/
+	"tokenByIndex" (
+		index: (string | number | BN),
+		__options: GasLimit,
+	): Promise< QueryReturnType< Result<ReturnTypes.Id, ReturnTypes.PSP34Error> > >{
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "psp34Enumerable::tokenByIndex", [index], __options, (result) => { return handleReturnType(result, getTypeDescription(31, 'nft')); });
+	}
+
+	/**
+	* getAttribute
+	*
+	* @param { ArgumentTypes.Id } id,
+	* @param { Array<(number | string | BN)> } key,
+	* @returns { Array<number> | null }
+	*/
+	"getAttribute" (
+		id: ArgumentTypes.Id,
+		key: Array<(number | string | BN)>,
+		__options: GasLimit,
+	): Promise< QueryReturnType< Array<number> | null > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34Metadata::getAttribute", [id, key], __options, (result) => { return handleReturnType(result, getTypeDescription(32, 'nft')); });
 	}
 
 }

@@ -22,14 +22,8 @@ export default class Constructors {
     /**
     * new
     *
-	* @param { ArgumentTypes.Id } id,
-	* @param { string } name,
-	* @param { string } symbol,
 	*/
    	async "new" (
-   		id: ArgumentTypes.Id,
-   		name: string,
-   		symbol: string,
    		__options ? : ConstructorOptions,
    	) {
    		const __contract = JSON.parse(Files.readFileSync("./artifacts/nft.contract").toString());
@@ -37,7 +31,7 @@ export default class Constructors {
 		const gasLimit = 100000 * 1000000 || __options?.gasLimit;
 
 		const storageDepositLimit = __options?.storageDepositLimit;
-        const tx = code.tx["new"]!({ gasLimit, storageDepositLimit, value: __options?.value }, id, name, symbol);
+        const tx = code.tx["new"]!({ gasLimit, storageDepositLimit, value: __options?.value }, );
 		let response;
 
 		try {

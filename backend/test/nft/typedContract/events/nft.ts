@@ -16,6 +16,34 @@ export default class EventsClass {
 		this.__api = api;
 	}
 
+	public subscribeOnTransferEvent(callback : (event : EventTypes.Transfer) => void) {
+		const callbackWrapper = (args: any[], event: any) => {
+			let _event: Record < string, any > = {};
+
+			for (let i = 0; i < args.length; i++) {
+				_event[event.args[i]!.name] = args[i]!.toJSON();
+			}
+
+			callback(handleEventReturn(_event, getEventTypeDescription('Transfer', 'nft')) as EventTypes.Transfer);
+		};
+
+		return this.__subscribeOnEvent(callbackWrapper, (eventName : string) => eventName == 'Transfer');
+	}
+
+	public subscribeOnApprovalEvent(callback : (event : EventTypes.Approval) => void) {
+		const callbackWrapper = (args: any[], event: any) => {
+			let _event: Record < string, any > = {};
+
+			for (let i = 0; i < args.length; i++) {
+				_event[event.args[i]!.name] = args[i]!.toJSON();
+			}
+
+			callback(handleEventReturn(_event, getEventTypeDescription('Approval', 'nft')) as EventTypes.Approval);
+		};
+
+		return this.__subscribeOnEvent(callbackWrapper, (eventName : string) => eventName == 'Approval');
+	}
+
 
 	private __subscribeOnEvent(
 		callback : (args: any[], event: any) => void,
