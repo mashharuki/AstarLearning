@@ -48,8 +48,19 @@ query
     psp34Metadata::getAttribute
 ```
 
+### NFTのミントメソッド実装例
+
+```rs
+// call _mint_to function
+self._mint_to(Self::env().caller(), Id::U8(self.last_token_id));
+// インクリメント
+self.last_token_id += 1;
+Ok(())
+```
+
 ## 参考文献
 1. [https://openbrush.io/](https://openbrush.io/)
 2. [psp34_contract](https://github.com/k-c-h-a-n/psp34_contract)
 3. [psp34_frontend](https://github.com/k-c-h-a-n/psp34_contract/tree/main/nft-collectible-frontend)
 4. [test code](https://use.ink/basics/contract-testing/)
+5. [Use the Wizard to generate generic PSP34 code](https://docs.astar.network/docs/builder-guides/from-zero-to-ink-hero/nft/Wizard/)

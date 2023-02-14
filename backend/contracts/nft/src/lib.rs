@@ -1,138 +1,197 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 #![feature(min_specialization)]
 
-use ink_lang as ink;
-
 /**
- * nft Contract
- */
+ * nft コントラクト 
+ */   
 #[openbrush::contract]
-mod nft {
-    use openbrush::contracts::psp34::extensions::metadata::*;
-    use openbrush::contracts::psp34::extensions::burnable::*;
-    use openbrush::contracts::psp34::extensions::enumerable::*;
-    use openbrush::contracts::psp34::*;
-    use ink_prelude::string::String;
-    use ink_prelude::vec::Vec;
-    use ink_storage::Mapping;
+pub mod nft {
     use ink_storage::traits::SpreadAllocate;
+    // imports from openbrush
+	use openbrush::traits::String;
+	use openbrush::traits::Storage;
+	use openbrush::contracts::ownable::*;
+	use openbrush::contracts::psp34::extensions::mintable::*;
+	use openbrush::contracts::psp34::extensions::enumerable::*;
+	use openbrush::contracts::psp34::extensions::metadata::*;
+	use payable_mint_pkg::{
+        traits::payable_mint::*,
+		impls::payable_mint::*,
+    };
+
+	use ink_lang::codegen::{
+		EmitEvent,
+		Env,
+	};
 
 	/**
-	 * NFTコントラクトで保有するストレージ
+	 * コントラクトで扱う構造体
 	 */
     #[ink(storage)]
-    #[derive(Default, SpreadAllocate, PSP34Storage, PSP34MetadataStorage)]
+    #[derive(Default, SpreadAllocate, Storage)]
     pub struct NFT {
-        #[PSP34StorageField]
-        psp34: PSP34Data<EnumerableBalances>,
-        last_token_id: u8,
-        cid_list: Mapping<String, Vec<String>>,
-        #[PSP34MetadataStorageField]
-        metadata: PSP34MetadataData,
+    	#[storage_field]
+		psp34: psp34::Data<Balances>,
+		#[storage_field]
+		ownable: ownable::Data,
+		#[storage_field]
+		metadata: metadata::Data,
+		#[storage_field]
+		payable_mint: types::Data,
     }
 
-	// 各メソッドを継承
-    impl PSP34 for NFT {}
-    impl PSP34Metadata for NFT {}
-    // Optionally you can add more default implementations
-    impl PSP34Internal for NFT {}
-    impl PSP34MetadataInternal for NFT {}
-    impl PSP34Burnable for NFT {}
-    impl PSP34Enumerable for NFT {}
+	// トランスファーした時のイベント
+	#[ink(event)]
+	pub struct Transfer {
+		#[ink(topic)]
+		from: Option<AccountId>,
+		#[ink(topic)]
+		to: Option<AccountId>,
+		#[ink(topic)]
+		id: Id,
+	}
+ 
+	// approveした時のイベント
+	#[ink(event)]
+	pub struct Approval {
+		#[ink(topic)]
+		from: AccountId,
+		#[ink(topic)]
+		to: AccountId,
+		#[ink(topic)]
+		id: Option<Id>,
+		approved: bool,
+	} 
+    
+    // Section contains default implementation without any modifications
+	impl PSP34 for NFT {}
+	impl Ownable for NFT {}
+	impl PSP34Mintable for NFT {}
+	impl PSP34Enumerable for NFT {}
+	impl PSP34Metadata for NFT {}
 
-	/**
-	 * NFTコントラクトのメソッド
-	 */
+	// イベントのために実装
+	impl psp34::Internal for NFT {
+		// トランスファーした時のもの
+		fn _emit_transfer_event(&self, from: Option<AccountId>, to: Option<AccountId>, id: Id) {
+			self.env().emit_event(Transfer { from, to, id });
+		}
+
+		// approveした時のもの
+		fn _emit_approval_event(
+			&self,
+			from: AccountId,
+			to: AccountId,
+			id: Option<Id>,
+			approved: bool,
+		) {
+			self.env().emit_event(Approval {
+				from,
+				to,
+				id,
+				approved,
+			});
+		}
+	}
+     
     impl NFT {
 		/**
 		 * new メソッド
-		 * param id NFT ID
-		 * param name NFT Name
-		 * param symbol NFT Symbol
 		 */
         #[ink(constructor)]
-        pub fn new(id: Id, name: String, symbol: String) -> Self {
-			// コントラクトの初期化
-            ink_lang::codegen::initialize_contract(|instance: &mut Self| {
-				// 属性情報をそれぞれセットする。
-                instance._set_attribute(id.clone(), String::from("name").into_bytes(), name.into_bytes());
-                instance._set_attribute(id, String::from("symbol").into_bytes(), symbol.into_bytes());
-            })
-        }
-
-		/**
-		 * mint_tokenメソッド
-		 * 呼び出し元のアドレスにミントする。
-		 */
-        #[ink(message)]
-        pub fn mint_token(&mut self) -> Result<(), PSP34Error> {
-			// NFTをミント
-            self._mint_to(Self::env().caller(), Id::U8(self.last_token_id))?;
-			// インクリメント
-            self.last_token_id += 1;
-            Ok(())
-        }
-
-		/**
-		 * 情報を追加してミントするメソッド
-		 * 呼び出し元のアドレスにミントするメソッド
-		 * param title コンテンツのタイトル
-		 * param author 製作者
-		 * param date 発行日時
-		 * param cid コンテンツのCID情報
-		 */
-        #[ink(message)]
-        pub fn mint_with_attribute(&mut self, title: String, author: String, date: String, cid: String) -> Result<(), PSP34Error> {
-            self._mint_to(Self::env().caller(), Id::U8(self.last_token_id))?;
-            self.last_token_id += 1;
-			// 属性情報用の配列を作成
-            let mut attributes = Vec::new();
-			// それぞれ情報を格納する。
-            attributes.push(title);
-            attributes.push(author);
-            attributes.push(date);
-			// cidと属性を紐づけて登録する。
-            self.cid_list.insert(cid, &attributes);
-            Ok(())
+        pub fn new() -> Self {
+            let mut _instance = Self::default();
+			_instance._init_with_owner(_instance.env().caller());
+			//  _instance._mint_to(_instance.env().caller(), Id::U8(1)).expect("Can mint");
+			// get colleciton id
+			let collection_id = _instance.collection_id();
+			// set name & symbol attribute
+			_instance._set_attribute(collection_id.clone(), String::from("name"), String::from("WasmNFT"));
+			_instance._set_attribute(collection_id.clone(), String::from("symbol"), String::from("WTF"));
+			_instance._set_attribute(collection_id, String::from("baseUri"), String::from("https://gateway.pinata.cloud/ipfs/QmdwZBwsEKNpc9uUgUzsgiGb2uYM9X1aca9Ezgz1pR79Jo"));
+			_instance.payable_mint.max_supply = 100_000_000_000_000_000;
+			_instance.payable_mint.last_token_id = 0;
+			_instance
         }
 
     }
 
-	// --------------------  TEST Code  --------------------
-
-	/**
-     * 静的テストコード
-     */
-    #[cfg(test)]
+	// ---------------------------------- test ---------------------------------- 
+	#[cfg(test)]
     mod tests {
-		use super::*;
+        use super::*;
+        use crate::nft::PSP34Error::*;
+        use ink_env::test;
         use ink_lang as ink;
-		use ink_prelude::string::String as PreludeString;
-		use openbrush::contracts::psp34::Id::U8;
-		use openbrush::contracts::psp34::extensions::metadata::*;
-    	use openbrush::contracts::psp34::extensions::burnable::*;
-    	use openbrush::contracts::psp34::extensions::enumerable::*;
-    	use openbrush::contracts::psp34::*;
 
-		// NFTの名前とシンボル
-		// let name: String = String::from("TEST");
-		// let symbol: String = String::from("TST");
+        const PRICE: Balance = 100_000_000_000_000_000;
+		
+		/**
+		 * 初期化メソッド
+		 */
+        fn init() -> NFT {
+			const BASE_URI: &str = "ipfs://myIpfsUri/";
+			const MAX_SUPPLY: u64 = 10;
+            NFT::new()
+        }
 
 		/**
-		 * デフォルト値確認用のテストコード
+		 * set sender method
 		 */
-		fn default_works_test() {
-			// NFT コントラクト作成
-			//let mut nft = NFT::new(NFT_ID, name, symbol);
-			let nft = NFT::default();
-		}
+		fn set_sender(sender: AccountId) {
+            ink_env::test::set_caller::<Environment>(sender);
+        }
 
-		/**
-		 * NFTミントのテストコード
-		 */
-		fn nft_mint_test(){
-			let mut nft = NFT::default();
-			nft.mint_token();
+        #[ink::test]
+        fn mint_single_works() {
+            let mut sh34 = init();
+            let accounts = test::default_accounts::<Environment>();
+			// 送信元アドレスを設定する。
+            set_sender(accounts.bob);
+            let num_of_mints: u64 = 1;
+
+            assert_eq!(sh34.total_supply(), 0);
+
+            test::set_value_transferred::<ink_env::DefaultEnvironment>(
+                PRICE * num_of_mints as u128,
+            );
+
+            assert!(sh34.mint_nft().is_ok());
+            assert_eq!(sh34.total_supply(), num_of_mints as u128);
+            assert_eq!(sh34.balance_of(accounts.bob), 1);
+            assert_eq!(sh34.owners_token_by_index(accounts.bob, 0), Ok(Id::U64(0)));
+			assert_eq!(1, ink_env::test::recorded_events().count());
+            assert_eq!(
+                sh34.owners_token_by_index(accounts.bob, 5),
+                Err(TokenNotExists)
+            );
+        }
+
+		#[ink::test]
+        fn mint_multiple_works() {
+			let mut sh34 = init();
+            let accounts = test::default_accounts::<Environment>();
+			// 送信元アドレスを設定する。
+            set_sender(accounts.bob);
+            let num_of_mints: u64 = 2;
+
+            assert_eq!(sh34.total_supply(), 0);
+
+            test::set_value_transferred::<ink_env::DefaultEnvironment>(
+                PRICE * num_of_mints as u128,
+            );
+
+            assert!(sh34.mint_nft().is_ok());
+			assert!(sh34.mint_nft().is_ok());
+            assert_eq!(sh34.total_supply(), num_of_mints as u128);
+            assert_eq!(sh34.balance_of(accounts.bob), 2);
+            assert_eq!(sh34.owners_token_by_index(accounts.bob, 0), Ok(Id::U64(0)));
+			assert_eq!(sh34.owners_token_by_index(accounts.bob, 1), Ok(Id::U64(1)));
+			assert_eq!(2, ink_env::test::recorded_events().count());
+            assert_eq!(
+                sh34.owners_token_by_index(accounts.bob, 5),
+                Err(TokenNotExists)
+            );
 		}
 	}
 }
