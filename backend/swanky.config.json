@@ -16,6 +16,12 @@
       "mnemonic": "//Bob",
       "isDev": true,
       "address": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
+    },
+    {
+      "alias": "devWallet",
+      "mnemonic": "kick hip toss bacon lift middle pond skin cycle addict you alcohol",
+      "isDev": true,
+      "address": "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq"
     }
   ],
   "contracts": {
@@ -24,8 +30,8 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1676380426413,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676380426413"
+        "timestamp": 1676420881378,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676420881378"
       }
     }
   },

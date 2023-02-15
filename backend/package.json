@@ -9,6 +9,7 @@
     "test:contract": "cd contracts/nft && cargo +nightly contract test",
     "build": "cd contracts/nft && cargo +nightly contract build",
     "compile": "swanky contract compile nft -v",
+    "deploy:shibuya": "swanky contract deploy nft --gas 10000000000 --args []  --account devWallet  --network shibuya",
     "postinstall": "patch-package"
   },
   "engines": {

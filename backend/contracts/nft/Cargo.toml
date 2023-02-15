@@ -42,7 +42,7 @@ std = [
     "scale-info/std",
 
     "openbrush/std",
-    "payable_mint_pkg/std",
+    "payable_mint_pkg/std"
 ]
 ink-as-dependency = [] 
 
