@@ -20,7 +20,7 @@ const Header = (): JSX.Element => {
         <div className="w-10/12 text-left">
           <h1 className="text-3xl">
             <Link href="/">
-              <a className="text-dark">Sample WASM NFT Dapp</a>
+              <a className="text-dark">Learing Astar Dapp</a>
             </Link>
           </h1>
         </div>
@@ -34,9 +34,9 @@ const Header = (): JSX.Element => {
             {mounted && (
               <>
                 {theme === 'dark' ? (
-                  <div className='h-8 pt-3'><img className="h-8" src="./icon_sun.svg" alt="DarkMode" /></div>
+                  <div className='h-8 pt-3'><img className="h-8" src="/icon_sun.svg" alt="DarkMode" /></div>
                 ) : (
-                  <div className='h-8 pt-3'><img className="h-7" src="./icon_moon.svg" alt="LightMode" /></div>
+                  <div className='h-8 pt-3'><img className="h-7" src="/icon_moon.svg" alt="LightMode" /></div>
                 )}
               </>
             )}

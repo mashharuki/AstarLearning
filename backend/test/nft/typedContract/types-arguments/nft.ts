@@ -44,6 +44,8 @@ export class IdBuilder {
 
 export type AccountId = string | number[]
 
+export type Key = string | number[]
+
 export interface PSP34Error {
 	custom ? : Array<(number | string | BN)>,
 	selfApprove ? : null,

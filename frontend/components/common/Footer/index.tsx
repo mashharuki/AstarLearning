@@ -6,9 +6,9 @@ import {TWITTER_URL} from '../Constant';
  * @returns 
  */
 const Footer = (): JSX.Element => {
-  
   return (
     <div className="m-5">
+      <img className='h-20 w-20 mx-auto' src="/Astar_ring.png"/>
       built by <a href={TWITTER_URL}>HARUKI@05758694</a>
     </div>
   );

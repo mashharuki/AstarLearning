@@ -3,7 +3,6 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
-import SampleContractsList from '../SampleContractsList';
 import { web3FromSource } from '@polkadot/extension-dapp';
 import type { WeightV2 } from '@polkadot/types/interfaces';
 import type { InjectedAccountWithMeta, InjectedExtension } from '@polkadot/extension-inject/types';
@@ -589,7 +588,6 @@ const IndexCanvas = () => {
         </div>
       </div>
 
-      <SampleContractsList />
       <Footer />
     </div>
   );

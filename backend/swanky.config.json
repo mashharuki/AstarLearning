@@ -19,7 +19,7 @@
     },
     {
       "alias": "devWallet",
-      "mnemonic": "kick hip toss bacon lift middle pond skin cycle addict you alcohol",
+      "mnemonic": "",
       "isDev": true,
       "address": "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq"
     }
@@ -30,8 +30,8 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1676420881378,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676420881378"
+        "timestamp": 1676464993291,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676464993291"
       }
     }
   },

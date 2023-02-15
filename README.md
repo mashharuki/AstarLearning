@@ -6,7 +6,27 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 |No.|コントラクト名|Contract UI|ネットワーク|
 |---|---|---|---|
 |1|Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY|[Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY)|Shibuya| 
-|2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3](https://contracts-ui.substrate.io/contract/ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3)|Shibuya| 
+|2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH)|Shibuya| 
+|3|WASM NFT|[WYPiqyhs6iXsDg6VGprs1C5dQfJEY4BdfVTcnCYgWEzLrpj](https://contracts-ui.substrate.io/contract/WYPiqyhs6iXsDg6VGprs1C5dQfJEY4BdfVTcnCYgWEzLrpj)|Shibuya| 
+|4||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
+|5||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
+
+### 各学習コンテンツ用のURI情報
+
+|No.|コンテンツ名|URI|
+|---|---|---|
+|1|AstarNFT|[https://ipfs.io/ipfs/Qmenex4NjQqRizcqXccFWCSrdvS48hP3iWXDbkNbRMM6aA?filename=astar.json](https://ipfs.io/ipfs/Qmenex4NjQqRizcqXccFWCSrdvS48hP3iWXDbkNbRMM6aA?filename=astar.json)|
+|2|ShidenNFT|[https://ipfs.io/ipfs/QmXbGhkuGD4oAJBCaZ6Rdgpoexcab7YJa7udZ86FtCPQfC?filename=shiden.json](https://ipfs.io/ipfs/QmXbGhkuGD4oAJBCaZ6Rdgpoexcab7YJa7udZ86FtCPQfC?filename=shiden.json)|
+|3|WasmNFT|[https://ipfs.io/ipfs/QmVnucwVHirRts5csqdjTnGQ98atfaLzvfZtnXGQ88EpBT?filename=wasm.json](https://ipfs.io/ipfs/QmVnucwVHirRts5csqdjTnGQ98atfaLzvfZtnXGQ88EpBT?filename=wasm.json)|
+
+
+### NFT の画像コンテンツのURI情報
+
+|No.|コンテンツ名|URI|
+|---|---|---|
+|1|AstarNFT|[https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg](https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg)|
+|2|ShidenNFT|[https://ipfs.io/ipfs/QmV4PdFx5n3bXT1ULNZmAZ1dDAoD4BjNqY8JyWpK77imVo?filename=ShidenNFT.001.jpeg](https://ipfs.io/ipfs/QmV4PdFx5n3bXT1ULNZmAZ1dDAoD4BjNqY8JyWpK77imVo?filename=ShidenNFT.001.jpeg)|
+|3|WasmNFT|[https://ipfs.io/ipfs/Qme1eqKbLimotyLbQQqTexPsvR3rHSMGvusG4dDUWpz6BV?filename=WasmNFT.001.jpeg](https://ipfs.io/ipfs/Qme1eqKbLimotyLbQQqTexPsvR3rHSMGvusG4dDUWpz6BV?filename=WasmNFT.001.jpeg)|
 
 ## ハッカソン案
 
@@ -14,7 +34,7 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 2. 発行したNFTは確認することができる。
 3. 管理者は、学習コンテンツの作成と発行ができる。
 4. 学習コンテンツの内容を格納するコントラクト
-5. NFTコントラクト
+5. NFTコントラクトはコンテンツごとに1つ
 
 ## 画面
 
@@ -65,3 +85,5 @@ Ok(())
 3. [psp34_frontend](https://github.com/k-c-h-a-n/psp34_contract/tree/main/nft-collectible-frontend)
 4. [test code](https://use.ink/basics/contract-testing/)
 5. [Use the Wizard to generate generic PSP34 code](https://docs.astar.network/docs/builder-guides/from-zero-to-ink-hero/nft/Wizard/)
+6. [!ink Working with Mapping](https://use.ink/datastructures/mapping/)
+7. [With inline price](https://tailwindui.com/components/preview)

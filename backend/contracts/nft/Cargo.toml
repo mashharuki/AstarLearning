@@ -19,7 +19,7 @@ scale-info = { version = "2", default-features = false, features = ["derive"], o
 
 # Include brush as a dependency and enable default implementation for PSP34 via brush feature
 openbrush = { tag = "v2.3.0", git = "https://github.com/Supercolony-net/openbrush-contracts", default-features = false, features = ["psp34", "ownable"] }
-payable_mint_pkg = { path = "../../logics", default-features = false }
+# payable_mint_pkg = { path = "../../logics", default-features = false }
 
 [lib]
 name = "nft"
@@ -42,7 +42,7 @@ std = [
     "scale-info/std",
 
     "openbrush/std",
-    "payable_mint_pkg/std"
+    # "payable_mint_pkg/std"
 ]
 ink-as-dependency = [] 
 
