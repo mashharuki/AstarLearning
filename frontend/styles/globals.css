@@ -40,6 +40,10 @@ a {
 }
 */
 
+.text {
+  white-space: pre-wrap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
