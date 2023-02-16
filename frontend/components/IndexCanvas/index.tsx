@@ -18,8 +18,8 @@ const NftCanvas = () => {
         <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">現在受講可能な学習コース</h2>
         <Card/>
         <div className="mt-5 mb-5"></div>
-        <Link href="/">
-            <Button name="トップへ戻る" />
+        <Link href="/nfts">
+            <Button name="NFTを確認する" />
         </Link>
       <Footer />
     </div>
