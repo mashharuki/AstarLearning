@@ -1,8 +1,6 @@
 /**
  * 定数を定義するファイル
  */
-
-
 export const BLOCKCHAINS = [
     {
       name: 'Shiden', 
@@ -26,3 +24,5 @@ export const BLOCKCHAINS = [
 ];
 
 export const TWITTER_URL = "https://twitter.com/HARUKI05758694";
+
+export const WASM_NFT_CONTRACT_ADDRESS = "WYPiqyhs6iXsDg6VGprs1C5dQfJEY4BdfVTcnCYgWEzLrpj";

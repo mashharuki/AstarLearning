@@ -1,6 +1,8 @@
 # WasmNFTDapp
 WASM対応のNFT Dapp開発用のプロダクトです。
 
+[![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
+
 ## デプロイしたコントラクト
 
 |No.|コントラクト名|Contract UI|ネットワーク|
@@ -87,3 +89,6 @@ Ok(())
 5. [Use the Wizard to generate generic PSP34 code](https://docs.astar.network/docs/builder-guides/from-zero-to-ink-hero/nft/Wizard/)
 6. [!ink Working with Mapping](https://use.ink/datastructures/mapping/)
 7. [With inline price](https://tailwindui.com/components/preview)
+8. [Upgradeable Contracts](https://use.ink/basics/upgradeable-contracts)
+9. [Sample Upgradeable Contracts](https://github.com/paritytech/ink/tree/master/examples/upgradeable-contracts)
+10. [sol2ink](https://github.com/727-Ventures/sol2ink)

@@ -1,3 +1,6 @@
+import Button from "../Button";
+import Link from 'next/link';
+
 // デモデータ
 const products = [
     {
@@ -41,14 +44,21 @@ export default function Card() {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-sm text-gray-700">
+                    <h3 className="text-left text-sm text-gray-700">
                       <a href={product.href}>
-                        <span aria-hidden="true" className="absolute inset-0" />
+                        <span aria-hidden="true" className="ml-0" />
                         {product.name}
                       </a>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                    <p className="mt-1 text-sm text-gray-500">
+                        Astarについて学べるコースです
+                    </p>
                   </div>
+                </div>
+                <div className="mt-4 flex justify-between">
+                    <Link href={{ pathname: '/learn', query: { contentFlg: 'Astar' } }}>
+                        <Button name="Learn More →" />
+                    </Link>
                 </div>
               </div>
             ))}

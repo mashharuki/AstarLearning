@@ -65,7 +65,7 @@ const IndexCanvas = () => {
       "@polkadot/extension-dapp"
     );
 
-    const extensions = await web3Enable("Sample WASM Dapp");
+    const extensions = await web3Enable("Learning Astar Dapp");
 
     if (extensions.length === 0) {
       return;

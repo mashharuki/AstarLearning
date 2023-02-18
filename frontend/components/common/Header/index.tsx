@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import ConnectButton from '../ConnectButton';
+import { useContractContext } from './../../../context'
 
 /**
  * Header Component
@@ -9,8 +11,21 @@ import { useTheme } from 'next-themes';
 const Header = (): JSX.Element => {
 
   const { theme, setTheme } = useTheme();
-
   const [mounted, setMounted] = useState(false);
+
+  // create contract
+  const {
+    actingAddress,
+    connectWallet,
+  } = useContractContext();
+
+  /**
+   * displayAddress funciton
+   */
+  const displayAddress = (addr: string) => {
+    var modAddr = addr.substr(0, 3) + '...' + addr.substr(addr.length - 3, 3);
+    return modAddr;
+  };
 
   useEffect(() => setMounted(true), []);
 
@@ -26,6 +41,13 @@ const Header = (): JSX.Element => {
         </div>
 
         <div className="w-2/12 text-right">
+          {actingAddress !== '' ?
+            <div className='absolute mt-4'>
+              {displayAddress(actingAddress)}
+            </div>
+          :
+            <ConnectButton onClick={() => connectWallet()} />
+          }
           <button
             aria-label="DarkModeToggle"
             type="button"
