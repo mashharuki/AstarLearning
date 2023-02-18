@@ -7,10 +7,10 @@ import { useContractContext } from './../../context'
 
 
 /**
- * NftCanvas Component
+ * IndexCanvas Component
  * @returns 
  */
-const NftCanvas = () => {
+const IndexCanvas = () => {
 
   // create contract
   const {
@@ -37,4 +37,4 @@ const NftCanvas = () => {
   );
 };
 
-export default NftCanvas;
+export default IndexCanvas;

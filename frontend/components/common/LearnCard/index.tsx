@@ -5,7 +5,7 @@ import Link from 'next/link';
 const products = [
     {
       id: 1,
-      name: 'Basic Tee',
+      name: 'WASM Learning Course',
       href: '#',
       imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
       imageAlt: "Front of men's Basic Tee in black.",
@@ -14,7 +14,7 @@ const products = [
     },
     {
         id: 1,
-        name: 'Basic Tee',
+        name: 'Astar Learning Course',
         href: '#',
         imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
         imageAlt: "Front of men's Basic Tee in black.",
@@ -56,9 +56,9 @@ export default function Card() {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between">
-                    <Link href={{ pathname: '/learn', query: { contentFlg: 'Astar' } }}>
-                        <Button name="Learn More →" />
-                    </Link>
+                  <Link href={{ pathname: '/learn', query: { contentFlg: 'wasm' } }}>
+                    <Button name="Learn More →" />
+                  </Link>
                 </div>
               </div>
             ))}

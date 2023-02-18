@@ -4,6 +4,7 @@ import Card from '../common/Card';
 import Link from 'next/link';
 import Button from '../common/Button';
 import { useContractContext } from './../../context'
+import { useEffect } from 'react';
 
 
 /**
@@ -15,6 +16,7 @@ const NftCanvas = () => {
   // create contract
   const {
     actingAddress,
+    getOwnNfts,
   } = useContractContext();
 
   return (

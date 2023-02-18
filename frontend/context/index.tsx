@@ -1,7 +1,20 @@
 import { createContext, useContext, useState } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-import { BLOCKCHAINS } from '../components/common/Constant';
+import { 
+    BLOCKCHAINS,
+    WASM_NFT_CONTRACT_ADDRESS,
+    ASTAR_NFT_CONTRACT_ADDRESS,
+    SHIDEN_NFT_CONTRACT_ADDRESS
+} from '../components/common/Constant';
 import { ApiPromise, WsProvider } from '@polkadot/api';
+import { ContractPromise } from '@polkadot/api-contract';
+import type { WeightV2 } from '@polkadot/types/interfaces';
+// Specify the metadata of the contract.
+import wasmNftAbi from '../metadata/wasm_nft.json';
+
+const proofSize = 131072
+const refTime = 6219235328
+const storageDepositLimit = null
 
 // Create Context Object
 const ContractContext = createContext({});
@@ -27,6 +40,44 @@ export function ContractProvider({ children }: any) {
     const [blockchainUrl, setBlockchainUrl] = useState('');
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
+    const [ownNfts, setOwnNfts] = useState('');
+    const [ownNftsResult, setOwnNftsResult] = useState('');
+    const [tokenUri, setTokenUri] = useState('');
+    const [tokenUriResult, setTokenUriResult] = useState('');
+    const [width, setWidth] = useState(0);
+    
+    /**
+     * createNftContract function
+     * @param contentFlg コンテンツフラグ
+     */
+    const createNftContract = (contentFlg: string) => {
+        var contract;
+
+        if(contentFlg === 'wasm'){
+            contract = new ContractPromise(api, wasmNftAbi, WASM_NFT_CONTRACT_ADDRESS);
+        } else if(contentFlg === 'astar') {
+            contract = new ContractPromise(api, wasmNftAbi, ASTAR_NFT_CONTRACT_ADDRESS);
+        } else {
+            contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
+        }
+        return contract;
+    };
+
+    /**
+     * getNftAddress function
+     */
+    const getNftAddress = (contentFlg: string) => {
+        var address;
+
+        if(contentFlg === 'wasm'){
+            address = WASM_NFT_CONTRACT_ADDRESS;
+        } else if(contentFlg === 'astar') {
+            address = ASTAR_NFT_CONTRACT_ADDRESS;
+        } else {
+            address = SHIDEN_NFT_CONTRACT_ADDRESS;
+        }
+        return address;
+    };
 
     /**
      * connectWallet function
@@ -70,11 +121,156 @@ export function ContractProvider({ children }: any) {
         });
     };
 
+    /**
+     * mint function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const mint = async(contentFlg: string) => {
+
+        const { web3FromSource } = await import('@polkadot/extension-dapp');
+
+        if (!blockchainUrl || accounts.length == 0) {
+            alert("Please Connect Wallet");
+            return;
+        }
+          
+        const gasLimit = 30000 * 1000000;
+        // コントラクトインスタンスを格納する変数
+        var contract = createNftContract(contentFlg);
+       
+        const account = accounts.filter(data => data.address === actingAddress);
+    
+        console.log("nft contract:", contract);
+        
+        const mintExtrinsic =
+            await contract.tx.mintNft({
+                gasLimit: api.registry.createType('WeightV2', {
+                    refTime,
+                    proofSize,
+                }) as WeightV2,
+            storageDepositLimit});
+      
+        let injector: any;
+
+        if (accounts.length == 1) {
+            if( typeof window !== undefined) {
+                injector = await web3FromSource(accounts[0].meta.source);
+            }
+        } else if (accounts.length > 1) {
+            if( typeof window !== undefined) {
+                injector = await web3FromSource(accounts[0].meta.source);
+            }
+        } else {
+            return;
+        }
+      
+        mintExtrinsic.signAndSend(actingAddress, { signer: injector.signer }, ({ status }) => {
+            if (status.isInBlock) {
+                console.log(`Completed at block hash #${status.asInBlock.toString()}`);
+            } else if (status.isFinalized) {
+                console.log('finalized');
+            } else {
+                console.log(`Current status: ${status.type}`);
+                alert("Mint Success!!");
+            }
+        }).catch((error: any) => {
+            console.log(':( transaction failed', error);
+            alert("Mint fail...");
+        });
+    };
+
+    /**
+     * getOwnNfts function
+     * @param contentFlg
+     * @returns own nft's id
+     */
+    const getOwnNfts = async(contentFlg: string) => {
+        // コントラクトインスタンスとアドレスを格納する変数
+        var contract = createNftContract(contentFlg);
+        var contractAddress = getNftAddress(contentFlg);
+
+        // call get_own_nft メソッド
+        const {result, output} = 
+            await contract.query.getOwnNft(
+                contractAddress,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                })
+
+        setOwnNftsResult(JSON.stringify(result.toHuman()));
+
+        // The actual result from RPC as `ContractExecResult`
+        console.log(result.toHuman());
+
+        // check if the call was successful
+        if (result.isOk) {
+            // output the return value
+            console.log('Success', output?.toHuman());
+            const outputData: any = output;
+            setOwnNfts(outputData.toString());
+            return outputData.toString();
+        } else {
+            setOwnNfts('');
+            return '';
+        }
+    };
+
+    /**
+     * getTokenUri function
+     * @param contentFlg コンテンツフラグ
+     * @param tokenId トークンID
+     * @returns own nft's id
+     */
+    const getTokenUri = async(contentFlg: string, tokenId: any) => {
+        // コントラクトインスタンスとアドレスを格納する変数
+        var contract = createNftContract(contentFlg);
+        var contractAddress = getNftAddress(contentFlg);
+
+        // call get_own_nft メソッド
+        const {result, output} = 
+            await contract.query.tokenUri(
+                contractAddress,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                },[
+                    tokenId
+                ]);
+
+        setTokenUriResult(JSON.stringify(result.toHuman()));
+
+        // The actual result from RPC as `ContractExecResult`
+        console.log(result.toHuman());
+
+        // check if the call was successful
+        if (result.isOk) {
+            // output the return value
+            console.log('Success', output?.toHuman());
+            const outputData: any = output;
+            setTokenUri(outputData.toString());
+            return outputData.toString();
+        } else {
+            setTokenUri('');
+            return '';
+        }
+    };
+
     return (
         <ContractContext.Provider 
             value={{
                 connectWallet,
                 actingAddress,
+                mint,
+                getOwnNfts,
+                getTokenUri,
             }}
         >
             {children}

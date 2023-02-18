@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Loading from '../components/common/Loading';
 
-const Canvas = dynamic(() => import('../components/IndexCanvas'), {
+const IndexCanvas = dynamic(() => import('../components/IndexCanvas'), {
   ssr: false,
   loading: () => <Loading/>,
 })
@@ -10,7 +10,7 @@ const Canvas = dynamic(() => import('../components/IndexCanvas'), {
 const IndexPage: NextPage = () => {
   return (
     <main className="bg-[#ffffff] dark:bg-[#0d1117] text-[#1d2127] dark:text-[#f0eee0]">
-      <Canvas />
+      <IndexCanvas />
     </main>
   )
 };

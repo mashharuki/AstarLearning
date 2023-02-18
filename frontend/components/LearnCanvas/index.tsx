@@ -4,6 +4,9 @@ import Footer from '../common/Footer';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContractContext } from './../../context';
+import dynamic from 'next/dynamic';
+import { useEffect } from "react";
+
 
 /**
  * LearnCanvas Component
@@ -17,8 +20,8 @@ const LearnCanvas = () => {
     // create contract
     const {
         actingAddress,
+        mint,
     } = useContractContext();
-
 
     return (
         <div className="text-center">
@@ -43,7 +46,7 @@ const LearnCanvas = () => {
                             <div className="text-center">
                                 <Button 
                                     name="Let's Mint NFT!" 
-                                    onClick={{}}
+                                    onClick={() => mint(contentFlg)}
                                 />
                             </div>
                         </div>
