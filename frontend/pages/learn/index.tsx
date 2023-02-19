@@ -15,9 +15,7 @@ const IndexPage: NextPage = (props: any) => {
 
   return (
     <main className="bg-[#ffffff] dark:bg-[#0d1117] text-[#1d2127] dark:text-[#f0eee0]">
-      <LearnCanvas 
-        contentFlg={contentFlg} 
-      />
+      <LearnCanvas />
     </main>
   )
 };

@@ -1,26 +1,26 @@
 import Button from "../Button";
 import Link from 'next/link';
 
-// デモデータ
+// 学習コンテンツ用のデータ
 const products = [
     {
       id: 1,
       name: 'WASM Learning Course',
       href: '#',
       imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
     },
     {
-        id: 1,
+        id: 2,
         name: 'Astar Learning Course',
         href: '#',
         imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: '$35',
-        color: 'Black',
     },
+    {
+      id: 3,
+      name: 'Shiden Learning Course',
+      href: '#',
+      imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
+  },
 ]
 
 /**
