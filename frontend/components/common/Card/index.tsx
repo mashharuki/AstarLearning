@@ -1,20 +1,4 @@
-import { useState, useEffect } from 'react';
 import { useContractContext } from './../../../context';
-import { NftInfo } from './../../../context';
-
-// デモデータ
-const products = [
-    {
-      name: "Learn WASM NFT",
-      image: "https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/",
-      description: "WASMの学習コンテンツをクリアした証です。"
-    },
-    {
-      name: "Learn WASM NFT",
-      image: "https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/",
-      description: "WASMの学習コンテンツをクリアした証です。"
-    },
-]
 
 /**
  * Card Component

@@ -132,16 +132,15 @@ export function ContractProvider({ children }: any) {
         });
 
         // 現在取得しているNFTを求める。 
-        await checkBalanceOf(api, 'wasm');
-        await getInfo(api, 'wasm');
-        //await checkBalanceOf(api, 'wasm');
+        await getNftInfos(api, 'wasm');
     };
 
     /**
      * getNftInfos function
      */
-    const getNftInfos = async(api:any) => {
-
+    const getNftInfos = async(api:any, contentFlg:string) => {
+        await checkBalanceOf(api, contentFlg);
+        await getInfo(api, contentFlg);
     };
 
     /**
@@ -171,7 +170,7 @@ export function ContractProvider({ children }: any) {
                     refTime,
                     proofSize,
                 }) as WeightV2,
-            storageDepositLimit});
+            storageDepositLimit},);
       
         let injector: any;
 
@@ -231,7 +230,7 @@ export function ContractProvider({ children }: any) {
                     }) as WeightV2,
                     storageDepositLimit,
                 },
-                actingAddress
+                actingAddress,
             );
 
         // The actual result from RPC as `ContractExecResult`
