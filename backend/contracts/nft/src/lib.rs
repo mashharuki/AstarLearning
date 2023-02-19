@@ -260,9 +260,9 @@ pub mod nft {
 		 * get_own_nfts function
 		 */
 		#[ink(message)]
-		pub fn get_own_nfts(&self) -> u64 {
+		pub fn get_own_nfts(&self) -> Result<u64, PSP34Error> {
 			let res = self.own_nfts.get(Self::env().caller()).unwrap();
-			res
+			Ok(res)
 		}
 		
     }

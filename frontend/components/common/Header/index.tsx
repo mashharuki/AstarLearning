@@ -46,7 +46,9 @@ const Header = (): JSX.Element => {
               {displayAddress(actingAddress)}
             </div>
           :
+          <div className='absolute mt-2'>
             <ConnectButton onClick={() => connectWallet()} />
+            </div>
           }
           <button
             aria-label="DarkModeToggle"

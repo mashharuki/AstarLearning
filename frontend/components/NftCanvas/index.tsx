@@ -4,7 +4,7 @@ import Card from '../common/Card';
 import Link from 'next/link';
 import Button from '../common/Button';
 import { useContractContext } from './../../context'
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 
 
 /**
@@ -16,7 +16,7 @@ const NftCanvas = () => {
   // create contract
   const {
     actingAddress,
-    getOwnNfts,
+    ownNfts
   } = useContractContext();
 
   return (
@@ -26,6 +26,7 @@ const NftCanvas = () => {
         <>
           <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">あなたが獲得したNFT</h2>
           <Card/>
+          ownNfts:{ownNfts}
           <div className="mt-5 mb-5"></div>
           <Link href="/">
               <Button name="トップへ戻る" />
