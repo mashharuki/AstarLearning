@@ -9,7 +9,7 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 |---|---|---|---|
 |1|Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY|[Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY)|Shibuya| 
 |2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH)|Shibuya| 
-|3|WASM NFT|[WqR7HkjtRkRsGy8TirLEGy7dwq4HchQx2ZsYhmyBMMinfEL](https://contracts-ui.substrate.io/contract/WqR7HkjtRkRsGy8TirLEGy7dwq4HchQx2ZsYhmyBMMinfEL)|Shibuya| 
+|3|WASM NFT|[XF7p7mT2ctgA5ykjCF8zRZQtFyA24zoySg6xUPAVvTqH1Sr](https://contracts-ui.substrate.io/contract/XF7p7mT2ctgA5ykjCF8zRZQtFyA24zoySg6xUPAVvTqH1Sr)|Shibuya| 
 |4||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
 |5||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
 
@@ -92,3 +92,4 @@ Ok(())
 8. [Upgradeable Contracts](https://use.ink/basics/upgradeable-contracts)
 9. [Sample Upgradeable Contracts](https://github.com/paritytech/ink/tree/master/examples/upgradeable-contracts)
 10. [sol2ink](https://github.com/727-Ventures/sol2ink)
+11. [how-to-call-openbrush-contract-from-front-end-app](https://stackoverflow.com/questions/74083616/how-to-call-openbrush-contract-from-front-end-app)

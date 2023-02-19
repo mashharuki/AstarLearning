@@ -63,6 +63,30 @@ export default class Methods {
 	}
 
 	/**
+	 * setNftIamge
+	 *
+	 * @param { string } image,
+	*/
+	"setNftIamge" (
+		image: string,
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "setNftIamge", [image], __options);
+	}
+
+	/**
+	 * setNftDescription
+	 *
+	 * @param { string } description,
+	*/
+	"setNftDescription" (
+		description: string,
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "setNftDescription", [description], __options);
+	}
+
+	/**
 	 * tokenUri
 	 *
 	 * @param { (number | string | BN) } tokenId,
@@ -149,13 +173,23 @@ export default class Methods {
 	}
 
 	/**
-	 * collectionId
+	 * getIamge
 	 *
 	*/
-	"collectionId" (
+	"getIamge" (
 		__options: GasLimit,
 	){
-		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::collectionId", [], __options);
+		return buildSubmittableExtrinsic( this.__nativeContract, "getIamge", [], __options);
+	}
+
+	/**
+	 * getNftDescription
+	 *
+	*/
+	"getNftDescription" (
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "getNftDescription", [], __options);
 	}
 
 	/**
@@ -166,6 +200,16 @@ export default class Methods {
 		__options: GasLimit,
 	){
 		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::totalSupply", [], __options);
+	}
+
+	/**
+	 * collectionId
+	 *
+	*/
+	"collectionId" (
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::collectionId", [], __options);
 	}
 
 	/**
@@ -185,15 +229,15 @@ export default class Methods {
 	}
 
 	/**
-	 * ownerOf
+	 * balanceOf
 	 *
-	 * @param { ArgumentTypes.Id } id,
+	 * @param { ArgumentTypes.AccountId } owner,
 	*/
-	"ownerOf" (
-		id: ArgumentTypes.Id,
+	"balanceOf" (
+		owner: ArgumentTypes.AccountId,
 		__options: GasLimit,
 	){
-		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::ownerOf", [id], __options);
+		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::balanceOf", [owner], __options);
 	}
 
 	/**
@@ -213,18 +257,6 @@ export default class Methods {
 	}
 
 	/**
-	 * balanceOf
-	 *
-	 * @param { ArgumentTypes.AccountId } owner,
-	*/
-	"balanceOf" (
-		owner: ArgumentTypes.AccountId,
-		__options: GasLimit,
-	){
-		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::balanceOf", [owner], __options);
-	}
-
-	/**
 	 * approve
 	 *
 	 * @param { ArgumentTypes.AccountId } operator,
@@ -238,6 +270,28 @@ export default class Methods {
 		__options: GasLimit,
 	){
 		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::approve", [operator, id, approved], __options);
+	}
+
+	/**
+	 * ownerOf
+	 *
+	 * @param { ArgumentTypes.Id } id,
+	*/
+	"ownerOf" (
+		id: ArgumentTypes.Id,
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "psp34::ownerOf", [id], __options);
+	}
+
+	/**
+	 * owner
+	 *
+	*/
+	"owner" (
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__nativeContract, "ownable::owner", [], __options);
 	}
 
 	/**
@@ -260,16 +314,6 @@ export default class Methods {
 		__options: GasLimit,
 	){
 		return buildSubmittableExtrinsic( this.__nativeContract, "ownable::transferOwnership", [newOwner], __options);
-	}
-
-	/**
-	 * owner
-	 *
-	*/
-	"owner" (
-		__options: GasLimit,
-	){
-		return buildSubmittableExtrinsic( this.__nativeContract, "ownable::owner", [], __options);
 	}
 
 	/**

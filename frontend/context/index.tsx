@@ -15,7 +15,14 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import type { WeightV2 } from '@polkadot/types/interfaces';
 // Specify the metadata of the contract.
-import wasmNftAbi from '../metadata/wasm_nft.json';
+import wasmNftAbi from '../metadata/nft.json';
+
+// NFT用のデータ型
+export type NftInfo = {
+    name: string | undefined;
+    image: string | undefined;
+    description:string | undefined;
+};
 
 const proofSize = 131072
 const refTime = 6219235328
@@ -46,9 +53,7 @@ export function ContractProvider({ children }: any) {
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
     const [ownNfts, setOwnNfts] = useState('');
-    const [ownNftsResult, setOwnNftsResult] = useState('');
-    const [tokenUri, setTokenUri] = useState('');
-    const [tokenUriResult, setTokenUriResult] = useState('');
+    const [nftInfos, setNftInfos] = useState<NftInfo[]>([]);
     const [width, setWidth] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     
@@ -127,8 +132,16 @@ export function ContractProvider({ children }: any) {
         });
 
         // 現在取得しているNFTを求める。 
-        await getOwnNfts(api, 'wasm');
-        await getTokenUri(api, 'wasm', 0);
+        await checkBalanceOf(api, 'wasm');
+        await getInfo(api, 'wasm');
+        //await checkBalanceOf(api, 'wasm');
+    };
+
+    /**
+     * getNftInfos function
+     */
+    const getNftInfos = async(api:any) => {
+
     };
 
     /**
@@ -188,12 +201,11 @@ export function ContractProvider({ children }: any) {
     };
 
     /**
-     * getOwnNfts function
+     * checkBalanceOf function
      * @param api APIオブジェクト
      * @param contentFlg コンテンツフラグ
-     * @returns own nft's id
      */
-    const getOwnNfts = async(api:any, contentFlg: string) => {
+    const checkBalanceOf = async(api:any, contentFlg: string) => {
         // コントラクトインスタンスとアドレスを格納する変数
         var contract;
         var contractAddress = getNftAddress(contentFlg);
@@ -208,9 +220,9 @@ export function ContractProvider({ children }: any) {
 
         console.log("nft contract:", contract);
 
-        // call get_own_nft メソッド
+        // call psp34::balanceOf メソッド
         const {result, output} = 
-            await contract.query.getOwnNfts(
+            await contract.query['psp34::balanceOf'](
                 contractAddress,
                 {
                     gasLimit: api.registry.createType('WeightV2', {
@@ -218,34 +230,55 @@ export function ContractProvider({ children }: any) {
                         proofSize,
                     }) as WeightV2,
                     storageDepositLimit,
-                },)
-
-        setOwnNftsResult(JSON.stringify(result.toHuman()));
+                },
+                actingAddress
+            );
 
         // The actual result from RPC as `ContractExecResult`
-        console.log('getOwnNfts result:', JSON.stringify(result.toHuman()));
+        console.log(result.toHuman());
 
         // check if the call was successful
         if (result.isOk) {
-            // output the return value
-            console.log('Success', output?.toHuman());
             const outputData: any = output;
-            setOwnNfts(outputData.toString());
+            console.log('Success', outputData.toString());
             return outputData.toString();
         } else {
-            setOwnNfts('0');
             return '';
         }
+    }
+
+    /**
+     * getInfo function
+     * @param api APIオブジェクト
+     * @param contentFlg コンテンツフラグ
+     * @returns own nft's id
+     */
+    const getInfo = async(api:any, contentFlg: string) => {
+        
+        // call getNftName メソッド
+        const name = await getNftName(api, contentFlg);
+        // call getNftImage メソッド
+        const image = await getNftImage(api, contentFlg);
+        // call getNftDescription メソッド
+        const discription = await getNftDecription(api, contentFlg);
+        
+        // NFTの情報を格納する変数
+        let nftInfo: NftInfo = {
+            name: name,
+            image: image,
+            description: discription,
+        };
+
+        console.log("nftInfo", nftInfo)
+        setNftInfos([...nftInfos, nftInfo]);
     };
 
     /**
-     * getTokenUri function
+     * getNftName
      * @param api APIオブジェクト
      * @param contentFlg コンテンツフラグ
-     * @param tokenId トークンID
-     * @returns own nft's id
      */
-    const getTokenUri = async(api:any, contentFlg: string, tokenId: any) => {
+    const getNftName = async(api: any, contentFlg: string) => {
         // コントラクトインスタンスとアドレスを格納する変数
         var contract;
         var contractAddress = getNftAddress(contentFlg);
@@ -258,9 +291,9 @@ export function ContractProvider({ children }: any) {
             contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
         }
 
-        // call getTokenUri メソッド
+        // call getNftName メソッド
         const {result, output} = 
-            await contract.query.tokenUri(
+            await contract.query.getNftName(
                 contractAddress,
                 {
                     gasLimit: api.registry.createType('WeightV2', {
@@ -268,27 +301,103 @@ export function ContractProvider({ children }: any) {
                         proofSize,
                     }) as WeightV2,
                     storageDepositLimit,
-                },[
-                    tokenId
-                ]);
-
-        setTokenUriResult(JSON.stringify(result.toHuman()));
-
-        // The actual result from RPC as `ContractExecResult`
-        console.log(result.toHuman());
+                },);
 
         // check if the call was successful
         if (result.isOk) {
-            // output the return value
-            console.log('Success', output?.toHuman());
             const outputData: any = output;
-            setTokenUri(outputData.toString());
-            return outputData.toString();
+            // json形式にして再び取得する。
+            const jsonData = JSON.parse(outputData.toString());
+            const name:string = jsonData.ok;
+            return name;
         } else {
-            setTokenUri('');
-            return '';
+            console.error('error');
         }
     };
+
+    /**
+     * getNftImage
+     * @param api APIオブジェクト
+     * @param contentFlg コンテンツフラグ
+     */
+    const getNftImage = async(api: any, contentFlg: string) => {
+        // コントラクトインスタンスとアドレスを格納する変数
+        var contract;
+        var contractAddress = getNftAddress(contentFlg);
+
+        if(contentFlg === 'wasm'){
+            contract = new ContractPromise(api, wasmNftAbi, WASM_NFT_CONTRACT_ADDRESS);
+        } else if(contentFlg === 'astar') {
+            contract = new ContractPromise(api, wasmNftAbi, ASTAR_NFT_CONTRACT_ADDRESS);
+        } else {
+            contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
+        }
+
+        // call getNftName メソッド
+        const {result, output} = 
+            await contract.query.getIamge(
+                contractAddress,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                },);
+
+        // check if the call was successful
+        if (result.isOk) {
+            const outputData: any = output;
+            // json形式にして再び取得する。
+            const jsonData = JSON.parse(outputData.toString());
+            const image:string = jsonData.ok;
+            return image;
+        } else {
+            console.error('error');
+        }
+    };
+
+    /**
+     * getNftDecription
+     * @param api APIオブジェクト
+     * @param contentFlg コンテンツフラグ
+     */
+    const getNftDecription = async(api: any, contentFlg: string) => {
+        // コントラクトインスタンスとアドレスを格納する変数
+        var contract;
+        var contractAddress = getNftAddress(contentFlg);
+
+        if(contentFlg === 'wasm'){
+            contract = new ContractPromise(api, wasmNftAbi, WASM_NFT_CONTRACT_ADDRESS);
+        } else if(contentFlg === 'astar') {
+            contract = new ContractPromise(api, wasmNftAbi, ASTAR_NFT_CONTRACT_ADDRESS);
+        } else {
+            contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
+        }
+
+        // call getNftName メソッド
+        const {result, output} = 
+            await contract.query.getNftDescription(
+                contractAddress,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                },);
+
+        // check if the call was successful
+        if (result.isOk) {
+            const outputData: any = output;
+            // json形式にして再び取得する。
+            const jsonData = JSON.parse(outputData.toString());
+            const description:string = jsonData.ok;
+            return description;
+        } else {
+            console.error('error');
+        }
+    }; 
 
     return (
         <ContractContext.Provider 
@@ -296,9 +405,8 @@ export function ContractProvider({ children }: any) {
                 connectWallet,
                 actingAddress,
                 isLoading,
+                nftInfos,
                 mint,
-                getOwnNfts,
-                getTokenUri,
             }}
         >
             {children}

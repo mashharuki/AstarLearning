@@ -171,6 +171,28 @@ pub mod nft {
 		}
 
 		/**
+		 * set_nft_image function
+		 */
+		#[ink(message)]
+	 	#[modifiers(only_owner)]
+		pub fn set_nft_iamge(&mut self, image: PreludeString) -> Result<(), PSP34Error> {
+			let id = self.collection_id();
+			self._set_attribute(id, String::from("image"), image.into_bytes());
+			Ok(())
+		}
+
+		/**
+		 * set_nft_description function
+		 */
+		#[ink(message)]
+	 	#[modifiers(only_owner)]
+		pub fn set_nft_description(&mut self, description: PreludeString) -> Result<(), PSP34Error> {
+			let id = self.collection_id();
+			self._set_attribute(id, String::from("description"), description.into_bytes());
+			Ok(())
+		}
+
+		/**
 		 * token_uri fucntion
 		 */
 		#[ink(message)]
@@ -264,7 +286,26 @@ pub mod nft {
 			let res = self.own_nfts.get(Self::env().caller()).unwrap();
 			Ok(res)
 		}
-		
+
+		/**
+		 * get_nft_image function
+		 */
+		#[ink(message)]
+		pub fn get_iamge(&self) -> Result<PreludeString, PSP34Error> {
+			let value = self.get_attribute(self.collection_id(),String::from("image"),);
+			let image = PreludeString::from_utf8(value.unwrap()).unwrap();
+			Ok(image)
+		}
+
+		/**
+		 * get_nft_description function
+		 */
+		#[ink(message)]
+		pub fn get_nft_description(&self) -> Result<PreludeString, PSP34Error> {
+			let value = self.get_attribute(self.collection_id(),String::from("description"),);
+			let description = PreludeString::from_utf8(value.unwrap()).unwrap();
+			Ok(description)
+		}		
     }
 
 	// ---------------------------------- test ---------------------------------- 

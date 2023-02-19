@@ -74,6 +74,32 @@ export default class Methods {
 	}
 
 	/**
+	* setNftIamge
+	*
+	* @param { string } image,
+	* @returns { Result<null, ReturnTypes.PSP34Error> }
+	*/
+	"setNftIamge" (
+		image: string,
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< Result<null, ReturnTypes.PSP34Error> > >{
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "setNftIamge", [image], __options , (result) => { return handleReturnType(result, getTypeDescription(28, 'nft')); });
+	}
+
+	/**
+	* setNftDescription
+	*
+	* @param { string } description,
+	* @returns { Result<null, ReturnTypes.PSP34Error> }
+	*/
+	"setNftDescription" (
+		description: string,
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< Result<null, ReturnTypes.PSP34Error> > >{
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "setNftDescription", [description], __options , (result) => { return handleReturnType(result, getTypeDescription(28, 'nft')); });
+	}
+
+	/**
 	* tokenUri
 	*
 	* @param { (number | string | BN) } tokenId,
@@ -168,14 +194,25 @@ export default class Methods {
 	}
 
 	/**
-	* collectionId
+	* getIamge
 	*
-	* @returns { ReturnTypes.Id }
+	* @returns { Result<string, ReturnTypes.PSP34Error> }
 	*/
-	"collectionId" (
+	"getIamge" (
 		__options ? : GasLimit,
-	): Promise< QueryReturnType< ReturnTypes.Id > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::collectionId", [], __options , (result) => { return handleReturnType(result, getTypeDescription(1, 'nft')); });
+	): Promise< QueryReturnType< Result<string, ReturnTypes.PSP34Error> > >{
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "getIamge", [], __options , (result) => { return handleReturnType(result, getTypeDescription(31, 'nft')); });
+	}
+
+	/**
+	* getNftDescription
+	*
+	* @returns { Result<string, ReturnTypes.PSP34Error> }
+	*/
+	"getNftDescription" (
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< Result<string, ReturnTypes.PSP34Error> > >{
+		return queryOkJSON( this.__nativeContract, this.__callerAddress, "getNftDescription", [], __options , (result) => { return handleReturnType(result, getTypeDescription(31, 'nft')); });
 	}
 
 	/**
@@ -187,6 +224,17 @@ export default class Methods {
 		__options ? : GasLimit,
 	): Promise< QueryReturnType< ReturnNumber > >{
 		return queryJSON< ReturnNumber >( this.__nativeContract, this.__callerAddress, "psp34::totalSupply", [], __options , (result) => { return new ReturnNumber(result as (number | string)); });
+	}
+
+	/**
+	* collectionId
+	*
+	* @returns { ReturnTypes.Id }
+	*/
+	"collectionId" (
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< ReturnTypes.Id > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::collectionId", [], __options , (result) => { return handleReturnType(result, getTypeDescription(1, 'nft')); });
 	}
 
 	/**
@@ -207,16 +255,16 @@ export default class Methods {
 	}
 
 	/**
-	* ownerOf
+	* balanceOf
 	*
-	* @param { ArgumentTypes.Id } id,
-	* @returns { ReturnTypes.AccountId | null }
+	* @param { ArgumentTypes.AccountId } owner,
+	* @returns { number }
 	*/
-	"ownerOf" (
-		id: ArgumentTypes.Id,
+	"balanceOf" (
+		owner: ArgumentTypes.AccountId,
 		__options ? : GasLimit,
-	): Promise< QueryReturnType< ReturnTypes.AccountId | null > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::ownerOf", [id], __options , (result) => { return handleReturnType(result, getTypeDescription(19, 'nft')); });
+	): Promise< QueryReturnType< number > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::balanceOf", [owner], __options );
 	}
 
 	/**
@@ -237,19 +285,6 @@ export default class Methods {
 	}
 
 	/**
-	* balanceOf
-	*
-	* @param { ArgumentTypes.AccountId } owner,
-	* @returns { number }
-	*/
-	"balanceOf" (
-		owner: ArgumentTypes.AccountId,
-		__options ? : GasLimit,
-	): Promise< QueryReturnType< number > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::balanceOf", [owner], __options );
-	}
-
-	/**
 	* approve
 	*
 	* @param { ArgumentTypes.AccountId } operator,
@@ -264,6 +299,30 @@ export default class Methods {
 		__options ? : GasLimit,
 	): Promise< QueryReturnType< Result<null, ReturnTypes.PSP34Error> > >{
 		return queryOkJSON( this.__nativeContract, this.__callerAddress, "psp34::approve", [operator, id, approved], __options , (result) => { return handleReturnType(result, getTypeDescription(28, 'nft')); });
+	}
+
+	/**
+	* ownerOf
+	*
+	* @param { ArgumentTypes.Id } id,
+	* @returns { ReturnTypes.AccountId | null }
+	*/
+	"ownerOf" (
+		id: ArgumentTypes.Id,
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< ReturnTypes.AccountId | null > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "psp34::ownerOf", [id], __options , (result) => { return handleReturnType(result, getTypeDescription(19, 'nft')); });
+	}
+
+	/**
+	* owner
+	*
+	* @returns { ReturnTypes.AccountId }
+	*/
+	"owner" (
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< ReturnTypes.AccountId > >{
+		return queryJSON( this.__nativeContract, this.__callerAddress, "ownable::owner", [], __options , (result) => { return handleReturnType(result, getTypeDescription(8, 'nft')); });
 	}
 
 	/**
@@ -288,17 +347,6 @@ export default class Methods {
 		__options ? : GasLimit,
 	): Promise< QueryReturnType< Result<null, ReturnTypes.OwnableError> > >{
 		return queryOkJSON( this.__nativeContract, this.__callerAddress, "ownable::transferOwnership", [newOwner], __options , (result) => { return handleReturnType(result, getTypeDescription(34, 'nft')); });
-	}
-
-	/**
-	* owner
-	*
-	* @returns { ReturnTypes.AccountId }
-	*/
-	"owner" (
-		__options ? : GasLimit,
-	): Promise< QueryReturnType< ReturnTypes.AccountId > >{
-		return queryJSON( this.__nativeContract, this.__callerAddress, "ownable::owner", [], __options , (result) => { return handleReturnType(result, getTypeDescription(8, 'nft')); });
 	}
 
 	/**

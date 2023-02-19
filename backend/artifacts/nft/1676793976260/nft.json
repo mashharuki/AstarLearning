@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0xca5e72028b51b483c02933ece6ba316ef70eeae313dadd15b8f9d14b251d0ea3",
+    "hash": "0x250d3198deb7548f23afa0e9e6e4398cdd034be47cc4a5b1b0a50a639de69e9d",
     "language": "ink! 3.4.0",
     "compiler": "rustc 1.68.0-nightly"
   },
@@ -15,9 +15,28 @@
     "spec": {
       "constructors": [
         {
-          "args": [],
+          "args": [
+            {
+              "label": "init_image",
+              "type": {
+                "displayName": [
+                  "PreludeString"
+                ],
+                "type": 28
+              }
+            },
+            {
+              "label": "init_description",
+              "type": {
+                "displayName": [
+                  "PreludeString"
+                ],
+                "type": 28
+              }
+            }
+          ],
           "docs": [
-            "* new メソッド"
+            "* new メソッド\n\t\t * @param init_image 画像データまでのURL\n\t\t * @param init_description NFTの説明"
           ],
           "label": "new",
           "payable": true,
@@ -131,7 +150,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x219a113e"
         },
@@ -143,7 +162,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 30
+                "type": 28
               }
             }
           ],
@@ -157,7 +176,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0xec403dee"
         },
@@ -169,7 +188,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 30
+                "type": 28
               }
             }
           ],
@@ -183,7 +202,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x41f734a2"
         },
@@ -195,7 +214,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 30
+                "type": 28
               }
             }
           ],
@@ -209,7 +228,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x917d8844"
         },
@@ -251,7 +270,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x410fcc9d"
         },
@@ -293,7 +312,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x7f1feb31"
         },
@@ -319,7 +338,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x88baeb9e"
         },
@@ -374,6 +393,38 @@
         {
           "args": [],
           "docs": [
+            "\n\t\t * get_image function\n\t\t "
+          ],
+          "label": "get_iamge",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "PreludeString"
+            ],
+            "type": 28
+          },
+          "selector": "0x1b927991"
+        },
+        {
+          "args": [],
+          "docs": [
+            "\n\t\t * get_description function\n\t\t "
+          ],
+          "label": "get_description",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "PreludeString"
+            ],
+            "type": 28
+          },
+          "selector": "0x91cbb7bc"
+        },
+        {
+          "args": [],
+          "docs": [
             " Returns the collection `Id` of the NFT token.",
             "",
             " This can represents the relationship between tokens/contracts/pallets."
@@ -391,21 +442,34 @@
           "selector": "0xffa27a5f"
         },
         {
-          "args": [],
-          "docs": [
-            " Returns current NFT total supply."
+          "args": [
+            {
+              "label": "owner",
+              "type": {
+                "displayName": [
+                  "psp34_external",
+                  "BalanceOfInput1"
+                ],
+                "type": 8
+              }
+            }
           ],
-          "label": "PSP34::total_supply",
+          "docs": [
+            " Returns the balance of the owner.",
+            "",
+            " This represents the amount of unique tokens the owner has."
+          ],
+          "label": "PSP34::balance_of",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
               "psp34_external",
-              "TotalSupplyOutput"
+              "BalanceOfOutput"
             ],
-            "type": 6
+            "type": 4
           },
-          "selector": "0x628413fe"
+          "selector": "0xcde7e55f"
         },
         {
           "args": [
@@ -461,37 +525,26 @@
               "psp34_external",
               "TransferOutput"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x3128d61b"
         },
         {
-          "args": [
-            {
-              "label": "id",
-              "type": {
-                "displayName": [
-                  "psp34_external",
-                  "OwnerOfInput1"
-                ],
-                "type": 1
-              }
-            }
-          ],
+          "args": [],
           "docs": [
-            " Returns the owner of the token if any."
+            " Returns current NFT total supply."
           ],
-          "label": "PSP34::owner_of",
+          "label": "PSP34::total_supply",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
               "psp34_external",
-              "OwnerOfOutput"
+              "TotalSupplyOutput"
             ],
-            "type": 19
+            "type": 6
           },
-          "selector": "0x1168624d"
+          "selector": "0x628413fe"
         },
         {
           "args": [
@@ -545,32 +598,30 @@
         {
           "args": [
             {
-              "label": "owner",
+              "label": "id",
               "type": {
                 "displayName": [
                   "psp34_external",
-                  "BalanceOfInput1"
+                  "OwnerOfInput1"
                 ],
-                "type": 8
+                "type": 1
               }
             }
           ],
           "docs": [
-            " Returns the balance of the owner.",
-            "",
-            " This represents the amount of unique tokens the owner has."
+            " Returns the owner of the token if any."
           ],
-          "label": "PSP34::balance_of",
+          "label": "PSP34::owner_of",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
               "psp34_external",
-              "BalanceOfOutput"
+              "OwnerOfOutput"
             ],
-            "type": 4
+            "type": 19
           },
-          "selector": "0xcde7e55f"
+          "selector": "0x1168624d"
         },
         {
           "args": [
@@ -625,9 +676,26 @@
               "psp34_external",
               "ApproveOutput"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x1932a8b0"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns the address of the current owner."
+          ],
+          "label": "Ownable::owner",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "ownable_external",
+              "OwnerOutput"
+            ],
+            "type": 8
+          },
+          "selector": "0x4fa43c8c"
         },
         {
           "args": [],
@@ -694,23 +762,6 @@
           "selector": "0x11f43efd"
         },
         {
-          "args": [],
-          "docs": [
-            " Returns the address of the current owner."
-          ],
-          "label": "Ownable::owner",
-          "mutates": false,
-          "payable": false,
-          "returnType": {
-            "displayName": [
-              "ownable_external",
-              "OwnerOutput"
-            ],
-            "type": 8
-          },
-          "selector": "0x4fa43c8c"
-        },
-        {
           "args": [
             {
               "label": "account",
@@ -746,7 +797,7 @@
               "psp34mintable_external",
               "MintOutput"
             ],
-            "type": 28
+            "type": 29
           },
           "selector": "0x6c41f2ec"
         },
@@ -1078,6 +1129,24 @@
               }
             },
             "name": "own_nfts"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
+                "ty": 28
+              }
+            },
+            "name": "image"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0400000000000000000000000000000000000000000000000000000000000000",
+                "ty": 28
+              }
+            },
+            "name": "description"
           }
         ]
       }
@@ -1597,6 +1666,14 @@
         "id": 28,
         "type": {
           "def": {
+            "primitive": "str"
+          }
+        }
+      },
+      {
+        "id": 29,
+        "type": {
+          "def": {
             "variant": {
               "variants": [
                 {
@@ -1611,7 +1688,7 @@
                 {
                   "fields": [
                     {
-                      "type": 29
+                      "type": 30
                     }
                   ],
                   "index": 1,
@@ -1627,7 +1704,7 @@
             },
             {
               "name": "E",
-              "type": 29
+              "type": 30
             }
           ],
           "path": [
@@ -1636,7 +1713,7 @@
         }
       },
       {
-        "id": 29,
+        "id": 30,
         "type": {
           "def": {
             "variant": {
@@ -1690,14 +1767,6 @@
         }
       },
       {
-        "id": 30,
-        "type": {
-          "def": {
-            "primitive": "str"
-          }
-        }
-      },
-      {
         "id": 31,
         "type": {
           "def": {
@@ -1706,7 +1775,7 @@
                 {
                   "fields": [
                     {
-                      "type": 30
+                      "type": 28
                     }
                   ],
                   "index": 0,
@@ -1715,7 +1784,7 @@
                 {
                   "fields": [
                     {
-                      "type": 29
+                      "type": 30
                     }
                   ],
                   "index": 1,
@@ -1727,11 +1796,11 @@
           "params": [
             {
               "name": "T",
-              "type": 30
+              "type": 28
             },
             {
               "name": "E",
-              "type": 29
+              "type": 30
             }
           ],
           "path": [
@@ -1757,7 +1826,7 @@
                 {
                   "fields": [
                     {
-                      "type": 29
+                      "type": 30
                     }
                   ],
                   "index": 1,
@@ -1773,7 +1842,7 @@
             },
             {
               "name": "E",
-              "type": 29
+              "type": 30
             }
           ],
           "path": [
@@ -1875,7 +1944,7 @@
                 {
                   "fields": [
                     {
-                      "type": 29
+                      "type": 30
                     }
                   ],
                   "index": 1,
@@ -1891,7 +1960,7 @@
             },
             {
               "name": "E",
-              "type": 29
+              "type": 30
             }
           ],
           "path": [
