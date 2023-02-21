@@ -1,25 +1,31 @@
 import Button from "../Button";
 import Link from 'next/link';
 
-// 学習コンテンツ用のデータ
+// 学習コンテンツ表示用のデータ
 const products = [
     {
       id: 1,
       name: 'WASM Learning Course',
       href: '#',
-      imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
+      imageSrc: '/WasmContent.jpeg',
+      description: 'WASMについて学べるコースです。',
+      contentFlg: 'wasm'
     },
     {
         id: 2,
         name: 'Astar Learning Course',
         href: '#',
-        imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
+        imageSrc: '/AstarContent.jpeg',
+        description: 'Astar Networkについて学べるコースです',
+        contentFlg: 'astar'
     },
     {
       id: 3,
       name: 'Shiden Learning Course',
       href: '#',
-      imageSrc: 'https://bafybeib5ixaris66ajoickapsv35fqqzkihaqkygukanrg3ibzcw6z65qq.ipfs.nftstorage.link/',
+      imageSrc: '/ShidenContent.jpeg',
+      description: 'Shiden Networkについて学べるコースです',
+      contentFlg: 'shiden'
   },
 ]
 
@@ -35,10 +41,10 @@ export default function Card() {
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
               <div key={product.id} className="group relative">
-                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
+                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
                   <img
                     src={product.imageSrc}
-                    alt={product.imageAlt}
+                    alt=''
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
                 </div>
@@ -51,12 +57,12 @@ export default function Card() {
                       </a>
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">
-                        Astarについて学べるコースです
+                        {product.description}
                     </p>
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between">
-                  <Link href={{ pathname: '/learn', query: { contentFlg: 'wasm' } }}>
+                  <Link href={{ pathname: '/learn', query: { contentFlg: `${product.contentFlg}` } }}>
                     <Button name="Learn More →" />
                   </Link>
                 </div>

@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContractContext } from './../../context';
 import Loading from "../common/Loading";
-
+import Astar from "./LearnContent/Astar";
+import Shiden from "./LearnContent/Shiden";
+import Wasm from "./LearnContent/Wasm";
 
 /**
  * LearnCanvas Component
@@ -36,16 +38,20 @@ const LearnCanvas = () => {
                             {/* フラグによってコンテンツの内容を書き換える。 */}
                             <div className="text-left  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
-                                    <img className="mx-auto rounded-t-lg" src="/Astar_ring.png" alt="Astar_ring" />
+                                    {contentFlg == 'wasm' && <img className="mx-auto rounded-t-lg" src="/wasm-logo.png" alt="Astar_ring" />}
+                                    {contentFlg == 'astar' && <img className="mx-auto rounded-t-lg" src="/Astar_ring.png" alt="Astar_ring" />}
+                                    {contentFlg == 'shiden' && <img className="mx-auto rounded-t-lg" src="/Shiden-Symbol.png" alt="Astar_ring" />}
                                 </a>
                                 <div className="p-5">
                                     <a href="#">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            title {contentFlg}
+                                            {contentFlg} Learing Course
                                         </h5>
                                     </a>
                                     <p className="text mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {`Hello\nCodeSandbox`}
+                                        {contentFlg === 'wasm' && <Wasm/>}
+                                        {contentFlg === 'astar' && <Astar/>}
+                                        {contentFlg === 'shiden' && <Shiden/>}
                                     </p>
                                     <div className="text-center">
                                         <Button 
