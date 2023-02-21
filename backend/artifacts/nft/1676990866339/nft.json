@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0x250d3198deb7548f23afa0e9e6e4398cdd034be47cc4a5b1b0a50a639de69e9d",
+    "hash": "0x0a7d0a7366e4cfc97b763101615a266f90369cfc11e419e204cc3601a4d793da",
     "language": "ink! 3.4.0",
     "compiler": "rustc 1.68.0-nightly"
   },
@@ -15,28 +15,9 @@
     "spec": {
       "constructors": [
         {
-          "args": [
-            {
-              "label": "init_image",
-              "type": {
-                "displayName": [
-                  "PreludeString"
-                ],
-                "type": 28
-              }
-            },
-            {
-              "label": "init_description",
-              "type": {
-                "displayName": [
-                  "PreludeString"
-                ],
-                "type": 28
-              }
-            }
-          ],
+          "args": [],
           "docs": [
-            "* new メソッド\n\t\t * @param init_image 画像データまでのURL\n\t\t * @param init_description NFTの説明"
+            "* new メソッド"
           ],
           "label": "new",
           "payable": true,
@@ -150,7 +131,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x219a113e"
         },
@@ -162,7 +143,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 28
+                "type": 30
               }
             }
           ],
@@ -176,7 +157,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0xec403dee"
         },
@@ -188,7 +169,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 28
+                "type": 30
               }
             }
           ],
@@ -202,7 +183,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x41f734a2"
         },
@@ -214,7 +195,7 @@
                 "displayName": [
                   "PreludeString"
                 ],
-                "type": 28
+                "type": 30
               }
             }
           ],
@@ -228,9 +209,61 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x917d8844"
+        },
+        {
+          "args": [
+            {
+              "label": "image",
+              "type": {
+                "displayName": [
+                  "PreludeString"
+                ],
+                "type": 30
+              }
+            }
+          ],
+          "docs": [
+            "\n\t\t * set_nft_image function\n\t\t "
+          ],
+          "label": "set_nft_iamge",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 28
+          },
+          "selector": "0x5bb31ef5"
+        },
+        {
+          "args": [
+            {
+              "label": "description",
+              "type": {
+                "displayName": [
+                  "PreludeString"
+                ],
+                "type": 30
+              }
+            }
+          ],
+          "docs": [
+            "\n\t\t * set_nft_description function\n\t\t "
+          ],
+          "label": "set_nft_description",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 28
+          },
+          "selector": "0x7ad5f587"
         },
         {
           "args": [
@@ -270,7 +303,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x410fcc9d"
         },
@@ -312,7 +345,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x7f1feb31"
         },
@@ -338,7 +371,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x88baeb9e"
         },
@@ -393,34 +426,51 @@
         {
           "args": [],
           "docs": [
-            "\n\t\t * get_image function\n\t\t "
+            "\n\t\t * get_nft_image function\n\t\t "
           ],
           "label": "get_iamge",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
-              "PreludeString"
+              "Result"
             ],
-            "type": 28
+            "type": 31
           },
           "selector": "0x1b927991"
         },
         {
           "args": [],
           "docs": [
-            "\n\t\t * get_description function\n\t\t "
+            "\n\t\t * get_nft_description function\n\t\t "
           ],
-          "label": "get_description",
+          "label": "get_nft_description",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
-              "PreludeString"
+              "Result"
             ],
-            "type": 28
+            "type": 31
           },
-          "selector": "0x91cbb7bc"
+          "selector": "0xd28860a5"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns current NFT total supply."
+          ],
+          "label": "PSP34::total_supply",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "psp34_external",
+              "TotalSupplyOutput"
+            ],
+            "type": 6
+          },
+          "selector": "0x628413fe"
         },
         {
           "args": [],
@@ -440,36 +490,6 @@
             "type": 1
           },
           "selector": "0xffa27a5f"
-        },
-        {
-          "args": [
-            {
-              "label": "owner",
-              "type": {
-                "displayName": [
-                  "psp34_external",
-                  "BalanceOfInput1"
-                ],
-                "type": 8
-              }
-            }
-          ],
-          "docs": [
-            " Returns the balance of the owner.",
-            "",
-            " This represents the amount of unique tokens the owner has."
-          ],
-          "label": "PSP34::balance_of",
-          "mutates": false,
-          "payable": false,
-          "returnType": {
-            "displayName": [
-              "psp34_external",
-              "BalanceOfOutput"
-            ],
-            "type": 4
-          },
-          "selector": "0xcde7e55f"
         },
         {
           "args": [
@@ -525,26 +545,39 @@
               "psp34_external",
               "TransferOutput"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x3128d61b"
         },
         {
-          "args": [],
-          "docs": [
-            " Returns current NFT total supply."
+          "args": [
+            {
+              "label": "owner",
+              "type": {
+                "displayName": [
+                  "psp34_external",
+                  "BalanceOfInput1"
+                ],
+                "type": 8
+              }
+            }
           ],
-          "label": "PSP34::total_supply",
+          "docs": [
+            " Returns the balance of the owner.",
+            "",
+            " This represents the amount of unique tokens the owner has."
+          ],
+          "label": "PSP34::balance_of",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": [
               "psp34_external",
-              "TotalSupplyOutput"
+              "BalanceOfOutput"
             ],
-            "type": 6
+            "type": 4
           },
-          "selector": "0x628413fe"
+          "selector": "0xcde7e55f"
         },
         {
           "args": [
@@ -594,34 +627,6 @@
             "type": 33
           },
           "selector": "0x4790f55a"
-        },
-        {
-          "args": [
-            {
-              "label": "id",
-              "type": {
-                "displayName": [
-                  "psp34_external",
-                  "OwnerOfInput1"
-                ],
-                "type": 1
-              }
-            }
-          ],
-          "docs": [
-            " Returns the owner of the token if any."
-          ],
-          "label": "PSP34::owner_of",
-          "mutates": false,
-          "payable": false,
-          "returnType": {
-            "displayName": [
-              "psp34_external",
-              "OwnerOfOutput"
-            ],
-            "type": 19
-          },
-          "selector": "0x1168624d"
         },
         {
           "args": [
@@ -676,9 +681,37 @@
               "psp34_external",
               "ApproveOutput"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x1932a8b0"
+        },
+        {
+          "args": [
+            {
+              "label": "id",
+              "type": {
+                "displayName": [
+                  "psp34_external",
+                  "OwnerOfInput1"
+                ],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [
+            " Returns the owner of the token if any."
+          ],
+          "label": "PSP34::owner_of",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "psp34_external",
+              "OwnerOfOutput"
+            ],
+            "type": 19
+          },
+          "selector": "0x1168624d"
         },
         {
           "args": [],
@@ -797,7 +830,7 @@
               "psp34mintable_external",
               "MintOutput"
             ],
-            "type": 29
+            "type": 28
           },
           "selector": "0x6c41f2ec"
         },
@@ -1129,24 +1162,6 @@
               }
             },
             "name": "own_nfts"
-          },
-          {
-            "layout": {
-              "cell": {
-                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
-                "ty": 28
-              }
-            },
-            "name": "image"
-          },
-          {
-            "layout": {
-              "cell": {
-                "key": "0x0400000000000000000000000000000000000000000000000000000000000000",
-                "ty": 28
-              }
-            },
-            "name": "description"
           }
         ]
       }
@@ -1666,14 +1681,6 @@
         "id": 28,
         "type": {
           "def": {
-            "primitive": "str"
-          }
-        }
-      },
-      {
-        "id": 29,
-        "type": {
-          "def": {
             "variant": {
               "variants": [
                 {
@@ -1688,7 +1695,7 @@
                 {
                   "fields": [
                     {
-                      "type": 30
+                      "type": 29
                     }
                   ],
                   "index": 1,
@@ -1704,7 +1711,7 @@
             },
             {
               "name": "E",
-              "type": 30
+              "type": 29
             }
           ],
           "path": [
@@ -1713,7 +1720,7 @@
         }
       },
       {
-        "id": 30,
+        "id": 29,
         "type": {
           "def": {
             "variant": {
@@ -1767,6 +1774,14 @@
         }
       },
       {
+        "id": 30,
+        "type": {
+          "def": {
+            "primitive": "str"
+          }
+        }
+      },
+      {
         "id": 31,
         "type": {
           "def": {
@@ -1775,7 +1790,7 @@
                 {
                   "fields": [
                     {
-                      "type": 28
+                      "type": 30
                     }
                   ],
                   "index": 0,
@@ -1784,7 +1799,7 @@
                 {
                   "fields": [
                     {
-                      "type": 30
+                      "type": 29
                     }
                   ],
                   "index": 1,
@@ -1796,11 +1811,11 @@
           "params": [
             {
               "name": "T",
-              "type": 28
+              "type": 30
             },
             {
               "name": "E",
-              "type": 30
+              "type": 29
             }
           ],
           "path": [
@@ -1826,7 +1841,7 @@
                 {
                   "fields": [
                     {
-                      "type": 30
+                      "type": 29
                     }
                   ],
                   "index": 1,
@@ -1842,7 +1857,7 @@
             },
             {
               "name": "E",
-              "type": 30
+              "type": 29
             }
           ],
           "path": [
@@ -1944,7 +1959,7 @@
                 {
                   "fields": [
                     {
-                      "type": 30
+                      "type": 29
                     }
                   ],
                   "index": 1,
@@ -1960,7 +1975,7 @@
             },
             {
               "name": "E",
-              "type": 30
+              "type": 29
             }
           ],
           "path": [

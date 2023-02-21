@@ -9,7 +9,7 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 |---|---|---|---|
 |1|Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY|[Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY)|Shibuya| 
 |2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH)|Shibuya| 
-|3|WASM NFT|[XF7p7mT2ctgA5ykjCF8zRZQtFyA24zoySg6xUPAVvTqH1Sr](https://contracts-ui.substrate.io/contract/XF7p7mT2ctgA5ykjCF8zRZQtFyA24zoySg6xUPAVvTqH1Sr)|Shibuya| 
+|3|WASM NFT|[ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg)|Shibuya| 
 |4||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
 |5||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
 
@@ -17,9 +17,9 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 |No.|コンテンツ名|URI|
 |---|---|---|
-|1|AstarNFT|[https://ipfs.io/ipfs/Qmenex4NjQqRizcqXccFWCSrdvS48hP3iWXDbkNbRMM6aA?filename=astar.json](https://ipfs.io/ipfs/Qmenex4NjQqRizcqXccFWCSrdvS48hP3iWXDbkNbRMM6aA?filename=astar.json)|
-|2|ShidenNFT|[https://ipfs.io/ipfs/QmXbGhkuGD4oAJBCaZ6Rdgpoexcab7YJa7udZ86FtCPQfC?filename=shiden.json](https://ipfs.io/ipfs/QmXbGhkuGD4oAJBCaZ6Rdgpoexcab7YJa7udZ86FtCPQfC?filename=shiden.json)|
-|3|WasmNFT|[https://ipfs.io/ipfs/QmVnucwVHirRts5csqdjTnGQ98atfaLzvfZtnXGQ88EpBT?filename=wasm.json](https://ipfs.io/ipfs/QmVnucwVHirRts5csqdjTnGQ98atfaLzvfZtnXGQ88EpBT?filename=wasm.json)|
+|1|AstarNFT|[https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/](https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/)|
+|2|ShidenNFT|[https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/](https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/)|
+|3|WasmNFT|[https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/](https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/)|
 
 
 ### NFT の画像コンテンツのURI情報

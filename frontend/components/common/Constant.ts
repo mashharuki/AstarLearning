@@ -25,6 +25,6 @@ export const BLOCKCHAINS = [
 
 export const TWITTER_URL = "https://twitter.com/HARUKI05758694";
 // 各コントラクトのアドレス
-export const WASM_NFT_CONTRACT_ADDRESS = "XF7p7mT2ctgA5ykjCF8zRZQtFyA24zoySg6xUPAVvTqH1Sr";
+export const WASM_NFT_CONTRACT_ADDRESS = "ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg";
 export const ASTAR_NFT_CONTRACT_ADDRESS = "";
 export const SHIDEN_NFT_CONTRACT_ADDRESS = "";
