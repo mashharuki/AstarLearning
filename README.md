@@ -3,6 +3,27 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
 
+## 採用した技術
+
+|No.|名称|概要|
+|----|----|----|
+|1|!ink|スマートコントラクト開発言語|
+|2|Next.js|フロントエンド開発フレームワーク|
+|3|swanky|スマートコントラクト開発フレームワーク|
+|4|TypeScript|フロントエンド開発言語|
+|5|NFTStorage|NFT用のメタデータ保管ストレージ|
+|6|Tailwind|フロントエンド用のCSSフレームワーク|
+|7|Contract-UI|スマートコントラクトのデプロイ・検証のため|
+
+## デプロイしたブロックチェーン
+
+1. Shibuya Network
+2. Shiden Network
+
+## 挑戦したこと・難しかったこと
+
+フロントとスマートコントラクトとの繋ぎこみにとても苦労しました。EVMのスマートコントラクトであればなんてことない処理でも`polkadot.js`を使って実装しようとすると簡単な処理でもつまづいたので、テクニカルアンバサダーの高橋さんに質問したりして解決しました。苦労しましたが今後のWASM Dapp開発用のテンプレともなるプロダクトを作ることができたと考えています。
+
 ## デプロイしたコントラクト
 
 |No.|コントラクト名|Contract UI|ネットワーク|
@@ -71,7 +92,7 @@ query
     psp34Metadata::getAttribute
 ```
 
-### NFTのミントメソッド実装例
+### NFTのミントメソッド実装例(スマートコントラクト)
 
 ```rs
 // call _mint_to function
@@ -80,6 +101,13 @@ self._mint_to(Self::env().caller(), Id::U8(self.last_token_id));
 self.last_token_id += 1;
 Ok(())
 ```
+
+### 今後の課題
+
+1. コンテンツを画面から追加できる機能を実装すること
+2. コンテンツを作成した貢献者に報酬を支払えるようにすること
+3. NFTをSBTに昇華させること
+4. dapp stakingに応募すること
 
 ## 参考文献
 1. [https://openbrush.io/](https://openbrush.io/)
