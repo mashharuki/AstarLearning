@@ -14,6 +14,7 @@ import {
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import type { WeightV2 } from '@polkadot/types/interfaces';
+import { BN } from '@polkadot/util';
 // Specify the metadata of the contract.
 import wasmNftAbi from '../metadata/nft.json';
 
@@ -157,20 +158,32 @@ export function ContractProvider({ children }: any) {
             return;
         }
           
-        const gasLimit = 30000 * 1000000;
         // コントラクトインスタンスを格納する変数
         var contract = createNftContract(contentFlg);
        
         console.log("nft contract:", contract);
         setIsLoading(true);
 
-        const mintExtrinsic =
-            await contract.tx.mintNft({
-                gasLimit: api.registry.createType('WeightV2', {
-                    refTime,
-                    proofSize,
-                }) as WeightV2,
-            storageDepositLimit},);
+         const gasLimit: any = api.registry.createType("WeightV2", {
+            refTime: new BN("10000000000"),
+            proofSize: new BN("10000000000"),
+        });
+
+        // ガス代などを取得する。
+        const { 
+            gasRequired, 
+            gasConsumed ,
+            result, 
+            output 
+        } = await contract.query.mintNft(
+            actingAddress,
+            { 
+                value: 0, 
+                gasLimit: gasLimit,storageDepositLimit 
+            },
+        );
+        // NFTをミントする。
+        const mintExtrinsic = await contract.tx.mintNft({ value: 0, gasLimit: gasRequired },);
       
         let injector: any;
 
@@ -219,17 +232,17 @@ export function ContractProvider({ children }: any) {
 
         console.log("nft contract:", contract);
 
+        // ガス代を計算
+        const gasLimit: any = api.registry.createType("WeightV2", {
+            refTime: new BN("10000000000"),
+            proofSize: new BN("20000000000"),
+        });
+
         // call psp34::balanceOf メソッド
         const {result, output} = 
             await contract.query['psp34::balanceOf'](
                 contractAddress,
-                {
-                    gasLimit: api.registry.createType('WeightV2', {
-                        refTime,
-                        proofSize,
-                    }) as WeightV2,
-                    storageDepositLimit,
-                },
+                { value: 0, gasLimit: gasLimit,storageDepositLimit },
                 actingAddress,
             );
 
@@ -239,7 +252,7 @@ export function ContractProvider({ children }: any) {
         // check if the call was successful
         if (result.isOk) {
             const outputData: any = output;
-            console.log('Success', outputData.toString());
+            console.log('own nft count:', outputData.toString());
             return outputData.toString();
         } else {
             return '';
