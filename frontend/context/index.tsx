@@ -1,7 +1,6 @@
 import { 
     createContext, 
     useContext, 
-    useMemo, 
     useState, 
 } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
@@ -152,7 +151,6 @@ export function ContractProvider({ children }: any) {
         let nftInfo = await getInfo(api, 'wasm');
         let nftInfo2 = await getInfo(api, 'astar');
         let nftInfo3 = await getInfo(api, 'shiden');
-
 
         nfts.push(nftInfo);
         nfts.push(nftInfo2);
