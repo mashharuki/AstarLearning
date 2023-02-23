@@ -73,8 +73,8 @@ OpenBursh+!inkで開発を行いました。
 |1|Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY|[Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY)|Shibuya| 
 |2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH)|Shibuya| 
 |3|WASM NFT|[ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg)|Shibuya| 
-|4||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
-|5||[](https://contracts-ui.substrate.io/contract/)|Shibuya| 
+|4|Astar NFT|[a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d)|Shibuya| 
+|5|Shiden NFT|[bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk)|Shibuya| 
 
 ### 各学習コンテンツ用のURI情報
 

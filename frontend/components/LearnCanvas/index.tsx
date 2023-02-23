@@ -40,7 +40,7 @@ const LearnCanvas = () => {
                                 <a href="#">
                                     {contentFlg == 'wasm' && <img className="mx-auto rounded-t-lg" src="/wasm-logo.png" alt="Astar_ring" />}
                                     {contentFlg == 'astar' && <img className="mx-auto rounded-t-lg" src="/Astar_ring.png" alt="Astar_ring" />}
-                                    {contentFlg == 'shiden' && <img className="mx-auto rounded-t-lg" src="/Shiden-Symbol.png" alt="Astar_ring" />}
+                                    {contentFlg == 'shiden' && <img className="mx-auto rounded-t-lg h-80" src="/Shiden-Symbol.png" alt="Astar_ring" />}
                                 </a>
                                 <div className="p-5">
                                     <a href="#">

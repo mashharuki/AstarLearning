@@ -54,7 +54,7 @@ export function ContractProvider({ children }: any) {
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
     const [ownNfts, setOwnNfts] = useState('');
-    const [nftInfos, setNftInfos] = useState<NftInfo[]>([]);
+    const [nftInfos, setNftInfos] = useState<NftInfo[]>([])
     const [width, setWidth] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     
@@ -132,16 +132,33 @@ export function ContractProvider({ children }: any) {
             unsubscribe();
         });
 
+        setIsLoading(true);
         // 現在取得しているNFTを求める。 
-        await getNftInfos(api, 'wasm');
+        await getNftInfos(api);
+        setIsLoading(false);
     };
 
     /**
      * getNftInfos function
      */
-    const getNftInfos = async(api:any, contentFlg:string) => {
-        await checkBalanceOf(api, contentFlg);
-        await getInfo(api, contentFlg);
+    const getNftInfos = async(api: any) => {
+        // NFTの残高をチェックする
+        await checkBalanceOf(api, 'wasm');
+        await checkBalanceOf(api, 'astar');
+        await checkBalanceOf(api, 'shiden');
+
+        let nfts:NftInfo[] = [];
+
+        let nftInfo = await getInfo(api, 'wasm');
+        let nftInfo2 = await getInfo(api, 'astar');
+        let nftInfo3 = await getInfo(api, 'shiden');
+
+
+        nfts.push(nftInfo);
+        nfts.push(nftInfo2);
+        nfts.push(nftInfo3);
+        console.log("nftInfos:", nfts);
+        setNftInfos(nfts);
     };
 
     /**
@@ -281,8 +298,7 @@ export function ContractProvider({ children }: any) {
             description: discription,
         };
 
-        console.log("nftInfo", nftInfo)
-        setNftInfos([...nftInfos, nftInfo]);
+        return nftInfo;
     };
 
     /**
