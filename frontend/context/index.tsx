@@ -133,28 +133,34 @@ export function ContractProvider({ children }: any) {
 
         setIsLoading(true);
         // 現在取得しているNFTを求める。 
-        await getNftInfos(api);
+        await getNftInfos(api, account[0].address);
         setIsLoading(false);
     };
 
     /**
      * getNftInfos function
      */
-    const getNftInfos = async(api: any) => {
+    const getNftInfos = async(api: any, address: string) => {
         // NFTの残高をチェックする
-        await checkBalanceOf(api, 'wasm');
-        await checkBalanceOf(api, 'astar');
-        await checkBalanceOf(api, 'shiden');
+        let balanceOf = await checkBalanceOf(api, 'wasm',address);
+        let balanceOf2 = await checkBalanceOf(api, 'astar',address);
+        let balanceOf3 = await checkBalanceOf(api, 'shiden',address);
 
         let nfts:NftInfo[] = [];
 
-        let nftInfo = await getInfo(api, 'wasm');
-        let nftInfo2 = await getInfo(api, 'astar');
-        let nftInfo3 = await getInfo(api, 'shiden');
+        if (balanceOf > 0) {
+            let nftInfo = await getInfo(api, 'wasm');
+            nfts.push(nftInfo); 
+        }
+        if (balanceOf2 > 0) {
+            let nftInfo2 = await getInfo(api, 'astar');
+            nfts.push(nftInfo2);
+        }
+        if (balanceOf3 > 0) {
+            let nftInfo3 = await getInfo(api, 'shiden');
+            nfts.push(nftInfo3);            
+        }
 
-        nfts.push(nftInfo);
-        nfts.push(nftInfo2);
-        nfts.push(nftInfo3);
         console.log("nftInfos:", nfts);
         setNftInfos(nfts);
     };
@@ -179,7 +185,7 @@ export function ContractProvider({ children }: any) {
         console.log("nft contract:", contract);
         setIsLoading(true);
 
-         const gasLimit: any = api.registry.createType("WeightV2", {
+        const gasLimit: any = api.registry.createType("WeightV2", {
             refTime: new BN("10000000000"),
             proofSize: new BN("10000000000"),
         });
@@ -231,8 +237,9 @@ export function ContractProvider({ children }: any) {
      * checkBalanceOf function
      * @param api APIオブジェクト
      * @param contentFlg コンテンツフラグ
+     * @param address 残高を確認したいアドレス
      */
-    const checkBalanceOf = async(api:any, contentFlg: string) => {
+    const checkBalanceOf = async(api:any, contentFlg: string, address: string) => {
         // コントラクトインスタンスとアドレスを格納する変数
         var contract;
         var contractAddress = getNftAddress(contentFlg);
@@ -245,8 +252,6 @@ export function ContractProvider({ children }: any) {
             contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
         }
 
-        console.log("nft contract:", contract);
-
         // ガス代を計算
         const gasLimit: any = api.registry.createType("WeightV2", {
             refTime: new BN("10000000000"),
@@ -256,10 +261,9 @@ export function ContractProvider({ children }: any) {
         // call psp34::balanceOf メソッド
         const {result, output} = 
             await contract.query['psp34::balanceOf'](
-                contractAddress,
+                address,
                 { value: 0, gasLimit: gasLimit,storageDepositLimit },
-                actingAddress,
-            );
+                address);
 
         // The actual result from RPC as `ContractExecResult`
         console.log(result.toHuman());
@@ -268,7 +272,7 @@ export function ContractProvider({ children }: any) {
         if (result.isOk) {
             const outputData: any = output;
             console.log('own nft count:', outputData.toString());
-            return outputData.toString();
+            return Number(outputData.toString());
         } else {
             return '';
         }
