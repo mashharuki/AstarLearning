@@ -11,12 +11,16 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 [![](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 [![](https://img.shields.io/badge/polkadot-E6007A?style=for-the-badge&logo=polkadot&logoColor=000)](https://img.shields.io/badge/polkadot-E6007A?style=for-the-badge&logo=polkadot&logoColor=000)
 [![](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white)](https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white)
-[![](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 [![](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
 ## コンセプト・キャッチフレーズ
 
 より多くのエンジニアに、Astar NetworkとWASMコントラクトを理解・学習するきっかけを提供します！
+
+## Astar Learning Dappの全体像
+
+![](./docs/imgs/%E7%8F%BE%E7%8A%B6.drawio.png)
 
 ## What it does
 
@@ -86,6 +90,9 @@ OpenBursh+!inkで開発を行いました。
 |3|WASM NFT|[ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg)|Shibuya| 
 |4|Astar NFT|[a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d)|Shibuya| 
 |5|Shiden NFT|[bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk)|Shibuya| 
+|6|WASM NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
+|7|Astar NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
+|8|Shiden NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
 
 ### 各学習コンテンツ用のURI情報
 
@@ -122,9 +129,23 @@ OpenBursh+!inkで開発を行いました。
 ## 開発した機能
 
 1. ConnectWallet機能
-2. 学習コンテンツ表示画面
-3. 学習コンテンツ一覧表示画面
-4. NFT一覧画面
+2. 学習コンテンツ表示機能
+3. 学習コンテンツ一覧表示機能
+4. NFT一覧表示機能
+5. NFT発行機能
+
+### 今後の課題
+
+1. コンテンツを画面から追加できる機能を実装すること
+2. コンテンツを作成した貢献者に報酬を支払えるようにすること
+3. NFTをSBTに昇華させること
+4. dapp stakingに応募すること
+
+### Astar Learning Dappの理想系 (Version2)
+
+今後は、WASMコントラクトの開発スキルを磨いてDappをバージョンさせたいと考えています。
+
+![](./docs/imgs/%E7%90%86%E6%83%B3.drawio.png)
 
 ### NFT コントラクトオブジェクトの中身
 
@@ -164,13 +185,6 @@ const {result, output} =
         { value: 0, gasLimit: gasLimit,storageDepositLimit },
         address);
 ```
-
-### 今後の課題
-
-1. コンテンツを画面から追加できる機能を実装すること
-2. コンテンツを作成した貢献者に報酬を支払えるようにすること
-3. NFTをSBTに昇華させること
-4. dapp stakingに応募すること
 
 ## 参考文献
 1. [https://openbrush.io/](https://openbrush.io/)
