@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-24T14:53:45.384Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="77jcsxoQ72Y8p7iAz1A5" version="20.8.23" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-24T14:54:20.976Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="omlg7fohWlPeWVyTIbcr" version="20.8.23" type="github" pages="2">
   <diagram name="現状" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="1099" dy="1003" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -63,10 +63,10 @@
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-2" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;ブロックチェーンネットワーク" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="496.25" y="230" width="323" height="400" as="geometry" />
         </mxCell>
-        <mxCell id="LIJdBww6pnUgFBLt4BhZ-3" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="LIJdBww6pnUgFBLt4BhZ-3" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="190" y="370" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="LIJdBww6pnUgFBLt4BhZ-4" value="フロント&lt;br&gt;エンド" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+        <mxCell id="LIJdBww6pnUgFBLt4BhZ-4" value="フロント&lt;br&gt;エンド" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="353" y="373" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-5" value="NFT&lt;br&gt;コントラクト" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
@@ -114,7 +114,7 @@
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-15" value="学習コンテンツ表示" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="430" y="480" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LIJdBww6pnUgFBLt4BhZ-16" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="LIJdBww6pnUgFBLt4BhZ-16" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="190" y="520" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-17" value="&lt;b&gt;コンテンツ作成者&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
