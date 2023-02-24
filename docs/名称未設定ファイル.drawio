@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-24T14:54:20.976Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="omlg7fohWlPeWVyTIbcr" version="20.8.23" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-24T14:54:34.515Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="gcIzf9RbEMy6zIpIdD8U" version="20.8.23" type="github" pages="2">
   <diagram name="現状" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="1099" dy="1003" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -96,8 +96,8 @@
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-10" value="mint 要求" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="440" y="370" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LIJdBww6pnUgFBLt4BhZ-11" value="Astar Learning Dappの理想系" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=23;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="30" y="110" width="330" height="60" as="geometry" />
+        <mxCell id="LIJdBww6pnUgFBLt4BhZ-11" value="Astar Learning Dappの理想系(V2)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=23;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="30" y="110" width="430" height="60" as="geometry" />
         </mxCell>
         <mxCell id="LIJdBww6pnUgFBLt4BhZ-12" value="PSP34準拠" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="612.75" y="427" width="90" height="30" as="geometry" />
