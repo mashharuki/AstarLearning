@@ -1,4 +1,4 @@
-# WasmNFTDapp
+# Astar Learning Dapp
 WASM対応のNFT Dapp開発用のプロダクトです。
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
