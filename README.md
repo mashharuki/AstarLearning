@@ -24,6 +24,8 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ## デモ動画
 
+[https://youtu.be/Db8KYhhMUsI](https://youtu.be/Db8KYhhMUsI)
+
 ## 画面キャプチャ
 
 [こちら](./docs/imgs/README.md)
