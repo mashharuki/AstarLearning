@@ -72,7 +72,7 @@ OpenBursh+!inkで開発を行いました。
 
 ## 学んだこと
 
-!inkとopenbrush、contracts-uiを利用したWASMコントラクトの開発ノウハウを学びました。  
+`!ink`と`openbrush` 、`contracts-ui`を利用したWASMコントラクトの開発ノウハウを学びました。  
 また、課題であったフロントエンドとの接続については学んだことが多く、Next.js及びPolkadot.jsを使ってWASMコントラクトと接続する実装パターンを学びました。特にPSP34コントラクトで実装されている機能の呼び出しは通常の関数の呼び出しとは異なっていたのでかなりハマって苦労いたしました。しかし、そのおかげで継承元の機能を利用できるdapp開発の手法を学ぶことができました。
 
 まだ簡単なコントラクトしか実装できませんが、このハッカソンを土台にEVM対応のコントラクトで実装した複雑な処理をWASMコントラクトでも実装したり、XCMの機能を利用したdappを作れるようにしていきたいと考えています。
@@ -90,26 +90,18 @@ OpenBursh+!inkで開発を行いました。
 |3|WASM NFT|[ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg)|Shibuya| 
 |4|Astar NFT|[a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d)|Shibuya| 
 |5|Shiden NFT|[bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk)|Shibuya| 
-|6|WASM NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
-|7|Astar NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
-|8|Shiden NFT|[](https://contracts-ui.substrate.io/contract/)|Shiden| 
-
-### 各学習コンテンツ用のURI情報
-
-|No.|コンテンツ名|URI|
-|---|---|---|
-|1|AstarNFT|[https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/](https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/)|
-|2|ShidenNFT|[https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/](https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/)|
-|3|WasmNFT|[https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/](https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/)|
+|6|WASM NFT|[YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa](https://contracts-ui.substrate.io/contract/YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa)|Shiden| 
+|7|Astar NFT|[betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE](https://contracts-ui.substrate.io/contract/betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE)|Shiden| 
+|8|Shiden NFT|[XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY](https://contracts-ui.substrate.io/contract/XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY)|Shiden| 
 
 
 ### NFT の画像コンテンツのURI情報
 
 |No.|コンテンツ名|URI|
 |---|---|---|
-|1|AstarNFT|[https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg](https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg)|
-|2|ShidenNFT|[https://ipfs.io/ipfs/QmV4PdFx5n3bXT1ULNZmAZ1dDAoD4BjNqY8JyWpK77imVo?filename=ShidenNFT.001.jpeg](https://ipfs.io/ipfs/QmV4PdFx5n3bXT1ULNZmAZ1dDAoD4BjNqY8JyWpK77imVo?filename=ShidenNFT.001.jpeg)|
-|3|WasmNFT|[https://ipfs.io/ipfs/Qme1eqKbLimotyLbQQqTexPsvR3rHSMGvusG4dDUWpz6BV?filename=WasmNFT.001.jpeg](https://ipfs.io/ipfs/Qme1eqKbLimotyLbQQqTexPsvR3rHSMGvusG4dDUWpz6BV?filename=WasmNFT.001.jpeg)|
+|1|AstarNFT|[https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/](https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg)|
+|2|ShidenNFT|[https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/](https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/)|
+|3|WasmNFT|[https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/](https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/)|
 
 ## ハッカソン案
 
@@ -201,3 +193,5 @@ const {result, output} =
 12. [react-markdownについて](https://floclo.net/pages/cl1lo6qju022509mmmagwkkqu)
 13. [zenn-editor](https://github.com/zenn-dev/zenn-editor)
 14. [stackedit](https://stackedit.io/app#)
+15. [【Astar】EVM上の資産をNativeの資産に変換する方法](https://zenn.dev/mashharuki/articles/bc7591310cd2ad)
+16. [CBridge](https://cbridge-docs.celer.network/introduction/fungible-token-bridging-models)

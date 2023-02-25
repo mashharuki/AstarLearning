@@ -49,7 +49,7 @@ export function ContractProvider({ children }: any) {
     const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>([]);
     const [actingAddress, setActingAddress] = useState('');
     // 接続するネットワークは、ここで切り替える。
-    const [blockchainName, setBlockchainName] = useState('Shibuya');
+    const [blockchainName, setBlockchainName] = useState('Shiden');
     const [blockchainUrl, setBlockchainUrl] = useState('');
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
