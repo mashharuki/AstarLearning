@@ -24,6 +24,15 @@ export type NftInfo = {
     description:string | undefined;
 };
 
+// contextから渡すデータ型
+export type ContextType = {
+    connectWallet: () => Promise<void>;
+    actingAddress: string;
+    isLoading: Boolean;
+    nftInfos: NftInfo[];
+    mint: (contentFlg: string) => Promise<void>;
+};
+
 const proofSize = 131072
 const refTime = 6219235328
 const storageDepositLimit = null

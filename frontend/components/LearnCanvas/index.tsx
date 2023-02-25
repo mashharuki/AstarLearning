@@ -23,7 +23,7 @@ const LearnCanvas = () => {
         actingAddress,
         mint,
         isLoading,
-    } = useContractContext();
+    }:any = useContractContext();
 
     return (
         <div className="text-center">

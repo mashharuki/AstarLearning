@@ -4,6 +4,12 @@ import { useTheme } from 'next-themes';
 import ConnectButton from '../ConnectButton';
 import { useContractContext } from './../../../context'
 
+// contextから渡すデータ型
+export type ContextType = {
+  connectWallet: void;
+  actingAddress: string | undefined;
+};
+
 /**
  * Header Component
  * @returns 
@@ -15,9 +21,9 @@ const Header = (): JSX.Element => {
 
   // create contract
   const {
-    actingAddress,
     connectWallet,
-  } = useContractContext();
+    actingAddress,
+  }:any = useContractContext();
 
   /**
    * displayAddress funciton

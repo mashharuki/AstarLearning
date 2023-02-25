@@ -15,7 +15,7 @@ const IndexCanvas = () => {
   // create contract
   const {
     actingAddress,
-  } = useContractContext();
+  }:any = useContractContext();
 
   return (
     <div className="text-center">

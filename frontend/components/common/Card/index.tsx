@@ -10,7 +10,7 @@ export default function Card() {
   // create contract
   const {
     nftInfos,
-  } = useContractContext();
+  }:any = useContractContext();
 
   return (
     <div className="border-[#d8d2c5] dark:border-[#323943] bg-[#f4efe2] dark:bg-[#121923]">
