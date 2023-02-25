@@ -22,6 +22,12 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ![](./docs/imgs/%E7%8F%BE%E7%8A%B6.drawio.png)
 
+## デモ動画
+
+## 画面キャプチャ
+
+[こちら](./docs/imgs/README.md)
+
 ## What it does
 
 Learing Astar Dappは、気軽にWASMやAstar Networkなどについて学べる教育系のWeb3プロダクトです。  
