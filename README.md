@@ -30,7 +30,7 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ## What it does
 
-Learing Astar Dappは、気軽にWASMやAstar Networkなどについて学べる教育系のWeb3プロダクトです。  
+AstarLearning Dappは、気軽にWASMやAstar Networkなどについて学べる教育系のWeb3プロダクトです。  
 
 ただ学習するだけではなく、用意したコンテンツに最後まで目を通して理解した学習者(ユーザー)には、NFTをミントするチャンスが与えられ、WASM上で動作するNFTコントラクトの機能を使って学習歴のNFTを発行することができます。
 
