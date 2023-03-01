@@ -20,11 +20,15 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ## Astar Learning Dappの全体像
 
-![](./docs/imgs/%E7%8F%BE%E7%8A%B6.drawio.png)
+[![](./docs/imgs/%E7%8F%BE%E7%8A%B6.drawio.png)]()
 
 ## デモ動画
 
 [https://youtu.be/Db8KYhhMUsI](https://youtu.be/Db8KYhhMUsI)
+
+## ピッチ資料
+
+[【Canva】ピッチ資料](https://www.canva.com/design/DAFb1lojVuI/Ggy_rJZLHQCysQhNjoe8Mw/edit?utm_content=DAFb1lojVuI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## 画面キャプチャ
 
