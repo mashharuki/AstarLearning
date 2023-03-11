@@ -8,12 +8,20 @@ use ink_lang as ink;
 #[ink::contract]
 mod content {
 
+    use ink_prelude::string::String;
+
     /**
      * コントラクトで取り扱うStruct
      */
+    #[derive(Clone)] 
     #[ink(storage)]
     pub struct Content {
-        value: bool,
+        title: String,
+        content: String,
+        goods: u64,
+        quizs: Vec<String>,
+        answer: u8,
+        imageurl: String
     }
 
     /**
@@ -21,26 +29,30 @@ mod content {
      */
     impl Content {
         
+        // 初期化関数
         #[ink(constructor)]
         pub fn new(init_value: bool) -> Self {
-            Self { value: init_value }
+            Self { 
+                title: Default::default(),
+                content: Default::default(),
+                goods: Default::default(),
+                quizs: Default::default(),
+                answer: Default::default(),
+                imageurl: Default::default()
+            }
         }
 
+        // 初期化関数2
         #[ink(constructor)]
         pub fn default() -> Self {
             Self::new(Default::default())
         }
 
         #[ink(message)]
-        pub fn flip(&mut self) {
-            self.value = !self.value;
+        pub fn getGoods(&mut self) -> u64 {
+            self.goods
         }
-
-        /// Simply returns the current value of our `bool`.
-        #[ink(message)]
-        pub fn get(&self) -> bool {
-            self.value
-        }
+        
     }
 
     /**
@@ -58,7 +70,6 @@ mod content {
         #[ink::test]
         fn default_works() {
             let content = Content::default();
-            assert_eq!(content.get(), false);
         }
 
     }
