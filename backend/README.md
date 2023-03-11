@@ -7,3 +7,22 @@
 ```bash
 cargo contract new myContract
 ```
+
+## 独自の型を定義するとき
+
+```rs
+/// A custom type that we can use in our contract storage
+#[derive(scale::Decode, scale::Encode)]
+#[cfg_attr(
+    feature = "std",
+    derive(scale_info::TypeInfo, ink::storage::traits::StorageLayout)
+)]
+pub struct Inner {
+    value: bool,
+}
+
+#[ink(storage)]
+pub struct ContractStorage {
+    inner: Inner,
+}
+```

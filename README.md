@@ -213,3 +213,4 @@ const {result, output} =
 14. [stackedit](https://stackedit.io/app#)
 15. [【Astar】EVM上の資産をNativeの資産に変換する方法](https://zenn.dev/mashharuki/articles/bc7591310cd2ad)
 16. [CBridge](https://cbridge-docs.celer.network/introduction/fungible-token-bridging-models)
+17. [【!ink Docs】Using custom types on storage](https://use.ink/datastructures/custom-datastructure)
