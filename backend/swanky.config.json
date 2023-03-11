@@ -33,6 +33,12 @@
         "timestamp": 1676990866339,
         "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/nft/1676990866339"
       }
+    },
+    "content": {
+      "name": "content",
+      "deployments": [],
+      "language": "ink",
+      "build": {}
     }
   },
   "networks": {
