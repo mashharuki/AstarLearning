@@ -136,6 +136,10 @@ const {result, output} =
         address);
 ```
 
+## V2用のFigma
+
+[画面遷移イメージ図](https://www.figma.com/file/OwN0rRoVFEKXISc1TyjCcH/Astat-Learning-V2?node-id=0%3A1&t=s3f9spGXez8BjHUs-1)
+
 ## 参考文献
 1. [https://openbrush.io/](https://openbrush.io/)
 2. [psp34_contract](https://github.com/k-c-h-a-n/psp34_contract)
