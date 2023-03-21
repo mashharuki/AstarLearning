@@ -8,6 +8,12 @@
 cargo contract new myContract
 ```
 
+### nightly でビルドする方法
+
+```bash
+cargo +nightly contract build
+```
+
 ## 独自の型を定義するとき
 
 ```rs

@@ -2,6 +2,10 @@
 
 use ink_lang as ink;
 
+pub use self::content::{
+    ContentInfo
+};
+
 /**
  * Content コントラクト
  */
@@ -9,19 +13,39 @@ use ink_lang as ink;
 mod content {
 
     use ink_prelude::string::String;
+    use ink_prelude::vec::Vec;
+    use scale::{
+        Decode,
+        Encode,
+    };
+    use ink_storage::{
+        traits::*,
+    };
 
     /**
-     * コントラクトで取り扱うStruct
+     * コンテンツ情報を取り扱うStruct
      */
-    #[derive(Clone)] 
-    #[ink(storage)]
-    pub struct Content {
+    #[derive(Clone, Encode, Decode, SpreadLayout, PackedLayout, SpreadAllocate, Default)]
+    #[cfg_attr(
+        feature = "std",
+        derive(Debug, PartialEq, Eq, scale_info::TypeInfo, StorageLayout)
+    )]
+    pub struct ContentInfo {
+        contentId: u64,
         title: String,
         content: String,
         goods: u64,
         quizs: Vec<String>,
         answer: u8,
-        imageurl: String
+        imageurl: String,
+    }
+
+    /**
+     * コンテンツを配列にしてまとめるStruct
+     */
+    #[ink(storage)]
+    pub struct Content {
+        contents: Vec<ContentInfo>,
     }
 
     /**
@@ -31,26 +55,19 @@ mod content {
         
         // 初期化関数
         #[ink(constructor)]
-        pub fn new(init_value: bool) -> Self {
-            Self { 
-                title: Default::default(),
-                content: Default::default(),
-                goods: Default::default(),
-                quizs: Default::default(),
-                answer: Default::default(),
-                imageurl: Default::default()
-            }
+        pub fn new() -> Self {
+            Self::new()
         }
 
         // 初期化関数2
         #[ink(constructor)]
         pub fn default() -> Self {
-            Self::new(Default::default())
+            Self::new()
         }
 
         #[ink(message)]
-        pub fn getGoods(&mut self) -> u64 {
-            self.goods
+        pub fn getContents(&mut self) -> Vec<ContentInfo> {
+            self.contents
         }
         
     }
