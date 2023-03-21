@@ -1,5 +1,6 @@
-# Astar Learning Dapp
-WASM対応のNFT Dapp開発用のプロダクトです。
+# Astar Learning
+
+WASM 対応の NFT Dapp 開発用のプロダクトです。
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
@@ -16,9 +17,9 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ## コンセプト・キャッチフレーズ
 
-より多くのエンジニアに、Astar NetworkとWASMコントラクトを理解・学習するきっかけを提供します！
+より多くのエンジニアに、Astar Network と WASM コントラクトを理解・学習するきっかけを提供します！
 
-## Astar Learning Dappの全体像
+## Astar Learning Dapp の全体像
 
 [![](./docs/imgs/%E7%8F%BE%E7%8A%B6.drawio.png)]()
 
@@ -36,33 +37,33 @@ WASM対応のNFT Dapp開発用のプロダクトです。
 
 ## What it does
 
-AstarLearning Dappは、気軽にWASMやAstar Networkなどについて学べる教育系のWeb3プロダクトです。  
+AstarLearning は、気軽に WASM や Astar Network などについて学べる教育系の Web3 プロダクトです。
 
-ただ学習するだけではなく、用意したコンテンツに最後まで目を通して理解した学習者(ユーザー)には、NFTをミントするチャンスが与えられ、WASM上で動作するNFTコントラクトの機能を使って学習歴のNFTを発行することができます。
+ただ学習するだけではなく、用意したコンテンツに最後まで目を通して理解した学習者(ユーザー)には、NFT をミントするチャンスが与えられ、WASM 上で動作する NFT コントラクトの機能を使って学習歴の NFT を発行することができます。
 
-ユーザーは、このDappに触れる一環で知識を得るだけでなくWASMコントラクトを利用した実装例を体感できるので、Dappの実装イメージを膨らませることができます。  
+ユーザーは、この Dapp に触れる一環で知識を得るだけでなく WASM コントラクトを利用した実装例を体感できるので、Dapp の実装イメージを膨らませることができます。
 
-これにより一人でも多くのエンジニアにWASM Dappの魅力を伝え、まだまだ少数であるWASMコントラクト開発者を増やすきっかけを増やすことを目的としています。
+これにより一人でも多くのエンジニアに WASM Dapp の魅力を伝え、まだまだ少数である WASM コントラクト開発者を増やすきっかけを増やすことを目的としています。
 
 ## The problem it solves
 
-この Learing Astar Dappで解決しようとしている課題は下記3点です。
+この Learing Astar Dapp で解決しようとしている課題は下記 3 点です。
 
-- まだまだWASMコントラクト開発者が少数であること
-- 気軽にWASMやAstar Networkについて学べるコンテンツが少ないこと
-- WASMを利用したDappの実装例がまだまだ世に広く知れ渡っておらず、メリットなどが伝わりにくいこと
+- まだまだ WASM コントラクト開発者が少数であること
+- 気軽に WASM や Astar Network について学べるコンテンツが少ないこと
+- WASM を利用した Dapp の実装例がまだまだ世に広く知れ渡っておらず、メリットなどが伝わりにくいこと
 
 ## 採用した技術
 
-|No.|名称|概要|
-|----|----|----|
-|1|!ink|スマートコントラクト開発言語|
-|2|Next.js|フロントエンド開発フレームワーク|
-|3|swanky|スマートコントラクト開発フレームワーク|
-|4|TypeScript|フロントエンド開発言語|
-|5|NFTStorage|NFT用のメタデータ保管ストレージ|
-|6|Tailwind|フロントエンド用のCSSフレームワーク|
-|7|Contract-UI|スマートコントラクトのデプロイ・検証のため|
+| No. | 名称        | 概要                                       |
+| --- | ----------- | ------------------------------------------ |
+| 1   | !ink        | スマートコントラクト開発言語               |
+| 2   | Next.js     | フロントエンド開発フレームワーク           |
+| 3   | swanky      | スマートコントラクト開発フレームワーク     |
+| 4   | TypeScript  | フロントエンド開発言語                     |
+| 5   | NFTStorage  | NFT 用のメタデータ保管ストレージ           |
+| 6   | Tailwind    | フロントエンド用の CSS フレームワーク      |
+| 7   | Contract-UI | スマートコントラクトのデプロイ・検証のため |
 
 ## デプロイしたブロックチェーン
 
@@ -71,29 +72,28 @@ AstarLearning Dappは、気軽にWASMやAstar Networkなどについて学べる
 
 ## デプロイしたコントラクト
 
-|No.|コントラクト名|Contract UI|ネットワーク|
-|---|---|---|---|
-|1|Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY|[Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY)|Shibuya| 
-|2|ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3|[XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH)|Shibuya| 
-|3|WASM NFT|[ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg)|Shibuya| 
-|4|Astar NFT|[a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d)|Shibuya| 
-|5|Shiden NFT|[bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk)|Shibuya| 
-|6|WASM NFT|[YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa](https://contracts-ui.substrate.io/contract/YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa)|Shiden| 
-|7|Astar NFT|[betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE](https://contracts-ui.substrate.io/contract/betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE)|Shiden| 
-|8|Shiden NFT|[XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY](https://contracts-ui.substrate.io/contract/XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY)|Shiden| 
+| No. | コントラクト名                                  | Contract UI                                                                                                                                   | ネットワーク |
+| --- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 1   | Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY | [Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY](https://contracts-ui.substrate.io/contract/Zswfvk6DnuRtFHSRa4J4Q5hFVSh1tFsenEF2y8pQ2AQxXAY) | Shibuya      |
+| 2   | ZvVKURvqWEF3hJEZWUYpprx9o1JuXxUVFyEfjHaodFzD9F3 | [XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH](https://contracts-ui.substrate.io/contract/XVqUJZtMP5cAyJeFPE6coWtTnAno3KJsWeP2ByhH4Bt3nRH) | Shibuya      |
+| 3   | WASM NFT                                        | [ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg) | Shibuya      |
+| 4   | Astar NFT                                       | [a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d) | Shibuya      |
+| 5   | Shiden NFT                                      | [bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk) | Shibuya      |
+| 6   | WASM NFT                                        | [YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa](https://contracts-ui.substrate.io/contract/YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa) | Shiden       |
+| 7   | Astar NFT                                       | [betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE](https://contracts-ui.substrate.io/contract/betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE) | Shiden       |
+| 8   | Shiden NFT                                      | [XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY](https://contracts-ui.substrate.io/contract/XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY) | Shiden       |
 
+### NFT の画像コンテンツの URI 情報
 
-### NFT の画像コンテンツのURI情報
+| No. | コンテンツ名 | URI                                                                                                                                                                                         |
+| --- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | AstarNFT     | [https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/](https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg) |
+| 2   | ShidenNFT    | [https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/](https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/)      |
+| 3   | WasmNFT      | [https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/](https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/)      |
 
-|No.|コンテンツ名|URI|
-|---|---|---|
-|1|AstarNFT|[https://bafkreify7jpiz52g5q65jbhogpj4ymskfbb7mhzkenfdlect6i7gcfx3zu.ipfs.nftstorage.link/](https://ipfs.io/ipfs/Qma5kTpy6sBfMvHUE4PyWLFWQ5gMxUXhJK9Lx3hi4o5mNf?filename=AstarNFT.001.jpeg)|
-|2|ShidenNFT|[https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/](https://bafkreie6u3nvkt6psgjcltrajt4lurns52wol224ldaz54ke7bvzzhpiay.ipfs.nftstorage.link/)|
-|3|WasmNFT|[https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/](https://bafkreibda43dd7n37wjxnitiq74tlmxjguzs6mbawkki66sxuhfexhd7le.ipfs.nftstorage.link/)|
+### Astar Learning Dapp の理想系 (Version2)
 
-### Astar Learning Dappの理想系 (Version2)
-
-今後は、WASMコントラクトの開発スキルを磨いてDappをバージョンさせたいと考えています。
+今後は、WASM コントラクトの開発スキルを磨いて Dapp をバージョンさせたいと考えています。
 
 ![](./docs/imgs/%E7%90%86%E6%83%B3.drawio.png)
 
@@ -116,7 +116,7 @@ query
     psp34Metadata::getAttribute
 ```
 
-### NFTのミントメソッド実装例(スマートコントラクト)
+### NFT のミントメソッド実装例(スマートコントラクト)
 
 ```rs
 // call _mint_to function
@@ -129,18 +129,19 @@ Ok(())
 ### 継承した`PSP34`のコントラクトの機能を呼び出す場合の実装例
 
 ```ts
-const {result, output} = 
-    await contract.query['psp34::balanceOf'](
-        address,
-        { value: 0, gasLimit: gasLimit,storageDepositLimit },
-        address);
+const { result, output } = await contract.query["psp34::balanceOf"](
+  address,
+  { value: 0, gasLimit: gasLimit, storageDepositLimit },
+  address
+);
 ```
 
-## V2用のFigma
+## V2 用の Figma
 
 [画面遷移イメージ図](https://www.figma.com/file/OwN0rRoVFEKXISc1TyjCcH/Astat-Learning-V2?node-id=0%3A1&t=s3f9spGXez8BjHUs-1)
 
 ## 参考文献
+
 1. [https://openbrush.io/](https://openbrush.io/)
 2. [psp34_contract](https://github.com/k-c-h-a-n/psp34_contract)
 3. [psp34_frontend](https://github.com/k-c-h-a-n/psp34_contract/tree/main/nft-collectible-frontend)
@@ -152,9 +153,13 @@ const {result, output} =
 9. [Sample Upgradeable Contracts](https://github.com/paritytech/ink/tree/master/examples/upgradeable-contracts)
 10. [sol2ink](https://github.com/727-Ventures/sol2ink)
 11. [how-to-call-openbrush-contract-from-front-end-app](https://stackoverflow.com/questions/74083616/how-to-call-openbrush-contract-from-front-end-app)
-12. [react-markdownについて](https://floclo.net/pages/cl1lo6qju022509mmmagwkkqu)
+12. [react-markdown について](https://floclo.net/pages/cl1lo6qju022509mmmagwkkqu)
 13. [zenn-editor](https://github.com/zenn-dev/zenn-editor)
 14. [stackedit](https://stackedit.io/app#)
-15. [【Astar】EVM上の資産をNativeの資産に変換する方法](https://zenn.dev/mashharuki/articles/bc7591310cd2ad)
+15. [【Astar】EVM 上の資産を Native の資産に変換する方法](https://zenn.dev/mashharuki/articles/bc7591310cd2ad)
 16. [CBridge](https://cbridge-docs.celer.network/introduction/fungible-token-bridging-models)
 17. [【!ink Docs】Using custom types on storage](https://use.ink/datastructures/custom-datastructure)
+18. [Micromodal.js](https://micromodal.vercel.app/)
+19. [タブやモーダルなど、よく見かけるフロントエンド UI コンポーネントの紹介と実装サンプル集](https://www.hypertextcandy.com/frontend-ui-components-and-coding-samples)
+20. [TailwindCSS + Alpine.js でモーダルダイアログを作ろう](https://blog.makotoishida.com/2021/07/tailwindcss-alpinejs.html)
+21. [React でいいねボタンを作ろう](https://typescriptbook.jp/tutorials/react-like-button-tutorial)
