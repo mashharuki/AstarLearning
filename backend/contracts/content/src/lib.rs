@@ -67,7 +67,7 @@ mod content {
 
         #[ink(message)]
         pub fn getContents(&mut self) -> Vec<ContentInfo> {
-            self.contents
+            self.contents.clone()
         }
         
     }
