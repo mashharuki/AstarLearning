@@ -1,0 +1,16 @@
+{
+  "name": "AstarLearning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mashharuki/AstarLearning.git",
+  "author": "mashharuki",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "compile:all": "yarn workspace backend compile:all",
+    "start:frontend": "yarn workspace frontend dev"
+  }
+}
