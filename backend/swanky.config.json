@@ -39,8 +39,8 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1679553202454,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/content/1679553202454"
+        "timestamp": 1679835753657,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/backend/artifacts/content/1679835753657"
       }
     }
   },

@@ -38,6 +38,7 @@ mod content {
         quizs: Vec<String>,
         answer: u8,
         imageurl: String,
+        nftAddress: String,
     }
 
     /**

@@ -8,6 +8,7 @@ export type ContentInfo = {
 	goods: number,
 	quizs: Array<string>,
 	answer: number,
-	imageurl: string
+	imageurl: string,
+	nftAddress: string
 }
 
