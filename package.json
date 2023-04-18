@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "compile:all": "yarn workspace backend compile:all",
-    "start:frontend": "yarn workspace frontend dev"
+    "frontend:start": "yarn workspace frontend dev",
+    "frontend:build": "yarn workspace frontend build"
   }
 }
