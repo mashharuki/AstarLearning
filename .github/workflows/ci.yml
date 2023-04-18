@@ -25,10 +25,8 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - name: install swanky
-        run: yarn add global @astar-network/swanky-cli
       - name: Contract Compile
-        run: yarn compile:all
+        run: npx @astar-network/swanky-cli compile:all
 
   frontend-build:
     runs-on: ubuntu-latest
