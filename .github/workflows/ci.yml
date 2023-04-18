@@ -26,6 +26,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Contract Compile
+        run : yarn add global @astar-network/swanky-cli
         run: yarn compile:all
 
   frontend-build:
@@ -39,6 +40,6 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Frontend build
-        run: yarn frontend:frontend
+        run: yarn frontend:build
         env:
           CI: false
