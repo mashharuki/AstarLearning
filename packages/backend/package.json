@@ -6,14 +6,13 @@
   "scripts": {
     "run-node": "swanky node start",
     "test": "mocha -r ts-node/register \"test/**/*.test.ts\" --exit --timeout 20000",
-      "test:nft": "cd contracts/nft && cargo +nightly contract test",
-      "test:content": "cd contracts/content && cargo +nightly contract test",
+    "test:nft": "cd contracts/nft && cargo +nightly contract test",
+    "test:content": "cd contracts/content && cargo +nightly contract test",
     "build": "cd contracts/nft && cargo +nightly contract build",
     "compile:all": "npm run compile:nft && npm run compile:content",
-      "compile:nft": "swanky contract compile nft -v",
-      "compile:content": "swanky contract compile content -v",
-    "deploy:shibuya": "swanky contract deploy nft --gas 10000000000 --args --account devWallet  --network shibuya",
-    "postinstall": "patch-package"
+    "compile:nft": "swanky contract compile nft -v",
+    "compile:content": "swanky contract compile content -v",
+    "deploy:shibuya": "swanky contract deploy nft --gas 10000000000 --args --account devWallet  --network shibuya"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -21,9 +20,10 @@
   "dependencies": {
     "@supercolony/typechain-compiler": "^0.5.1-beta.1",
     "@supercolony/typechain-types": "^0.0.16",
-    "typescript": "^4.9.3",
-    "patch-package": "^6.4.7"
-},
+    "patch-package": "^6.5.1",
+    "postinstall-postinstall": "^2.1.0",
+    "typescript": "^4.9.3"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/chai-as-promised": "^7.1.5",

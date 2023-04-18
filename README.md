@@ -171,3 +171,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 27. [Arweave Graphql playground2](https://arweave-search.goldsky.com/graphql)
 28. [Aweave Sample App](https://arweave.app/add)
 29. [Get An Arweave Wallet](https://docs.bundlr.network/tutorials/get-arweave-wallet)
+30. [Arweave GraphQL Guide](https://gql-guide.vercel.app/)

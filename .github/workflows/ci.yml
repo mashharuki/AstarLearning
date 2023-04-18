@@ -12,7 +12,7 @@ jobs:
         id: npm-cache
         with:
           path: "**/node_modules"
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-{{ checksum "patches.hash" }}
       - name: Install packages
         run: yarn
 
