@@ -25,8 +25,8 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Contract test
-        run: yarn test:contract
+      - name: Contract Compile
+        run: yarn compile:all
 
   frontend-build:
     runs-on: ubuntu-latest
@@ -39,6 +39,6 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Frontend build
-        run: yarn build:frontend
+        run: yarn frontend:frontend
         env:
           CI: false
