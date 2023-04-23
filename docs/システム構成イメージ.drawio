@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-23T07:38:40.860Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="oMFx_2B9wT-wvUc6E2iX" version="21.2.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-04-23T07:38:47.188Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="q84ZCsGszQ04FFbsuFiS" version="21.2.1" type="github" pages="3">
   <diagram name="現状" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="2074" dy="1192" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -182,7 +182,7 @@
           <mxGeometry x="20" y="220" width="350" height="300" as="geometry" />
         </mxCell>
         <mxCell id="mrurAFcFhLq_J1csuuHi-2" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-          <mxGeometry x="420" y="220" width="390" height="580" as="geometry" />
+          <mxGeometry x="420" y="220" width="390" height="540" as="geometry" />
         </mxCell>
         <mxCell id="mrurAFcFhLq_J1csuuHi-3" value="NFTコントラクト" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=17;" parent="1" vertex="1">
           <mxGeometry x="130" y="250" width="150" height="30" as="geometry" />
