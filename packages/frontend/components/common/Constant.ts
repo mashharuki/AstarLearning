@@ -3,6 +3,11 @@
  */
 export const BLOCKCHAINS = [
     {
+      name: 'Astar',
+      url: 'wss://astar.api.onfinality.io/public-ws',
+      subscan_url: 'https://astar.subscan.io/account/',
+    },
+    {
       name: 'Shiden', 
       url: 'wss://shiden.api.onfinality.io/public-ws',
       subscan_url: 'https://shiden.subscan.io/account/',
