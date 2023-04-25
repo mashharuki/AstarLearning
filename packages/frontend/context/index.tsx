@@ -58,7 +58,7 @@ export function ContractProvider({ children }: any) {
     const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>([]);
     const [actingAddress, setActingAddress] = useState('');
     // 接続するネットワークは、ここで切り替える。
-    const [blockchainName, setBlockchainName] = useState('Shiden');
+    const [blockchainName, setBlockchainName] = useState('Shibuya');
     const [blockchainUrl, setBlockchainUrl] = useState('');
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
@@ -249,7 +249,7 @@ export function ContractProvider({ children }: any) {
      * @param contentFlg コンテンツフラグ
      * @param address 残高を確認したいアドレス
      */
-    const checkBalanceOf = async(api:any, contentFlg: string, address: string) => {
+    const checkBalanceOf = async(api:any, contentFlg: string, address: string): Promise<number> => {
         // コントラクトインスタンスとアドレスを格納する変数
         var contract;
         var contractAddress = getNftAddress(contentFlg);
@@ -284,7 +284,7 @@ export function ContractProvider({ children }: any) {
             console.log('own nft count:', outputData.toString());
             return Number(outputData.toString());
         } else {
-            return '';
+            return 0;
         }
     }
 

@@ -15,6 +15,35 @@ WASM 対応の NFT Dapp 開発用のプロダクトです。
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 [![](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
+## 動作確認済み環境情報
+
+|No.|Name|Version|
+|---|---|---|
+|1|yarn|1.22.19|
+|2|Swanky|1.0.7|
+|3|Node.js|18.12.1|
+
+
+## 動かし方
+
+- モジュールのインストール
+
+```bash
+yarn
+```
+
+- フロントエンド
+
+```bash
+yarn frontend:start
+```
+
+- スマートコントラクトのコンパイル
+
+```bash
+yarn compile:all
+``` 
+
 ## コンセプト・キャッチフレーズ
 
 より多くのエンジニアに、Astar Network と WASM コントラクトを理解・学習するきっかけを提供します！
@@ -172,3 +201,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 28. [Aweave Sample App](https://arweave.app/add)
 29. [Get An Arweave Wallet](https://docs.bundlr.network/tutorials/get-arweave-wallet)
 30. [Arweave GraphQL Guide](https://gql-guide.vercel.app/)
+31. [HackaDot Summer 2023](https://www.hackadot.xyz/)
