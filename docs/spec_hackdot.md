@@ -1,4 +1,4 @@
-# HackaDot Summer 2023 に向けたMVPの設定と開発案
+# HackaDot Summer 2023 に向けたMVPの設計と開発案
 
 ## Astar Learningのコアバリュー
 
