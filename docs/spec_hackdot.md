@@ -4,7 +4,7 @@
 
 - システム概要図
 
-![](./imgs/%E7%90%86%E6%83%B3.drawio.png)
+![](./imgs/Hackdot.drawio.png)
 
 - システムイメージ図
 
