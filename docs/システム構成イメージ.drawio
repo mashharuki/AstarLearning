@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-23T07:38:47.188Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="q84ZCsGszQ04FFbsuFiS" version="21.2.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-04-25T12:16:34.628Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="D-TWzh7ZC1P-OlhapT9a" version="21.2.1" type="github" pages="4">
   <diagram name="現状" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
-    <mxGraphModel dx="2074" dy="1192" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1385" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -53,7 +53,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="b72MH92Sac5sTVVwrYgV" name="理想">
-    <mxGraphModel dx="2074" dy="1192" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1385" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -168,7 +168,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="h66j6SNEk0Vg9B7UiVkY" name="コントラクトの設計案">
-    <mxGraphModel dx="2074" dy="1192" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1385" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -201,6 +201,172 @@
         </mxCell>
         <mxCell id="mrurAFcFhLq_J1csuuHi-8" value="【メソッド】&lt;br&gt;　コンテンツデータ作成メソッド&lt;br&gt;&amp;nbsp; &amp;nbsp; コンテンツデータのgetterメソッド&lt;br&gt;&amp;nbsp; &amp;nbsp; (名前、内容、クイズ内容を取得できる&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;メソッド)&lt;br&gt;&amp;nbsp; &amp;nbsp; &lt;br&gt;&amp;nbsp; &amp;nbsp; NFTコントラクトのsetter/getter&lt;br&gt;&amp;nbsp; &amp;nbsp; ImageまでのURLのsetter/getter&lt;br&gt;　いいねの数を増やすメソッド&lt;br&gt;&amp;nbsp; &amp;nbsp; いいねの数を取得するメソッド&lt;br&gt;&amp;nbsp; &amp;nbsp; 回答を取得するメソッド" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=17;" parent="1" vertex="1">
           <mxGeometry x="450" y="500" width="350" height="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="h_fHJ2sUOUQPs-vEbL0L" name="Hackdot">
+    <mxGraphModel dx="1273" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TMlT2bsJkchdBJofvT9k-1" value="&lt;b&gt;ユーザー&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="79" y="270" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-2" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;ブロックチェーンネットワーク" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="489" y="120" width="319.25" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-3" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="179" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-4" value="フロント&lt;br&gt;エンド" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="342" y="263" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-5" value="NFT&lt;br&gt;コントラクト" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="593" y="264" width="107.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-6" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="432" y="313" as="sourcePoint" />
+            <mxPoint x="339" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-7" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-1" target="TMlT2bsJkchdBJofvT9k-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="269" y="310" as="sourcePoint" />
+            <mxPoint x="359" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-8" value="Dappにアクセス&lt;br&gt;必要に応じて署名" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-9" value="mint 要求" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="459" y="270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-10" value="HackDotで拡張するAstar Learning 像&lt;br&gt;MVP 案" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=23;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="18" y="20" width="471" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-11" value="PSP34準拠" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="601.75" y="317" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-12" value="コンテンツ&lt;br&gt;コントラクト" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="593" y="370" width="107.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-13" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-4" target="TMlT2bsJkchdBJofvT9k-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="432" y="313" as="sourcePoint" />
+            <mxPoint x="603" y="314" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-14" value="学習コンテンツ表示" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="419" y="370" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-15" value="ウォレット" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="179" y="410" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-16" value="&lt;b&gt;コンテンツ作成者&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="79" y="420" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-17" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-16" target="TMlT2bsJkchdBJofvT9k-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="109" y="440" as="sourcePoint" />
+            <mxPoint x="189" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-18" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-15" target="TMlT2bsJkchdBJofvT9k-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="119" y="460" as="sourcePoint" />
+            <mxPoint x="189" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-19" value="コンテンツを作成" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="279" y="410" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-20" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;entryX=0.425;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;curved=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-12" target="TMlT2bsJkchdBJofvT9k-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="429" y="580" as="sourcePoint" />
+            <mxPoint x="489" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="599" y="450" />
+              <mxPoint x="599" y="560" />
+              <mxPoint x="213" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-21" value="良質な学習コンテンツの作成者にはリワードを支払う" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="290" y="570" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-22" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-4" target="TMlT2bsJkchdBJofvT9k-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="432" y="313" as="sourcePoint" />
+            <mxPoint x="603" y="314" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-23" value="dapp Stakingで&lt;br&gt;得た報酬" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="593" y="560" width="107.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-24" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="TMlT2bsJkchdBJofvT9k-23" target="TMlT2bsJkchdBJofvT9k-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="509" y="817" as="sourcePoint" />
+            <mxPoint x="592" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-25" value="報酬をコンテンツ&lt;br&gt;コントラクトに送金" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="659" y="483" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-26" value="コンテンツを閲覧&lt;br&gt;いいね" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="259" y="240" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-27" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;textOpacity=30;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="654" y="478" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-28" value="ここは将来的に対応&lt;br style=&quot;font-size: 14px;&quot;&gt;※ 今回は除外" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="730" y="545" width="181" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-29" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;textOpacity=30;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="279" y="410" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-30" value="ここは将来的に対応&lt;br style=&quot;font-size: 14px;&quot;&gt;※ 今回は裏から直接登録&lt;br&gt;&amp;nbsp; &amp;nbsp; できればOKとする。" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="279" y="450" width="181" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-31" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;textOpacity=30;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="28.5" y="174" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-32" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d80073;strokeColor=#A50040;fontStyle=1;textOpacity=30;opacity=50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="28.5" y="134" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-33" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1;textOpacity=30;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="28.5" y="94" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-34" value="既に実装済み" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="190" y="94" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-35" value="今回のハッカソンで新規に開発or拡張する部分" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="190" y="134" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-36" value="今回は除外する範囲" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="190" y="174" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-37" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1;textOpacity=30;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="583.13" y="260" width="126.87" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-38" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d80073;strokeColor=#A50040;fontStyle=1;textOpacity=30;opacity=50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="329" y="260" width="111" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-39" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d80073;strokeColor=#A50040;fontStyle=1;textOpacity=30;opacity=50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="593" y="365" width="111" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-40" value="このコントラクトは&lt;br&gt;完全新規で開発する。" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="720" y="390" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-41" value="学習コンテンツを表示する画面を中心に機能拡張" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="384" y="220" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-42" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d80073;strokeColor=#A50040;fontStyle=1;textOpacity=30;opacity=50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="278" y="560" width="262" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-43" value="今回は、プロトタイプとしてまずは&lt;br&gt;「いいね」が加算されるとその度にリワードが送金されるという仕組みにする。&lt;br&gt;&lt;br&gt;将来的には複合的な観点で評価できる&lt;br&gt;アルゴリズムに変更していきたい・・。" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="279" y="650" width="307.5" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
