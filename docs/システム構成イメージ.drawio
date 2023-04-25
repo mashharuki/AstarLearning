@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-25T12:13:25.343Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="fTR4TGj5U7by7ssA-Bvr" version="21.2.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-04-25T12:16:34.628Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="D-TWzh7ZC1P-OlhapT9a" version="21.2.1" type="github" pages="4">
   <diagram name="現状" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="1385" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -361,6 +361,12 @@
         </mxCell>
         <mxCell id="TMlT2bsJkchdBJofvT9k-41" value="学習コンテンツを表示する画面を中心に機能拡張" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="384" y="220" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-42" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d80073;strokeColor=#A50040;fontStyle=1;textOpacity=30;opacity=50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="278" y="560" width="262" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TMlT2bsJkchdBJofvT9k-43" value="今回は、プロトタイプとしてまずは&lt;br&gt;「いいね」が加算されるとその度にリワードが送金されるという仕組みにする。&lt;br&gt;&lt;br&gt;将来的には複合的な観点で評価できる&lt;br&gt;アルゴリズムに変更していきたい・・。" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#fd082c;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="279" y="650" width="307.5" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
