@@ -49,17 +49,37 @@ WASMに対応したDAppは、EVMに比べるとまだまだ少ない。
 
 |No.|変数名|型|概要|
 |:----|:----|:----|:----|
-|1||||
-|2||||
-|3||||
+|1|contents|[ContentInfo]|コンテンツ情報を配列で格納する変数。ContentInfoは、独自の型として定義する。|
+|1|contentLastId|u8|コンテンツIDを割り振るための変数。割り振られるたびに1加算していく。|
+
+- <b>ContentInfo</b>で定義する変数
+
+|No.|変数名|型|概要|デフォルト値|
+|:----|:----|:----|:----|:----|
+|1|contentId|u64|コンテンツごとに割り振るID・自動連番とする。|0|
+|2|title|String|コンテンツのタイトル(Markdownの形式で保管)||
+|3|intro|String|コンテンツ見出しの情報(Markdownの形式で保管)||
+|4|content|String|コンテンツ本体の情報(Markdownの形式で保管)||
+|5|goods|u64|「いいね」の数を保管(もしかしたら今回は、使わないかも)|0|
+|6|quizs|[String]|4択の問題文を配列で格納する変数||
+|7|answer|u8|問題の正解番号を格納する変数||
+|8|imageUrl|String|コンテンツで使う画像ファイルまでURLを格納する変数||
+|9|nftAddress|String|NFTコントラクトのアドレスを格納する変数||
+|10|creator|String|コンテンツ作成者のアドレスを格納する変数||
 
 #### 関数
 
 |No.|関数名|パラメータ(型)|戻り値(型)|概要|
 |:----|:----|:----|:----|:----|
-|1|||||
-|2|||||
-|3|||||
+|1|new||Self|初期化関数|
+|2|default||Self|初期化関数2|
+|3|getContents|&mut self|[ContentInfo]|コンテンツ一覧を取得するための関数|
+|4|createContent|&mut self,title,content,quizs,answer,imageUrl,nftAddress,creator||コンテンツ情報を新規に登録するための関数|
+|5|setImageUrl|&mut self,contentId, imageUrl||コンテンツに紐づかせる画像データを登録するための関数|
+|6|getImageUrl|&mut self,contentId|String|コンテンツに紐づく画像データを取得するための関数|
+|7|getIntro|&mut self,contentId|String|コンテンツの見出しを取得する関数|
+|8|||||
+
 
 ※ 将来的なコンテンツ作成画面の開発を見据えて、コンテンツ情報はコントラクト上で管理できるようにしておく。(今回は、コントラクトからgetするだけにとどめる。)
 
