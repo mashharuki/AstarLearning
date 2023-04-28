@@ -73,12 +73,13 @@ WASMに対応したDAppは、EVMに比べるとまだまだ少ない。
 |:----|:----|:----|:----|:----|
 |1|new||Self|初期化関数|
 |2|default||Self|初期化関数2|
-|3|getContents|&mut self|[ContentInfo]|コンテンツ一覧を取得するための関数|
-|4|createContent|&mut self,title,content,quizs,answer,imageUrl,nftAddress,creator||コンテンツ情報を新規に登録するための関数|
-|5|setImageUrl|&mut self,contentId, imageUrl||コンテンツに紐づかせる画像データを登録するための関数|
-|6|getImageUrl|&mut self,contentId|String|コンテンツに紐づく画像データを取得するための関数|
-|7|getIntro|&mut self,contentId|String|コンテンツの見出しを取得する関数|
-|8|||||
+|3|getContent|&mut self,contentId|ContentInfo|指定したコンテンツの情報を一式取得するための関数|
+|4|getContents|&mut self|[ContentInfo]|コントラクトに登録されている全てのコンテンツを取得するための関数|
+|5|createContent|&mut self,title,content,quizs,answer,imageUrl,nftAddress,creator||コンテンツ情報を新規に登録するための関数|
+|6|setImageUrl|&mut self,contentId, imageUrl||コンテンツに紐づかせる画像データを登録するための関数|
+|7|getImageUrl|&mut self,contentId|String|コンテンツに紐づく画像データを取得するための関数|
+|8|getIntro|&mut self,contentId|String|コンテンツの見出しを取得する関数|
+|9|||||
 
 
 ※ 将来的なコンテンツ作成画面の開発を見据えて、コンテンツ情報はコントラクト上で管理できるようにしておく。(今回は、コントラクトからgetするだけにとどめる。)
