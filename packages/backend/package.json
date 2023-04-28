@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "author": "mashharuki",
+  "license": "MIT",
+  "scripts": {
+    "run-node": "swanky node start",
+    "test": "mocha -r ts-node/register \"test/**/*.test.ts\" --exit --timeout 20000",
+    "test:nft": "cd contracts/nft && cargo +nightly contract test",
+    "test:content": "cd contracts/content && cargo +nightly contract test",
+    "build:nft": "cd contracts/nft && cargo +nightly contract build",
+    "build:content": "cd contracts/content && cargo +nightly contract build",
+    "compile:all": "npm run compile:nft && npm run compile:content",
+    "compile:nft": "swanky contract compile nft -v",
+    "compile:content": "swanky contract compile content -v",
+    "deploy:shibuya": "swanky contract deploy nft --gas 10000000000 --args --account devWallet  --network shibuya"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@supercolony/typechain-compiler": "^0.5.1-beta.1",
+    "@supercolony/typechain-types": "^0.0.16",
+    "patch-package": "^6.5.1",
+    "postinstall-postinstall": "^2.1.0",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^8.0.3",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "10.1.0",
+    "mochawesome": "^7.1.3",
+    "ts-node": "^10.8.0"
+  },
+  "resolutions": {
+    "@polkadot/api": "^9.6.1",
+    "@polkadot/api-contract": "^9.6.1"
+  }
+}
