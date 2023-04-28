@@ -202,3 +202,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 29. [Get An Arweave Wallet](https://docs.bundlr.network/tutorials/get-arweave-wallet)
 30. [Arweave GraphQL Guide](https://gql-guide.vercel.app/)
 31. [HackaDot Summer 2023](https://www.hackadot.xyz/)
+32. [PoL](https://pol.techtec.world/)

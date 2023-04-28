@@ -17,8 +17,7 @@ WASMに対応したDAppは、EVMに比べるとまだまだ少ない。
 
 ### システムイメージ図
 
-[Figma](https://www.figma.com/file/OwN0rRoVFEKXISc1TyjCcH/Astat-Learning-V2
-)
+[Figma](https://www.figma.com/file/OwN0rRoVFEKXISc1TyjCcH/Astat-Learning-V2)
 
 ### 新規開発および拡張開発する画面
 

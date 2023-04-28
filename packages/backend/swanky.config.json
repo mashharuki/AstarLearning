@@ -30,8 +30,8 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1679837826982,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/nft/1679837826982"
+        "timestamp": 1682686286802,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/nft/1682686286802"
       }
     },
     "content": {
@@ -39,8 +39,8 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1679837869283,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/content/1679837869283"
+        "timestamp": 1682686338093,
+        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/content/1682686338093"
       }
     }
   },
