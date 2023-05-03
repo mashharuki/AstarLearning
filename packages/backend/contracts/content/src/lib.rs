@@ -33,12 +33,14 @@ mod content {
     pub struct ContentInfo {
         content_id: u64,
         title: String,
+        intro: String,
         content: String,
         goods: u64,
         quizs: Vec<String>,
         answer: u8,
         image_url: String,
         nft_address: String,
+        creator_address: String,
     }
 
     /**
@@ -80,8 +82,12 @@ mod content {
          * get selected Content
          */
         #[ink(message)]
-        pub fn getContent(&mut self, id: u64) {
-            // TO DO
+        pub fn getContent(&mut self, id: u64) -> Option<ContentInfo> {
+            // get content info
+            self.contents
+                .iter()
+                .find(|&c| c.content_id == id)
+                .cloned()
         }
 
         /**
@@ -100,37 +106,71 @@ mod content {
         pub fn createContent(
             &mut self,
             title: String,
+            intro: String,
             content :String,
             quizs: Vec<String>,
             answer: u8,
-            imageUrl: String,
-            nftAddress: String,
+            url: String,
+            nft: String,
             creator: String
         ) {
-            // TO DO
+            // create content info
+            let content_info = ContentInfo {
+                content_id: self.content_last_id,
+                title,
+                intro,
+                content,
+                goods: 0,
+                quizs,
+                answer,
+                image_url: url,
+                nft_address: nft,
+                creator_address: creator,
+            };
+            // push
+            self.contents.push(content_info);
+            // increment
+            self.content_last_id += 1;
         }
 
         /**
          * set image url
          */
         #[ink(message)]
-        pub fn setImageUrl(&mut self, id:String, url:String) {
-            // TO DO
+        pub fn setImageUrl(&mut self, id:u64, new_url:String) -> bool {
+            // update image url
+            for info in self.contents.iter_mut() {
+                if info.content_id == id {
+                    info.image_url = new_url;
+                    return true;
+                }
+            }
+            false
         }
 
         /**
          * get imaget url
          */
         #[ink(message)]
-        pub fn getImageUrl(&mut self, id:String) {
-            // TO DO
+        pub fn getImageUrl(&mut self, id:u64) -> Option<String> {
+            // get get image url info
+            self.contents
+                .iter()
+                .find(|&c| c.content_id == id)
+                .map(|content| &content.image_url)
+                .cloned()
         }
 
         /**
          * get intro
          */
-        pub fn getIntro(&mut self, id:String) {
-            // TO DO
+        pub fn getIntro(&mut self, id:u64) -> Option<String> {
+            // get get image url info
+            self.contents
+                .iter()
+                .find(|&c| c.content_id == id)
+                .map(|content| &content.intro)
+                .cloned()
         }
     }
 
