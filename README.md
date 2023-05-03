@@ -24,6 +24,7 @@ WASM 対応の NFT Dapp 開発用のプロダクトです。
 |3|Node.js|18.12.1|
 |4|cargo-contract |1.5.1|
 |5|cargo |1.68.0-nightly|
+|6|!ink |~3.4.0|
 
 ## 動かし方
 
