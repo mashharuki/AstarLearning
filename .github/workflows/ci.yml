@@ -21,12 +21,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Cache Rust nightly
+      uses: actions/cache@v2
+      with:
+        path: ~/.cargo
+        key: ${{ runner.os }}-rust-nightly-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-rust-nightly-
       - name: Setup Rust
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: nightly
       - name: Install cargo-contract
-        run: cd packages/backend && cargo install cargo-contract
+        run: cargo install cargo-contract
+      - name: Install toolchain
+        run: rustup toolchain install nightly
       
   frontend-build:
     runs-on: ubuntu-latest
