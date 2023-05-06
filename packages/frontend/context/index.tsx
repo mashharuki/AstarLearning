@@ -31,6 +31,9 @@ export type ContextType = {
     isLoading: Boolean;
     nftInfos: NftInfo[];
     mint: (contentFlg: string) => Promise<void>;
+    good: () => Promise<void>;
+    quiz: () => Promise<void>;
+    cheer: () => Promise<void>;
 };
 
 const proofSize = 131072
@@ -173,6 +176,36 @@ export function ContractProvider({ children }: any) {
 
         console.log("nftInfos:", nfts);
         setNftInfos(nfts);
+    };
+
+    /**
+     * good function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const good = async() => {
+        alert("Good!");
+        return;
+    };
+
+    /**
+     * quiz function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const quiz = async() => {
+        alert("Quiz!");
+        return;
+    };
+
+    /**
+     * cheer function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const cheer = async() => {
+        alert("Cheer!");
+        return;
     };
 
     /**
@@ -447,6 +480,9 @@ export function ContractProvider({ children }: any) {
                 isLoading,
                 nftInfos,
                 mint,
+                good,
+                quiz,
+                cheer,
             }}
         >
             {children}
