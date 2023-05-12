@@ -185,11 +185,119 @@ mod content {
         /// Imports `ink_lang` so we can use `#[ink::test]`.
         use ink_lang as ink;
 
+        use ink_env::AccountId as AccountId32;
+        use ink_env::{
+            Clear,
+            hash::{
+                Blake2x256,
+                CryptoHash,
+                HashOutput,
+            },
+            test,
+            call,
+        };
+
+        const MAX_MESSAGE_SIZE: usize = 1024;
+
         /// We test if the default constructor does its job.
         #[ink::test]
         fn default_works() {
-            let content = Content::default();
+            let mut content = Content::new();
+            // get content
+            let contents = content.getContents();
+            // check
+            assert_eq!(contents.len(), 0);
         }
 
+        #[ink::test]
+        fn create_content_works() {
+            // create content Contract
+            let mut content = Content::new();
+            // content data
+            let title = String::from("test_title");
+            let intro = String::from("test_intro");
+            let content_text = String::from("test_content");
+            let quizs = vec![String::from("quiz_1"), String::from("quiz_2")];
+            let answer = 1;
+            let image_url = String::from("https://example.com/image.jpg");
+            let nft_address = String::from("0x1234567890123456789012345678901234567890");
+            let creator_address = String::from("0x1234567890123456789012345678901234567890");
+
+            // create content
+            content.createContent(
+                title.clone(), 
+                intro.clone(), 
+                content_text.clone(), 
+                quizs.clone(), 
+                answer, 
+                image_url.clone(), 
+                nft_address.clone(), 
+                creator_address.clone()
+            );
+
+            // then
+            let contents = content.getContents();
+            assert_eq!(contents.len(), 1);
+
+            let content_info = &contents[0];
+
+            assert_eq!(content_info.title, title);
+            assert_eq!(content_info.intro, intro);
+            assert_eq!(content_info.content, content_text);
+            assert_eq!(content_info.quizs, quizs);
+            assert_eq!(content_info.answer, answer);
+            assert_eq!(content_info.image_url, image_url);
+            assert_eq!(content_info.nft_address, nft_address);
+            assert_eq!(content_info.creator_address, creator_address);
+        }
+
+        #[ink::test]
+        fn test_content() {
+            // setup
+            let mut content = Content::new();
+
+            let title = String::from("test_title");
+            let intro = String::from("test_intro");
+            let content_text = String::from("test_content");
+            let quizs = vec![String::from("quiz_1"), String::from("quiz_2")];
+            let answer = 1;
+            let image_url = String::from("https://example.com/image.jpg");
+            let nft_address = String::from("0x1234567890123456789012345678901234567890");
+            let creator_address = String::from("0x1234567890123456789012345678901234567890");
+            // create content
+            content.createContent(
+                title.clone(), 
+                intro.clone(), 
+                content_text.clone(), 
+                quizs.clone(), 
+                answer, 
+                image_url.clone(), 
+                nft_address.clone(), 
+                creator_address.clone()
+            );
+
+            // test getContent
+            let contents = content.getContents();
+
+            let c1 = &contents[0];
+            
+            assert_eq!(c1.content_id, 0);
+            assert_eq!(c1.title, "test_title");
+            assert_eq!(c1.intro, "test_intro");
+            assert_eq!(c1.content, "test_content");
+            assert_eq!(c1.quizs, quizs);
+            assert_eq!(c1.answer, 1);
+            assert_eq!(c1.image_url, "https://example.com/image.jpg");
+            assert_eq!(c1.nft_address, "0x1234567890123456789012345678901234567890");
+            assert_eq!(c1.creator_address, creator_address.clone());
+            // test setImageUrl
+            let is_updated = content.setImageUrl(0, "url2".into());
+            assert_eq!(is_updated, true);
+            let new_url = content.getImageUrl(0).unwrap();
+            assert_eq!(new_url, "url2");
+            // test getIntro
+            let intro = content.getIntro(0).unwrap();
+            assert_eq!(intro, "test_intro");
+        }
     }
 }
