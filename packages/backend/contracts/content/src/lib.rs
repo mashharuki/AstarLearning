@@ -128,9 +128,9 @@ mod content {
          * get selected Content
          */
         #[ink(message)]
-        pub fn getContent(&mut self, id: u64) -> Option<ContentInfo> {
+        pub fn getContent(&mut self, id: u64) -> ContentInfo {
             // get content info
-            self.contents.get(&id)
+            self.contents.get(&id).unwrap().clone()
         }
 
         /**
@@ -226,6 +226,7 @@ mod content {
 
         /// Imports `ink_lang` so we can use `#[ink::test]`.
         use ink_lang as ink;
+        use ink_env::debug_println;
 
         use ink_env::AccountId as AccountId32;
         use ink_env::{
@@ -247,5 +248,11 @@ mod content {
             let content = Content::new();
         }
 
+        #[ink::test]
+        fn get_contents() {
+            let mut content = Content::new();
+            let contents = content.getContents();
+            assert_eq!(contents.len(), 1);
+        }
     }
 }
