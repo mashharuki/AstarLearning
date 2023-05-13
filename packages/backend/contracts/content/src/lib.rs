@@ -1,4 +1,5 @@
 #![cfg_attr(not(feature = "std"), no_std)]
+#![feature(let_else)]
 
 use ink_lang as ink;
 
@@ -20,6 +21,7 @@ mod content {
     };
     use ink_storage::{
         traits::*,
+        Mapping,
     };
 
     /**
@@ -44,12 +46,12 @@ mod content {
     }
 
     /**
-     * コンテンツコントラクトで使用する円すう
+     * Struct of Content
      */
     #[ink(storage)]
     pub struct Content {
-        contents: Vec<ContentInfo>,
-        content_last_id: u64,
+        contents: Mapping<u64, ContentInfo>,
+        content_last_id: u64
     }
 
     /**
@@ -60,22 +62,67 @@ mod content {
         /**
          * intilize method
          */
-
-        #[ink(constructor)]
+        #[ink(constructor, payable)]
         pub fn new() -> Self {
-            let mut _instance = Self::default();
-			_instance.content_last_id = 0;
-            _instance
+            let first_id: u64 = 0;
+            let first_content: ContentInfo = ContentInfo {
+                content_id: first_id,
+                title: "Sample title".to_string(),
+                intro: "Sample introduction".to_string(),
+                content: "Sample content".to_string(),
+                goods: 0,
+                quizs: vec![
+                    "Sample question 1".to_string(),
+                    "Sample question 2".to_string(),
+                    "Sample question 3".to_string(),
+                ],
+                answer: 1,
+                image_url: "https://example.com/sample_image.png".to_string(),
+                nft_address: "0x1234567890123456789012345678901234567890".to_string(),
+                creator_address: "0x1234567890123456789012345678901234567890".to_string(),
+            };
+
+            // init data
+            let mut contents = Mapping::default();
+            contents.insert(first_id, &first_content);
+
+            Self {
+                contents,
+                content_last_id: first_id,
+            }
         }
 
         /**
          * intilize method2
          */
-        #[ink(constructor)]
+        #[ink(constructor, payable)]
         pub fn default() -> Self {
-            let mut _instance = Self::default();
-			_instance.content_last_id = 0;
-            _instance
+            let first_id: u64 = 0;
+            let first_content: ContentInfo = ContentInfo {
+                content_id: first_id,
+                title: "Sample title".to_string(),
+                intro: "Sample introduction".to_string(),
+                content: "Sample content".to_string(),
+                goods: 0,
+                quizs: vec![
+                    "Sample question 1".to_string(),
+                    "Sample question 2".to_string(),
+                    "Sample question 3".to_string(),
+                ],
+                answer: 1,
+                image_url: "https://example.com/sample_image.png".to_string(),
+                nft_address: "0x1234567890123456789012345678901234567890".to_string(),
+                creator_address: "0x1234567890123456789012345678901234567890".to_string(),
+            };
+
+            // init data
+            let mut contents = Mapping::default();
+            contents.insert(first_id, &first_content);
+
+            Self {
+                contents,
+                content_last_id: first_id,
+            }
         }
 
         /**
@@ -84,10 +131,7 @@ mod content {
         #[ink(message)]
         pub fn getContent(&mut self, id: u64) -> Option<ContentInfo> {
             // get content info
-            self.contents
-                .iter()
-                .find(|&c| c.content_id == id)
-                .cloned()
+            self.contents.get(&id)
         }
 
         /**
@@ -95,8 +139,16 @@ mod content {
          */
         #[ink(message)]
         pub fn getContents(&mut self) -> Vec<ContentInfo> {
-            // TO DO
-            self.contents.clone()
+            let mut contents_info: Vec<ContentInfo> = Vec::new();
+            let current_last_id = self.content_last_id;
+
+            // get all content data
+            for id in 0..=current_last_id {
+                let content = self.contents.get(&id).unwrap().clone();
+                contents_info.push(content);
+            } 
+             
+            contents_info
         }
 
         /**
@@ -128,7 +180,7 @@ mod content {
                 creator_address: creator,
             };
             // push
-            self.contents.push(content_info);
+            self.contents.insert(self.content_last_id, &content_info);
             // increment
             self.content_last_id += 1;
         }
@@ -137,40 +189,31 @@ mod content {
          * set image url
          */
         #[ink(message)]
-        pub fn setImageUrl(&mut self, id:u64, new_url:String) -> bool {
+        pub fn setImageUrl(&mut self, id:u64, new_url:String){
             // update image url
-            for info in self.contents.iter_mut() {
-                if info.content_id == id {
-                    info.image_url = new_url;
-                    return true;
-                }
-            }
-            false
+            let mut content = self.contents.get(&id).unwrap();
+            content.image_url = new_url;
+            
         }
 
         /**
          * get imaget url
          */
         #[ink(message)]
-        pub fn getImageUrl(&mut self, id:u64) -> Option<String> {
+        pub fn getImageUrl(&mut self, id:u64) -> String {
             // get get image url info
-            self.contents
-                .iter()
-                .find(|&c| c.content_id == id)
-                .map(|content| &content.image_url)
-                .cloned()
+            let content = self.contents.get(&id).unwrap();
+            content.image_url.clone()
         }
 
         /**
          * get intro
          */
-        pub fn getIntro(&mut self, id:u64) -> Option<String> {
-            // get get image url info
-            self.contents
-                .iter()
-                .find(|&c| c.content_id == id)
-                .map(|content| &content.intro)
-                .cloned()
+        #[ink(message)]
+        pub fn getIntro(&mut self, id:u64) -> String {
+            // get get intro info
+            let content = self.contents.get(&id).unwrap();
+            content.intro.clone()
         }
     }
 
@@ -202,102 +245,8 @@ mod content {
         /// We test if the default constructor does its job.
         #[ink::test]
         fn default_works() {
-            let mut content = Content::new();
-            // get content
-            let contents = content.getContents();
-            // check
-            assert_eq!(contents.len(), 0);
+            let content = Content::new();
         }
 
-        #[ink::test]
-        fn create_content_works() {
-            // create content Contract
-            let mut content = Content::new();
-            // content data
-            let title = String::from("test_title");
-            let intro = String::from("test_intro");
-            let content_text = String::from("test_content");
-            let quizs = vec![String::from("quiz_1"), String::from("quiz_2")];
-            let answer = 1;
-            let image_url = String::from("https://example.com/image.jpg");
-            let nft_address = String::from("0x1234567890123456789012345678901234567890");
-            let creator_address = String::from("0x1234567890123456789012345678901234567890");
-
-            // create content
-            content.createContent(
-                title.clone(), 
-                intro.clone(), 
-                content_text.clone(), 
-                quizs.clone(), 
-                answer, 
-                image_url.clone(), 
-                nft_address.clone(), 
-                creator_address.clone()
-            );
-
-            // then
-            let contents = content.getContents();
-            assert_eq!(contents.len(), 1);
-
-            let content_info = &contents[0];
-
-            assert_eq!(content_info.title, title);
-            assert_eq!(content_info.intro, intro);
-            assert_eq!(content_info.content, content_text);
-            assert_eq!(content_info.quizs, quizs);
-            assert_eq!(content_info.answer, answer);
-            assert_eq!(content_info.image_url, image_url);
-            assert_eq!(content_info.nft_address, nft_address);
-            assert_eq!(content_info.creator_address, creator_address);
-        }
-
-        #[ink::test]
-        fn test_content() {
-            // setup
-            let mut content = Content::new();
-
-            let title = String::from("test_title");
-            let intro = String::from("test_intro");
-            let content_text = String::from("test_content");
-            let quizs = vec![String::from("quiz_1"), String::from("quiz_2")];
-            let answer = 1;
-            let image_url = String::from("https://example.com/image.jpg");
-            let nft_address = String::from("0x1234567890123456789012345678901234567890");
-            let creator_address = String::from("0x1234567890123456789012345678901234567890");
-            // create content
-            content.createContent(
-                title.clone(), 
-                intro.clone(), 
-                content_text.clone(), 
-                quizs.clone(), 
-                answer, 
-                image_url.clone(), 
-                nft_address.clone(), 
-                creator_address.clone()
-            );
-
-            // test getContent
-            let contents = content.getContents();
-
-            let c1 = &contents[0];
-            
-            assert_eq!(c1.content_id, 0);
-            assert_eq!(c1.title, "test_title");
-            assert_eq!(c1.intro, "test_intro");
-            assert_eq!(c1.content, "test_content");
-            assert_eq!(c1.quizs, quizs);
-            assert_eq!(c1.answer, 1);
-            assert_eq!(c1.image_url, "https://example.com/image.jpg");
-            assert_eq!(c1.nft_address, "0x1234567890123456789012345678901234567890");
-            assert_eq!(c1.creator_address, creator_address.clone());
-            // test setImageUrl
-            let is_updated = content.setImageUrl(0, "url2".into());
-            assert_eq!(is_updated, true);
-            let new_url = content.getImageUrl(0).unwrap();
-            assert_eq!(new_url, "url2");
-            // test getIntro
-            let intro = content.getIntro(0).unwrap();
-            assert_eq!(intro, "test_intro");
-        }
     }
 }

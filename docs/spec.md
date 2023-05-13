@@ -101,3 +101,61 @@ OpenBursh+!inkで開発を行いました。
 1. UNCHAINとの差異は？ ⇨ Substrate対応
 2. クイズ形式はどうか？ ⇨ 今後対応したい。
 3. コンテンツ情報をコントラクト(NFT形式)で管理できると良いのではないか？ ⇨ そうしていきたい。
+
+### Polkadot.jsを使って送金する場合の参考スクリプト
+
+```ts
+/**
+     * sendTip function
+     */
+    const sendTip = async () => {
+        const { web3FromSource } = await import('@polkadot/extension-dapp');
+
+        const wsProvider = new WsProvider(blockchainUrl);
+        const api = await ApiPromise.create({
+            provider: wsProvider
+        });
+
+        var injector:any;
+
+        if (accounts.length == 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else if (accounts.length > 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else {
+            return;
+        }
+
+        console.log(`api: ${api}`);
+        setIsLoading(true);
+
+        // creator address (Now it is temporarily placed.)
+        const toAddress = '5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq'; 
+        // 0.001 ASTAR = 1,000,000,000 unit
+        const transfer = api.tx.balances.transfer(toAddress, 1000000000);
+        const { nonce }:any = await api.query.system.account(injector.signer);
+        const tx:any = transfer.sign(injector.signer, {
+            nonce,
+            blockHash: '',
+            genesisHash: '',
+            runtimeVersion: undefined
+        });
+      
+        await tx.send(({ events = [], status }:any) => {
+          if (status.isInBlock) {
+            console.log(`Successful transfer of ${0.001} ASTAR to ${toAddress}`);
+            console.log(`Transaction included at blockHash ${status.asInBlock.toString()}`);
+            console.log(`Events:`);
+            events.forEach(({ phase, event: { data, method, section } }:any) => {
+              console.log(`\t${phase.toString()} : ${section}.${method} ${data.toString()}`);
+            });
+            alert('Send Success')
+            setIsLoading(false);
+          } else if (status.isFinalized) {
+            console.log(`Transaction finalized at blockHash ${status.asFinalized.toString()}`);
+            setIsLoading(false);
+            alert('Send fail...')
+          }
+        });
+    }
+```

@@ -1,6 +1,6 @@
 # Astar Learning
 
-WASM 対応の NFT Dapp 開発用のプロダクトです。
+ This is a developing Astar Learning Repo.
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
@@ -25,8 +25,9 @@ WASM 対応の NFT Dapp 開発用のプロダクトです。
 |4|cargo-contract |1.5.1|
 |5|cargo |1.68.0-nightly|
 |6|!ink |~3.4.0|
+|7|rustc| 1.66.0|
 
-## 動かし方
+## How to run 
 
 - モジュールのインストール
 
@@ -68,13 +69,15 @@ yarn compile:all
 
 ## What it does
 
-AstarLearning は、気軽に WASM や Astar Network などについて学べる教育系の Web3 プロダクトです。
+AstarLearning は、気軽に WASM や Astar Network などブロックチェーン領域の技術について学べる教育系の Web3 プロダクトです。
 
 ただ学習するだけではなく、用意したコンテンツに最後まで目を通して理解した学習者(ユーザー)には、NFT をミントするチャンスが与えられ、WASM 上で動作する NFT コントラクトの機能を使って学習歴の NFT を発行することができます。
 
 ユーザーは、この Dapp に触れる一環で知識を得るだけでなく WASM コントラクトを利用した実装例を体感できるので、Dapp の実装イメージを膨らませることができます。
 
-これにより一人でも多くのエンジニアに WASM Dapp の魅力を伝え、まだまだ少数である WASM コントラクト開発者を増やすきっかけを増やすことを目的としています。
+これにより一人でも多くのエンジニアに WASM Dapp の魅力を伝え、まだまだ少数である WASM コントラクト開発者を増やし、Polkadotエコシステムを盛り上げていくきっかけを増やすことを目的としています。
+
+将来的にはdapp stakingへの応募も視野に入れており、採択された場合にはその報酬をコンテンツ提供者に渡すようなアーキテクチャに進化させて行きたいと考えています。
 
 ## The problem it solves
 
@@ -83,6 +86,12 @@ AstarLearning は、気軽に WASM や Astar Network などについて学べる
 - まだまだ WASM コントラクト開発者が少数であること
 - 気軽に WASM や Astar Network について学べるコンテンツが少ないこと
 - WASM を利用した Dapp の実装例がまだまだ世に広く知れ渡っておらず、メリットなどが伝わりにくいこと
+
+この課題を解決するためにAstar Learningでは次の機能を開発・提供することで課題解決に貢献します！
+
+- 学習コンテンツを作成し、スマートコントラクト上に保管
+- 良い学習コンテンツを作成してくれたユーザーには報酬を支払う
+- 報酬の財源については現状はユーザーから少額のAstarを送るという仕組みだが、将来的にはdapp stakingに応募し採択されたここで得られる報酬から優良コンテンツ作成者に報酬を支払う
 
 ## TechStack
 
@@ -205,3 +214,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 30. [Arweave GraphQL Guide](https://gql-guide.vercel.app/)
 31. [HackaDot Summer 2023](https://www.hackadot.xyz/)
 32. [PoL](https://pol.techtec.world/)
+33. [Submit Summer-HackaDOT-2023](https://github.com/mashharuki/Summer-HackaDOT-2023)
