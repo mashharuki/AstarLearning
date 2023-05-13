@@ -159,3 +159,74 @@ OpenBursh+!inkで開発を行いました。
         });
     }
 ```
+
+### GitHub Actionsの例
+
+```yml
+name: CI
+
+on: [push]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-{{ checksum "patches.hash" }}
+      - name: Install packages
+        run: yarn
+
+  rust-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Cache Rust nightly
+      uses: actions/cache@v2
+      with:
+        path: ~/.cargo
+        key: ${{ runner.os }}-rust-nightly-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-rust-nightly-
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+      - name: Install cargo-contract
+        run: cargo install cargo-contract
+      - name: Install toolchain
+        run: rustup toolchain install nightly
+      
+  frontend-build:
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Frontend build
+        run: yarn frontend:build
+        env:
+          CI: false
+  
+  backend-build:
+    runs-on: ubuntu-latest
+    needs: [rust-setup]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: NFT SmartContract build
+        run: yarn build:nft
+      - name: Content SmartContract build
+        run: yarn build:content
+      
+```
