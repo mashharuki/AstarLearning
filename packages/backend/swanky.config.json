@@ -2,7 +2,7 @@
   "node": {
     "localPath": "",
     "polkadotPalletVersions": "polkadot-v0.9.27",
-    "supportedInk": "v3.3.1"
+    "supportedInk": "v3.4.0"
   },
   "accounts": [
     {
@@ -42,6 +42,11 @@
         "timestamp": 1683985111456,
         "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/content/1683985111456"
       }
+    },
+    "flipper": {
+      "name": "flipper",
+      "language": "ink",
+      "deployments": []
     }
   },
   "networks": {

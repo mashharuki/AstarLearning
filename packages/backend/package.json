@@ -10,6 +10,7 @@
     "test:content": "cd contracts/content && cargo +nightly contract test",
     "build:nft": "cd contracts/nft && cargo +nightly contract build",
     "build:content": "cd contracts/content && cargo +nightly contract build",
+    "build:flipper": "cd contracts/flipper && cargo +nightly contract build",
     "compile:all": "npm run compile:nft && npm run compile:content",
     "compile:nft": "swanky contract compile nft -v",
     "compile:content": "swanky contract compile content -v",
