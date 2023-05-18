@@ -6,6 +6,11 @@
   "scripts": {
     "run-node": "swanky node start",
     "test": "mocha -r ts-node/register \"test/**/*.test.ts\" --exit --timeout 20000",
+    "test:nft": "cd contracts/nft && cargo test",
+    "test:content": "cd contracts/content && cargo test",
+    "build:nft": "cd contracts/nft && cargo contract build",
+    "build:content": "cd contracts/content && cargo contract build",
+    "build:flipper": "cd contracts/flipper && cargo contract build",
     "compile:all": "yarn compile:nft && yarn compile:conetent",
       "compile:flipper": "swanky contract compile flipper -v",
       "compile:nft": "swanky contract compile nft -v",

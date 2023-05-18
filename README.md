@@ -23,9 +23,9 @@
 |2|Swanky|2.1.2|
 |3|Node.js|18.12.1|
 |4|cargo-contract |2.2.1|
-|5|cargo |nightly-x86_64-apple-darwin|
+|5|cargo |nightly-2023-02-07-aarch64-apple-darwin|
 |6|!ink |4.0.0|
-|7|rustc| 1.69.0|
+|7|rustc| 1.69.0-nightly |
 
 ## How to run 
 

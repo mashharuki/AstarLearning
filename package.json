@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "compile:all": "yarn workspace backend compile:all",
+    "compile:flipper": "yarn workspace backend compile:flipper",
     "compile:nft": "yarn workspace backend compile:nft",
     "compile:content": "yarn workspace backend compile:content",
     "build:nft": "yarn workspace backend build:nft",
