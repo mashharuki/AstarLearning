@@ -1,8 +1,8 @@
 {
   "node": {
     "localPath": "",
-    "polkadotPalletVersions": "polkadot-v0.9.27",
-    "supportedInk": "v3.4.0"
+    "polkadotPalletVersions": "polkadot-v0.9.39",
+    "supportedInk": "v4.2.0"
   },
   "accounts": [
     {
@@ -16,22 +16,25 @@
       "mnemonic": "//Bob",
       "isDev": true,
       "address": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
-    },
-    {
-      "alias": "devWallet",
-      "mnemonic": "",
-      "isDev": true,
-      "address": "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq"
     }
   ],
   "contracts": {
+    "flipper": {
+      "name": "flipper",
+      "deployments": [],
+      "language": "ink",
+      "build": {
+        "timestamp": 1684327555482,
+        "artifactsPath": "artifacts/flipper/1684327555482"
+      }
+    },
     "nft": {
       "name": "nft",
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1683985094962,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/nft/1683985094962"
+        "timestamp": 1684335676389,
+        "artifactsPath": "artifacts/nft/1684335676389"
       }
     },
     "content": {
@@ -39,14 +42,9 @@
       "deployments": [],
       "language": "ink",
       "build": {
-        "timestamp": 1683985111456,
-        "artifactsPath": "/Users/harukikondo/git/WasmNFTDapp/packages/backend/artifacts/content/1683985111456"
+        "timestamp": 1684327870119,
+        "artifactsPath": "artifacts/content/1684327870119"
       }
-    },
-    "flipper": {
-      "name": "flipper",
-      "language": "ink",
-      "deployments": []
     }
   },
   "networks": {

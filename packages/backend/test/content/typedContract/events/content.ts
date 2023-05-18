@@ -1,8 +1,9 @@
 import type * as EventTypes from '../event-types/content';
 import type {ContractPromise} from "@polkadot/api-contract";
 import type {ApiPromise} from "@polkadot/api";
+import EVENT_DATA_TYPE_DESCRIPTIONS from '../event-data/content.json';
 import {getEventTypeDescription} from "../shared/utils";
-import {handleEventReturn} from "@supercolony/typechain-types";
+import {handleEventReturn} from "@727-ventures/typechain-types";
 
 export default class EventsClass {
 	private __nativeContract : ContractPromise;

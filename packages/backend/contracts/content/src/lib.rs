@@ -1,7 +1,5 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
-use ink_lang as ink;
-
 pub use self::content::{
     ContentInfo
 };
@@ -12,24 +10,22 @@ pub use self::content::{
 #[ink::contract]
 mod content {
 
-    use ink_prelude::string::String;
-    use ink_prelude::vec::Vec;
-    use scale::{
-        Decode,
-        Encode,
-    };
-    use ink_storage::{
-        traits::*,
+    use ink::storage::{
         Mapping,
     };
-
+    
+    use ink::prelude::string::String;
+    use ink::prelude::vec::Vec;
+    use ink::prelude::string::ToString;
+    use ink::prelude::vec;
+    
     /**
      * コンテンツ情報を取り扱うStruct
      */
-    #[derive(Clone, Encode, Decode, SpreadLayout, PackedLayout, SpreadAllocate, Default)]
+    #[derive(Clone, Default, scale::Encode, scale::Decode)]
     #[cfg_attr(
         feature = "std",
-        derive(Debug, PartialEq, Eq, scale_info::TypeInfo, StorageLayout)
+        derive(Debug, PartialEq, Eq, scale_info::TypeInfo, ink::storage::traits::StorageLayout)
     )]
     pub struct ContentInfo {
         content_id: u64,
@@ -44,10 +40,8 @@ mod content {
         creator_address: String,
     }
 
-    /**
-     * Struct of Content
-     */
     #[ink(storage)]
+    #[derive(Default)]
     pub struct Content {
         contents: Mapping<u64, ContentInfo>,
         content_last_id: u64
@@ -77,8 +71,8 @@ mod content {
                 ],
                 answer: 1,
                 image_url: "https://example.com/sample_image.png".to_string(),
-                nft_address: "0x1234567890123456789012345678901234567890".to_string(),
-                creator_address: "0x1234567890123456789012345678901234567890".to_string(),
+                nft_address: "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d".to_string(),
+                creator_address: "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq".to_string(),
             };
 
             // init data
@@ -110,8 +104,8 @@ mod content {
                 ],
                 answer: 1,
                 image_url: "https://example.com/sample_image.png".to_string(),
-                nft_address: "0x1234567890123456789012345678901234567890".to_string(),
-                creator_address: "0x1234567890123456789012345678901234567890".to_string(),
+                nft_address: "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d".to_string(),
+                creator_address: "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq".to_string(),
             };
 
             // init data
@@ -130,7 +124,7 @@ mod content {
         #[ink(message)]
         pub fn getContent(&mut self, id: u64) -> ContentInfo {
             // get content info
-            self.contents.get(&id).unwrap().clone()
+            self.contents.get(&id).clone().unwrap()
         }
 
         /**
@@ -143,8 +137,9 @@ mod content {
 
             // get all content data
             for id in 0..=current_last_id {
-                let content = self.contents.get(&id).unwrap().clone();
-                contents_info.push(content);
+                if let Some(content) = self.contents.get(&id) {
+                    contents_info.push(content);
+                }
             } 
              
             contents_info
@@ -164,7 +159,7 @@ mod content {
             url: String,
             nft: String,
             creator: String
-        ) {
+        ) -> Result<(), ()> {
             // create content info
             let content_info = ContentInfo {
                 content_id: self.content_last_id,
@@ -178,21 +173,27 @@ mod content {
                 nft_address: nft,
                 creator_address: creator,
             };
-            // push
-            self.contents.insert(self.content_last_id, &content_info);
+
             // increment
             self.content_last_id += 1;
+            // push
+            self.contents.insert(self.content_last_id, &content_info);
+
+            Ok(())
         }
 
         /**
          * set image url
          */
         #[ink(message)]
-        pub fn setImageUrl(&mut self, id:u64, new_url:String){
+        pub fn setImageUrl(&mut self, id:u64, new_url:String) -> Result<(), ()> {
+            // get current content info
+            let mut new_content = self.contents.get(&id).unwrap();
             // update image url
-            let mut content = self.contents.get(&id).unwrap();
-            content.image_url = new_url;
-            
+            new_content.image_url = new_url;
+            self.contents.insert(&id, &new_content);
+
+            Ok(())
         }
 
         /**
@@ -223,22 +224,7 @@ mod content {
     mod tests {
         /// Imports all the definitions from the outer scope so we can use them here.
         use super::*;
-
-        /// Imports `ink_lang` so we can use `#[ink::test]`.
-        use ink_lang as ink;
-        use ink_env::debug_println;
-
-        use ink_env::AccountId as AccountId32;
-        use ink_env::{
-            Clear,
-            hash::{
-                Blake2x256,
-                CryptoHash,
-                HashOutput,
-            },
-            test,
-            call,
-        };
+        use ink::env::debug_println;
 
         const MAX_MESSAGE_SIZE: usize = 1024;
 

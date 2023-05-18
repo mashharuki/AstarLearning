@@ -20,12 +20,12 @@
 |No.|Name|Version|
 |---|---|---|
 |1|yarn|1.22.19|
-|2|Swanky|1.0.7|
+|2|Swanky|2.1.2|
 |3|Node.js|18.12.1|
-|4|cargo-contract |1.5.1|
-|5|cargo |1.68.0-nightly|
-|6|!ink |~3.4.0|
-|7|rustc| 1.66.0|
+|4|cargo-contract |2.2.1|
+|5|cargo |nightly-x86_64-apple-darwin|
+|6|!ink |4.0.0|
+|7|rustc| 1.69.0|
 
 ## How to run 
 
@@ -43,8 +43,14 @@ yarn frontend:start
 
 - スマートコントラクトのコンパイル
 
+※ swankyのコマンドの問題で1回目は、生成したwasmファイルが読み込めないというエラーが出るので2回実行してください。
+
 ```bash
-yarn compile:all
+yarn compile:nft
+``` 
+
+```bash
+yarn compile:content
 ``` 
 
 ## コンセプト・キャッチフレーズ

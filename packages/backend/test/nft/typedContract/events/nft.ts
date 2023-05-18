@@ -1,8 +1,9 @@
 import type * as EventTypes from '../event-types/nft';
 import type {ContractPromise} from "@polkadot/api-contract";
 import type {ApiPromise} from "@polkadot/api";
+import EVENT_DATA_TYPE_DESCRIPTIONS from '../event-data/nft.json';
 import {getEventTypeDescription} from "../shared/utils";
-import {handleEventReturn} from "@supercolony/typechain-types";
+import {handleEventReturn} from "@727-ventures/typechain-types";
 
 export default class EventsClass {
 	private __nativeContract : ContractPromise;
@@ -18,13 +19,13 @@ export default class EventsClass {
 
 	public subscribeOnTransferEvent(callback : (event : EventTypes.Transfer) => void) {
 		const callbackWrapper = (args: any[], event: any) => {
-			let _event: Record < string, any > = {};
+			const _event: Record < string, any > = {};
 
 			for (let i = 0; i < args.length; i++) {
 				_event[event.args[i]!.name] = args[i]!.toJSON();
 			}
 
-			callback(handleEventReturn(_event, getEventTypeDescription('Transfer', 'nft')) as EventTypes.Transfer);
+			callback(handleEventReturn(_event, getEventTypeDescription('Transfer', EVENT_DATA_TYPE_DESCRIPTIONS)) as EventTypes.Transfer);
 		};
 
 		return this.__subscribeOnEvent(callbackWrapper, (eventName : string) => eventName == 'Transfer');
@@ -32,13 +33,13 @@ export default class EventsClass {
 
 	public subscribeOnApprovalEvent(callback : (event : EventTypes.Approval) => void) {
 		const callbackWrapper = (args: any[], event: any) => {
-			let _event: Record < string, any > = {};
+			const _event: Record < string, any > = {};
 
 			for (let i = 0; i < args.length; i++) {
 				_event[event.args[i]!.name] = args[i]!.toJSON();
 			}
 
-			callback(handleEventReturn(_event, getEventTypeDescription('Approval', 'nft')) as EventTypes.Approval);
+			callback(handleEventReturn(_event, getEventTypeDescription('Approval', EVENT_DATA_TYPE_DESCRIPTIONS)) as EventTypes.Approval);
 		};
 
 		return this.__subscribeOnEvent(callbackWrapper, (eventName : string) => eventName == 'Approval');
