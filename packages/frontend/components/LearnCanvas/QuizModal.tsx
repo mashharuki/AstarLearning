@@ -11,15 +11,16 @@ import Button from "../common/Button";
 const QuizModal = (props) => {
     // state
     const [choice, setChoice] = useState();
-    const [isCorrect, setCorrect] = useState();
+    const [answered, setAnswered] = useState();
 
     // local action
     const answer = () => {
       console.log("Your Choice is ", choice);
-      setCorrect(choice == props.quiz.correct);
+      setAnswered(true);
     };
     const onChangeChoice = (e) => {
       setChoice(e.target.value);
+      setAnswered(false);
     };
 
     // closeModal
@@ -29,32 +30,41 @@ const QuizModal = (props) => {
 
     return (
 <Modal isOpen={props.isOpen} onRequestClose={props.onRequestClose} ariaHideApp={false}>
-  <header>
-    <h1>QuizModal</h1>
-  </header>
-  <main>
-    <p>{props.quiz.question}</p>
-    <ul>
-      {props.quiz.choices.map((c) => {
-        return <li key={c} className="my-1"><label><input type="radio" name="choice" value={c} onChange={onChangeChoice} />{c}</label></li>
-      })}
-    </ul>
-  </main>
-  <footer className="text-right">
-    <Button name="Answer" onClick={answer} />
-    &nbsp;
-    {choice ?
-      <>
-      {isCorrect ?
-        <Button name="mint NFT" onClick={props.mint} />
+  <div className="flex flex-wrap justify-center">
+    <header className="w-3/4">
+      <h2 className="text-2xl">Quiz</h2>
+    </header>
+    <main className="w-3/4">
+      <p className="text-red-600">TODO: no quiz sentence.</p>
+      <ul>
+        {props.quizs.map((c) => {
+          return <li key={c} className="my-1"><label><input type="radio" name="choice" value={c} onChange={onChangeChoice} />{c}</label></li>
+        })}
+      </ul>
+      <div className="text-right">
+        <Button name="Answer" onClick={answer} />
+      </div>
+    </main>
+    <footer className="text-center mt-20">
+      {answered ?
+        <>
+        {choice == props.quizs[props.answer] ?
+          <>
+            <p className="mb-10 text-5xl leading-relaxed">Your answer is Correct!!<br />You can mint the NFT!!</p>
+            <Button name="mint NFT" onClick={props.mint} />
+          </>
+          :
+          <>
+            <p className="mb-10 text-red-600 text-3xl leading-relaxed">Your answer is wrong!!<br />Please select the correct answer.</p>
+            <Button name="back to Learn" onClick={props.onRequestClose} />
+          </>
+        }
+        </>
         :
-        <span>Your answer is wrong!</span>
+        <p className="mb-10 text-3xl leading-relaxed">You have not answered yet.</p>
       }
-      </>
-      :
-      <span>not yet answer.</span>
-    }
-  </footer>
+    </footer>
+  </div>
 </Modal>
     );
 };

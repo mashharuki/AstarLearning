@@ -5,13 +5,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContractContext } from '../../context';
 import Loading from "../common/Loading";
-import Astar from "./LearnContent/Astar";
-import Shiden from "./LearnContent/Shiden";
-import Wasm from "./LearnContent/Wasm";
 
 import { useState } from "react";
-//import Modal from 'react-modal'
 import QuizModal from "./QuizModal";
+
+
+import { marked } from 'marked';
 
 /**
  * LearnCanvas Component
@@ -33,20 +32,17 @@ const LearnCanvas = () => {
         quiz,
         cheer,
         isLoading,
+        contentInfos,
     }:any = useContractContext();
 
-    // Mock
-    let quiz_mock = {
-      question: "質問です。質問です。質問です。わかりますか？",
-      choices: [
-        "選択肢１",
-        "選択肢２",
-        "選択肢３",
-        "選択肢４",
-        "選択肢５",
-      ],
-      correct: "選択肢３"
-    };
+    // Search content
+    let content = null;
+    contentInfos.map((e) => {
+      if (contentFlg != e.content_id) {
+        return;
+      }
+      content = e;
+    });
 
     return (
         <div className="text-center">
@@ -58,25 +54,24 @@ const LearnCanvas = () => {
                     :
                         <>
                             <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">Learning Page</h2>
-                            {/* フラグによってコンテンツの内容を書き換える。 */}
-                            <div className="text-left  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <a href="#">
-                                    {contentFlg == 'wasm' && <img className="mx-auto rounded-t-lg" src="/wasm-logo.png" alt="Astar_ring" />}
-                                    {contentFlg == 'astar' && <img className="mx-auto rounded-t-lg" src="/Astar_ring.png" alt="Astar_ring" />}
-                                    {contentFlg == 'shiden' && <img className="mx-auto rounded-t-lg h-80" src="/Shiden-Symbol.png" alt="Astar_ring" />}
-                                </a>
-                                <div className="p-5">
+                              <div className="text-left flex flex-wrap justify-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                              {content == null ? 
+                                <div className="my-5">
+                                  <h2 className="my-5 text-5xl">Not Found.</h2>
+                                </div>
+                                :
+                                <>
+                                  <a href="#" class="py-10 w-2/6">
+                                    <img className="mx-auto rounded-t-lg" src={content.image_url} alt={content.title} />
+                                  </a>
+                                  <div className="p-5 w-3/4">
                                     <a href="#">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            {contentFlg} Learing Course
+                                            {content.title} Learing Course
                                         </h5>
                                     </a>
-                                    <p className="text mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {contentFlg === 'wasm' && <Wasm/>}
-                                        {contentFlg === 'astar' && <Astar/>}
-                                        {contentFlg === 'shiden' && <Shiden/>}
-                                    </p>
-                                    <div className="text-center">
+                                    <div className="content-container mb-3 text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: content.content}} />
+                                    <div className="text-center mb-5">
                                         <Button 
                                             name="Good" 
                                             onClick={() => good(contentFlg)}
@@ -92,15 +87,16 @@ const LearnCanvas = () => {
                                             onClick={() => cheer(contentFlg)}
                                         />
                                     </div>
-                                </div>
-                            </div>
+                                  </div>
+                                  <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} />
+                                </>
+                              }
+                            </div> 
                             <div className="mt-5 mb-5"></div>
                             <Link href="/">
                                 <Button name="return to Top" />
                             </Link>
-                            <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quiz={quiz_mock}>
-                            </QuizModal>
-                        </> 
+                      </> 
                     }
                 </>
             :

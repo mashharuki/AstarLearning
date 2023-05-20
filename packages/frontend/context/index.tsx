@@ -47,6 +47,7 @@ export type ContextType = {
     actingAddress: string;
     isLoading: Boolean;
     nftInfos: NftInfo[];
+    contentInfos: ContentInfo[];
     mint: (contentFlg: string) => Promise<void>;
     good: () => Promise<void>;
     quiz: () => Promise<void>;
@@ -360,11 +361,31 @@ export function ContractProvider({ children }: any) {
                 },);
 
         // check if the call was successful
+        console.log("get contents ...", result);
         if (result.isOk) {
             const outputData: any = output;
             // json形式にして再び取得する。
             const jsonData = JSON.parse(outputData.toString());
             console.log(`contents info: ${JSON.stringify(jsonData.ok)}`);
+            let list = [];
+            jsonData.ok.map( (e) => {
+              console.log("content", e);
+              let content: ContentInfo = {
+                content_id: e.contentId,
+                title: e.title,
+                intro: e.intro,
+                content: e.content,
+                goods: e.goods,
+                quizs: e.quizs,
+                answer: e.answer,
+                image_url: e.imageUrl,
+                nft_address: e.nftAddress,
+                creator_address: e.creatorAddress
+              };
+              list.push(content);
+            });
+            setContentInfos(list);
+
         } else {
             console.error('get content error: ', result);
         }
@@ -696,6 +717,7 @@ export function ContractProvider({ children }: any) {
                 actingAddress,
                 isLoading,
                 nftInfos,
+                contentInfos,
                 mint,
                 good,
                 quiz,
