@@ -43,9 +43,6 @@ const LearnCanvas = () => {
       }
       content = e;
     });
-    if (content == null) {
-      alert("Not Found.");
-    }
 
     return (
         <div className="text-center">
@@ -57,12 +54,17 @@ const LearnCanvas = () => {
                     :
                         <>
                             <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">Learning Page</h2>
-                            {/* フラグによってコンテンツの内容を書き換える。 */}
-                            <div className="text-left flex flex-wrap justify-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <a href="#" class="py-10 w-2/6">
+                              <div className="text-left flex flex-wrap justify-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                              {content == null ? 
+                                <div className="my-5">
+                                  <h2 className="my-5 text-5xl">Not Found.</h2>
+                                </div>
+                                :
+                                <>
+                                  <a href="#" class="py-10 w-2/6">
                                     <img className="mx-auto rounded-t-lg" src={content.image_url} alt={content.title} />
-                                </a>
-                                <div className="p-5 w-3/4">
+                                  </a>
+                                  <div className="p-5 w-3/4">
                                     <a href="#">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                             {content.title} Learing Course
@@ -85,14 +87,16 @@ const LearnCanvas = () => {
                                             onClick={() => cheer(contentFlg)}
                                         />
                                     </div>
-                                </div>
-                            </div>
+                                  </div>
+                                  <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} />
+                                </>
+                              }
+                            </div> 
                             <div className="mt-5 mb-5"></div>
                             <Link href="/">
                                 <Button name="return to Top" />
                             </Link>
-                            <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} />
-                        </> 
+                      </> 
                     }
                 </>
             :
