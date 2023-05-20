@@ -55,7 +55,7 @@ export type ContextType = {
 };
 
 const proofSize = 131072
-const refTime = 6219235328
+const refTime = 9219235328
 const storageDepositLimit = null
 
 // Create Context Object
@@ -328,7 +328,7 @@ export function ContractProvider({ children }: any) {
             setContentInfos(list);
 
         } else {
-            console.error('error');
+            console.error('get content error: ', result);
         }
     };
 

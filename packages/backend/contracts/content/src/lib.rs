@@ -63,38 +63,35 @@ mod content {
                 title: "WASM Learning Course".to_string(),
                 intro: "This course is designed to learn about WASM.".to_string(),
                 content: "
-                    <h2 id='wasmとは' className='underline'>WASMとは</h2>
-                    <p>WebAssembly のコードを実行できる環境のこと。</p>
-                    <h3 id='webassembly-とは' className='underline'>WebAssembly とは</h3>
-                    <p>WebAssembly はブラウザで JavaScript 以外の言語を実行するための技術で、Rust などで書いたものをバイナリコードに変換して、ブラウザで実行できる技術です。</p>
-                    <p>スタックベース仮想マシン用のバイナリフォーマットの実行環境。仮想マシン用の ISA。どんな物理マシンでも(つまり OS に依存しない)動くこと。W3C 勧告。Mozira や Google なども開発している。</p>
-                    <h3 id='バイナリ・フォーマットとは' className='underline'>バイナリ・フォーマットとは</h3>
-                    <p>テキストフォーマットのように、特定の環境に依存することなく、テキストエディタでデータを読み書きすることはできないが、代わりにデータの記録方式はプログラムで任意に決定できるため、情報を効率よく構造化することが可能になる。</p>
-                    <h3 id='wasiwebassembly-system-interfaceとは' className='underline'>WASI(WebAssembly System Interface)とは</h3>
-                    <p>ブロックチェーンで使われている WebAssembly Runtime を紹介する前に、Web 以外で WebAssembly を利用するための標準化の取り組みである WASI について紹介します。</p>
-                    <p>WASI は WebAssembly System Interface のことで、WebAssembly をブラウザ以外の環境で実行するため、ホストのファイルシステムやネットワークなどの OS 機能へのアクセスを提供するための仕様です。W3C が勧告している。</p>
-                    <h3 id='なぜスマートコントラクトにwebassemblyを対応するのか？' className='underline'>なぜスマートコントラクトにWebAssemblyを対応するのか？</h3>
+                    <h2 id='wasmとは' className='underline'>About WASM</h2>
+                    <p>An environment in which WebAssembly code can be executed.</p>
+                    <h3 id='webassembly-とは' className='underline'>Abount WebAssembly </h3>
+                    <p>WebAssembly is a technology for executing languages other than JavaScript in the browser.</p>
+                    <p>A binary-format execution environment for stack-based virtual machines. ISA for virtual machines, which can run on any physical machine (i.e., OS-independent); W3C recommendation; also developed by Mozira, Google, etc.</p>
+                    <h3 id='バイナリ・フォーマットとは' className='underline'>About binary format</h3>
+                    <p>Like text formats, it is not possible to read and write data in a text editor without depending on a specific environment, but instead the data recording method can be determined arbitrarily by the program, allowing information to be structured efficiently.</p>
+                    <h3 id='wasiwebassembly-system-interfaceとは' className='underline'>About WASI(WebAssembly System Interface)</h3>
+                    <p>Before introducing the WebAssembly Runtime used in the blockchain, we will introduce WASI, a standardization effort for using WebAssembly outside of the Web.</p>
+                    <p>WASI stands for WebAssembly System Interface, a specification for providing access to OS features such as the host file system and networking in order to run WebAssembly in an environment other than a browser, as recommended by the W3C.</p>
+                    <h3 id='なぜスマートコントラクトにwebassemblyを対応するのか？' className='underline'>Why WebAssembly support for smart contracts?</h3>
                     <ul className='list-disc'>
-                        <li>1. 高いパフォーマンス。プラットフォームに依存せず、可能な限りネイティブなマシンコードに近づけるよう構築されています。</li>
-                        <li>2. 小さなサイズ。小さなバイナリで、インターネット接続が遅いデバイスにインターネット経由で配布することができます。これは、スペースに制約のあるブロックチェーンの世界には最適です。</li>
-                        <li>3. 一般的なVM&バイトコード どのブラウザでも同じ結果でコードをデプロイできるように開発されました。EVMとは異なり、特定のユースケースに向けて開発されていないため、多くのツールが利用可能で、大企業がWasmの開発促進に多くのリソースを投入しているという利点があります。<br/>
-                        効率的なJIT実行 CPUの命令と一対一に対応する64ビットと32ビットの整数演算をサポート。</li>
-                        <li>4. ミニマリズム。1ページに収まる形式的な仕様。</li>
-                        <li>5. 決定論的実行 コンセンサスアルゴリズムに必要な浮動小数点演算を削除することで、Wasmを容易に決定論的にすることができます。</li>
-                        <li>6. オープンスタンダード＞カスタムソリューション。WasmはGoogle、Mozillaなどを含むW3Cワークグループが開発したウェブブラウザの標準です。Wasmには、コンパイラと標準化チームの両方が何年もかけて取り組んできた。</li>
-                        <li>7. 多くの言語が利用可能です。Wasmは、スマートコントラクトの開発者が利用できる言語ファミリーを拡大し、Rust、C/C++、C#、Typescript、Haxe、Kotlinを含む。つまり、スマートコントラクトは、使い慣れたどの言語でも記述することができます。</li>
-                        <li>8. メモリセーフ、サンドボックス化、プラットフォーム非依存。</li>
-                        <li>9. LLVMのサポート。LLVMコンパイラーインフラストラクチャープロジェクトにサポートされているため、Wasmは10年以上にわたるLLVMのコンパイラー最適化の恩恵を受けています。</li>
-                        <li>10. 大企業が関与 Google、Apple、Microsoft、Mozilla、Facebookなどの大手企業によって継続的に開発されています。</li>
+                        <li>1. High performance. Built to be platform independent and as close to native machine code as possible.</li>
+                        <li>2. Small size. Small binaries can be distributed over the Internet to devices with slow Internet connections. This is perfect for the space-constrained blockchain world.</li>
+                        <li>3. The advantages are that many tools are available and large companies are investing a lot of resources in promoting Wasm development.Efficient JIT execution Support for 64-bit and 32-bit integer arithmetic with one-to-one correspondence to CPU instructions.</li>
+                        <li>4. Minimalism. formal specifications that fit on one page.</li>
+                        <li>5. Deterministic Execution Wasm can easily be made deterministic by removing the floating point operations required for the consensus algorithm.</li>
+                        <li>6. Open Standards > Custom Solutions.Wasm is a web browser standard developed by a W3C workgroup that includes Google, Mozilla, etc. Both compilers and standards teams have been working on Wasm for years.</li>
+                        <li>7. Many languages are available; Wasm expands the family of languages available to smart contract developers to include Rust, C/C++, C#, Typescript, Haxe, and Kotlin. This means that smart contracts can be written in any language with which you are familiar.</li>
+                        <li>8. Memory-safe, sandboxed, platform-independent.</li>
+                        <li>9. LLVM support. supported by the LLVM Compiler Infrastructure Project, Wasm has benefited from over a decade of LLVM compiler optimizations.</li>
+                        <li>10. Large companies involved Continuous development by major companies such as Google, Apple, Microsoft, Mozilla, and Facebook.</li>
                     </ul>
-                    <h3 id='astarにおけるwasmコントラクト開発言語' className='underline'>AstarにおけるWASMコントラクト開発言語</h3>
-                    <p>現在は以下の通り</p>
+                    <h3 id='astarにおけるwasmコントラクト開発言語' className='underline'>WASM contract development language in Astar</h3>
                     <ul className='list-disc'>
                         <li>!ink</li>
                         <li>!ask</li>
                     </ul>
-                    <h3 id='astarにおけるwasmコントラクトの開発フレームワーク' className='underline'>AstarにおけるWASMコントラクトの開発フレームワーク</h3>
-                    <p>現在は、以下の通り</p>
+                    <h3 id='astarにおけるwasmコントラクトの開発フレームワーク' className='underline'>Development framework for WASM contracts in Astar</h3>
                     <ul className='list-disc'>
                         <li>swanky</li>
                     </ul>
@@ -196,6 +193,8 @@ mod content {
             nft: String,
             creator: String
         ) -> Result<(), ()> {
+            // increment
+            self.content_last_id += 1;
             // create content info
             let content_info = ContentInfo {
                 content_id: self.content_last_id,
@@ -210,8 +209,6 @@ mod content {
                 creator_address: creator,
             };
 
-            // increment
-            self.content_last_id += 1;
             // push
             self.contents.insert(self.content_last_id, &content_info);
 
