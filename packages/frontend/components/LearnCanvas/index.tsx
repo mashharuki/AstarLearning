@@ -89,7 +89,7 @@ const LearnCanvas = () => {
                                         &nbsp;
                                         <Button 
                                             name="Cheer" 
-                                            onClick={() => cheer()}
+                                            onClick={() => cheer(contentFlg)}
                                         />
                                     </div>
                                 </div>

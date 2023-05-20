@@ -231,7 +231,7 @@ export function ContractProvider({ children }: any) {
      * @param contentFlg コンテンツフラグ
      * @returns 
      */
-    const cheer = async() => {
+    const cheer = async(contentFlg: string) => {
         setIsLoading(true);
 
         const { web3FromSource } = await import('@polkadot/extension-dapp');
@@ -255,10 +255,17 @@ export function ContractProvider({ children }: any) {
         const api = await ApiPromise.create({
             provider: wsProvider
         });
+        //Get Distination Address from Content Contract
+        const contentId :number = ConvertContentFlgToContentId(contentFlg) ; //contentIdに変換
+        const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
+        console.log("[cheer] contentDataForContentId: ", contentDataForContentId)
+        const distAddress :string = contentDataForContentId.creatorAddress;
+        console.log("[cheer] distAddress: ", distAddress);
+
 
         // transfer 0.0001d ASTAR
         api.tx.balances
-            .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 100000000000000)
+            .transfer(distAddress, 100000000000000)
             .signAndSend(actingAddress, { signer: injector.signer }, 
                 (status) => { 
                     console.log("status", status); 
@@ -302,6 +309,40 @@ export function ContractProvider({ children }: any) {
         } else {
             console.error('error');
         }
+    };
+
+    /**
+     * get content info method
+     * @param contentId コンテンツID
+     */
+    const getContentInfo = async(api: any, contentId: number) => {
+        //指定したcontentIdに対応したコンテンツデータを取得する
+        // get content object
+        var contract = createContentContract(api);
+
+        const {result, output} = 
+            await contract.query.getContent(
+                CONTENT_CONTRACT_ADDRESS,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                },contentId);
+
+        // check if the call was successful
+        if (result.isOk) {
+            const outputData: any = output;
+            // json形式にして再び取得する。
+            const jsonData = JSON.parse(outputData.toString());
+            // console.log('[getContentInfo]contentId: ', contentId);
+            // console.log(`[getContentInfo]content info: ${JSON.stringify(jsonData.ok)}`);
+            return jsonData.ok;
+        } else {
+            console.error('error');
+        }
+
     };
 
     /**
@@ -567,6 +608,27 @@ export function ContractProvider({ children }: any) {
             console.error('error');
         }
     }; 
+
+    /**
+     * ConvertContentFlgToContentId
+     * @param contentFlg コンテンツフラグ
+     */
+    const ConvertContentFlgToContentId = (contentFlg: string) => {
+        //ContentFlgを、対応するContentIdに変換する。MVP向けの暫定メソッド。
+        //ContentFlgを使わずContentIdで各種処理を行うようにするのはバックログとする。
+
+        var contentId: number;
+
+        if(contentFlg === 'wasm'){
+            contentId = 0;
+        } else if(contentFlg === 'astar') {
+            contentId = 1;
+        } else {
+            contentId = 2;
+        }
+        console.log("[ConvertContentFlgToContentId] contentId: ", contentId);
+        return contentId;
+    };
 
     return (
         <ContractContext.Provider 
