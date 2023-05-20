@@ -96,7 +96,7 @@ const LearnCanvas = () => {
                             </div>
                             <div className="mt-5 mb-5"></div>
                             <Link href="/">
-                                <Button name="トップへ戻る" />
+                                <Button name="return to Top" />
                             </Link>
                             <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quiz={quiz_mock}>
                             </QuizModal>

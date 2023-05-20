@@ -313,7 +313,7 @@ export function ContractProvider({ children }: any) {
             provider: wsProvider
         });
         //Get Distination Address from Content Contract
-        const contentId :number = ConvertContentFlgToContentId(contentFlg) ; //contentIdに変換
+        const contentId :number = ConvertContentFlgToContentId(contentFlg); //contentIdに変換
         const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
         console.log("[cheer] contentDataForContentId: ", contentDataForContentId)
         const distAddress :string = contentDataForContentId.creatorAddress;
@@ -326,8 +326,10 @@ export function ContractProvider({ children }: any) {
             .signAndSend(actingAddress, { signer: injector.signer }, 
                 (status) => { 
                     console.log("status", status); 
-                    alert("transaction success!! ");
-                    setIsLoading(false);
+                    if(status.isFinalized) {
+                        alert("transaction success!! ");
+                        setIsLoading(false);
+                    }
                 }).catch((error: any) => {
                     console.log(':( transaction failed', error);
                     alert("transaction fail...");
