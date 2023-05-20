@@ -17,7 +17,7 @@
 
 - Problem to be solved
 
-Our product seeks to solve the following three challenges in expanding the Astar Network ecosystem.
+    Our product seeks to solve the following three challenges in expanding the Astar Network ecosystem.
 
     - The number of WASM-compliant DApps has not increased significantly.
     - Not much is known about WASM in the first place.
@@ -25,13 +25,13 @@ Our product seeks to solve the following three challenges in expanding the Astar
 
 - Solutions
 
-With our product, we would like to provide a place where engineers and non-engineers alike can learn about Astar Network and WASM.    
+    With our product, we would like to provide a place where engineers and non-engineers alike can learn about Astar Network and WASM.    
 
-Incentivize Astar Learning participants by having a system that pays rewards to those who provide quality learning content.
+    Incentivize Astar Learning participants by having a system that pays rewards to those who provide quality learning content.
 
-Currently, it is a direct throwaway from content viewers (learners), but in the future, we will use Astar earned from dapp staking as a source of rewards and combine it well with the evaluation algorithm to pay rewards to content providers.  
+    Currently, it is a direct throwaway from content viewers (learners), but in the future, we will use Astar earned from dapp staking as a source of rewards and combine it well with the evaluation algorithm to pay rewards to content providers.  
 
-In this way, we would like to solve the above issues by making it a semi-permanent learning product with no administrator.
+    In this way, we would like to solve the above issues by making it a semi-permanent learning product with no administrator.
 
 
 ## TechStack
@@ -69,3 +69,7 @@ We would like to make use of this development experience as a foundation for fut
 - 3. dapp stakingに応募すること
 - 4. dapp stakingに採用された場合にはコンテンツコントラクトにリワードを入金してそこからリワードが支払われるようにすること。
 - 5. 少しずつAstar Learningのユーザーを増やしていくこと。
+
+## Live Demo
+
+[Astar Learning's Live Demo is here]()
