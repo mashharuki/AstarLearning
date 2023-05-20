@@ -51,7 +51,7 @@ export default function Card() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-left text-sm text-gray-700">
-                      <a href={product.href}>
+                      <a href='#'>
                         <span aria-hidden="true" className="ml-0" />
                         {product.name}
                       </a>

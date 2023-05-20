@@ -128,6 +128,7 @@ AstarLearning は、気軽に WASM や Astar Network などブロックチェー
 | 6   | WASM NFT                                        | [YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa](https://contracts-ui.substrate.io/contract/YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa) | Shiden       |
 | 7   | Astar NFT                                       | [betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE](https://contracts-ui.substrate.io/contract/betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE) | Shiden       |
 | 8   | Shiden NFT                                      | [XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY](https://contracts-ui.substrate.io/contract/XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY) | Shiden       |
+| 9   | Content      | [XwfS2n11meUHuBivHK3VS9dWtRUv7U56kATTwkyBxx33xCa](https://contracts-ui.substrate.io/contract/XwfS2n11meUHuBivHK3VS9dWtRUv7U56kATTwkyBxx33xCa) | Shibuya       |
 
 ### NFT の画像コンテンツの URI 情報
 
