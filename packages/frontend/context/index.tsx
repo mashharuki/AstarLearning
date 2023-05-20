@@ -8,17 +8,17 @@ import {
     BLOCKCHAINS,
     WASM_NFT_CONTRACT_ADDRESS,
     ASTAR_NFT_CONTRACT_ADDRESS,
-    SHIDEN_NFT_CONTRACT_ADDRESS
+    SHIDEN_NFT_CONTRACT_ADDRESS,
+    CONTENT_CONTRACT_ADDRESS
 } from '../components/common/Constant';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import type { WeightV2 } from '@polkadot/types/interfaces';
 import { BN } from '@polkadot/util';
-import { useWallet } from "@polkadot/api";
-
 
 // Specify the metadata of the contract.
 import wasmNftAbi from '../metadata/nft.json';
+import wasmContentAbi from '../metadata/content.json';
 
 // NFT用のデータ型
 export type NftInfo = {
@@ -26,6 +26,20 @@ export type NftInfo = {
     image: string | undefined;
     description:string | undefined;
 };
+
+// Content data type
+export type ContentInfo = {
+    content_id: Number;
+    title: string;
+    intro: string;
+    content: string;
+    goods: Number;
+    quizs: string[];
+    answer: Number;
+    image_url: string;
+    nft_address: string;
+    creator_address: string;
+}
 
 // contextから渡すデータ型
 export type ContextType = {
@@ -69,7 +83,8 @@ export function ContractProvider({ children }: any) {
     const [api, setApi] = useState<any>();
     const [block, setBlock] = useState(0);
     const [ownNfts, setOwnNfts] = useState('');
-    const [nftInfos, setNftInfos] = useState<NftInfo[]>([])
+    const [nftInfos, setNftInfos] = useState<NftInfo[]>([]);
+    const [contentInfos, setContentInfos] = useState<ContentInfo[]>([])
     const [width, setWidth] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     
@@ -87,6 +102,14 @@ export function ContractProvider({ children }: any) {
         } else {
             contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
         }
+        return contract;
+    };
+
+    /**
+     * createContentContract function
+     */
+    const createContentContract = (api: any) => {
+        var contract = new ContractPromise(api, wasmContentAbi, CONTENT_CONTRACT_ADDRESS);
         return contract;
     };
 
@@ -148,8 +171,10 @@ export function ContractProvider({ children }: any) {
         });
 
         setIsLoading(true);
-        // 現在取得しているNFTを求める。 
+        // get owned NFTs 
         await getNftInfos(api, account[0].address);
+        // get content infos
+        await getContentInfos(api);
         setIsLoading(false);
     };
 
@@ -231,19 +256,50 @@ export function ContractProvider({ children }: any) {
             provider: wsProvider
         });
 
+        // transfer ASTAR
         api.tx.balances
-        .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 123)
-        .signAndSend(actingAddress, { signer: injector.signer }, 
-          (status) => { 
-            console.log("status", status); 
-          }).catch((error: any) => {
-            console.log(':( transaction failed', error);
-            alert("Mint fail...");
-            setIsLoading(false);
-          });
+            .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 123)
+            .signAndSend(actingAddress, { signer: injector.signer }, 
+                (status) => { 
+                    console.log("status", status); 
+                }).catch((error: any) => {
+                    console.log(':( transaction failed', error);
+                    alert("Mint fail...");
+                    setIsLoading(false);
+                });
 
 
         return;
+    };
+
+    /**
+     * get content info method
+     */
+    const getContentInfos = async(api: any) => {
+        // get content object
+        var contract = createContentContract(api);
+
+        // call getNftName メソッド
+        const {result, output} = 
+            await contract.query.getContents(
+                CONTENT_CONTRACT_ADDRESS,
+                {
+                    gasLimit: api.registry.createType('WeightV2', {
+                        refTime,
+                        proofSize,
+                    }) as WeightV2,
+                    storageDepositLimit,
+                },);
+
+        // check if the call was successful
+        if (result.isOk) {
+            const outputData: any = output;
+            // json形式にして再び取得する。
+            const jsonData = JSON.parse(outputData.toString());
+            console.log(`contents info: ${JSON.stringify(jsonData.ok)}`);
+        } else {
+            console.error('error');
+        }
     };
 
     /**

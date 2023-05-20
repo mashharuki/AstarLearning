@@ -33,13 +33,16 @@ export const TWITTER_URL = "https://twitter.com/HARUKI05758694";
 export const WASM_NFT_CONTRACT_ADDRESS = "ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg";
 export const ASTAR_NFT_CONTRACT_ADDRESS = "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d";
 export const SHIDEN_NFT_CONTRACT_ADDRESS = "bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk";
+export const CONTENT_CONTRACT_ADDRESS = "YxeQPrU75g7Vv9biMw27jFqjfLU5ansb5ryqvgG7QN2W8VG";
 
 // 各コントラクトのアドレス(Shiden Network)
 //export const WASM_NFT_CONTRACT_ADDRESS = "YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa";
 //export const ASTAR_NFT_CONTRACT_ADDRESS = "betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE";
 //export const SHIDEN_NFT_CONTRACT_ADDRESS = "XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY";
+//export const CONTENT_CONTRACT_ADDRESS = "";
 
 // 各コントラクトのアドレス(Astar Network)
 //export const WASM_NFT_CONTRACT_ADDRESS = "";
 //export const ASTAR_NFT_CONTRACT_ADDRESS = "";
 //export const SHIDEN_NFT_CONTRACT_ADDRESS = "";
+//export const CONTENT_CONTRACT_ADDRESS = "";
