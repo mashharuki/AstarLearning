@@ -58,20 +58,18 @@ const LearnCanvas = () => {
                         <>
                             <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">Learning Page</h2>
                             {/* フラグによってコンテンツの内容を書き換える。 */}
-                            <div className="text-left  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <a href="#">
+                            <div className="text-left flex flex-wrap justify-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#" class="py-10 w-2/6">
                                     <img className="mx-auto rounded-t-lg" src={content.image_url} alt={content.title} />
                                 </a>
-                                <div className="p-5">
+                                <div className="p-5 w-3/4">
                                     <a href="#">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                             {content.title} Learing Course
                                         </h5>
                                     </a>
-                                    <p className="text mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        <div dangerouslySetInnerHTML={{ __html: marked.parse(content.content)}} />
-                                    </p>
-                                    <div className="text-center">
+                                    <div className="content-container mb-3 text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: content.content}} />
+                                    <div className="text-center mb-5">
                                         <Button 
                                             name="Good" 
                                             onClick={() => good()}

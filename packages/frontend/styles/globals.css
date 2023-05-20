@@ -47,3 +47,33 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.content-container {
+  background: #eee;
+  padding: 15px;
+  margin-bottom: 30px;
+  color: #333;
+}
+.content-container * {
+  margin-bottom: .5rem;
+}
+.content-container *:first-child {
+  margin-top: 0;
+}
+.content-container p {
+}
+.content-container h2 {
+  font-weight: bold;
+  padding-left: 10px;
+  border-left: 5px solid;
+  margin-top: 1rem;
+}
+.content-container h3 {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  margin-top: 1rem;
+}
+.content-container ul {
+}
+.content-container ul > li {
+}

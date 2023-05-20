@@ -38,10 +38,7 @@ export default function Card() {
                         {content.title}
                       </a>
                     </h3>
-                    <div className="mt-1 text-sm text-gray-500">
-                        {content.intro}
-                        {content.content}
-                    </div>
+                    <div className="mt-1 text-left text-sm text-gray-500" dangerouslySetInnerHTML={{ __html: content.intro}} />
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between">
