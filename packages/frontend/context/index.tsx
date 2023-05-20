@@ -93,16 +93,16 @@ export function ContractProvider({ children }: any) {
      * createNftContract function
      * @param contentFlg コンテンツフラグ
      */
-    const createNftContract = (contentFlg: string) => {
+    const createNftContract = async(contentFlg: string) => {
         var contract;
+        const contentId: number = ConvertContentFlgToContentId(contentFlg);
+        
+        //Get nftAddress from Content Contract
+        const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
+        const nftAddress :string = contentDataForContentId.nftAddress; //NFTのコントラクトアドレスを取得
+        console.log("[createNftContract] nftAddress: ", nftAddress);
+        contract = new ContractPromise(api, wasmNftAbi, nftAddress);
 
-        if(contentFlg === 'wasm'){
-            contract = new ContractPromise(api, wasmNftAbi, WASM_NFT_CONTRACT_ADDRESS);
-        } else if(contentFlg === 'astar') {
-            contract = new ContractPromise(api, wasmNftAbi, ASTAR_NFT_CONTRACT_ADDRESS);
-        } else {
-            contract = new ContractPromise(api, wasmNftAbi, SHIDEN_NFT_CONTRACT_ADDRESS);
-        }
         return contract;
     };
 
@@ -212,8 +212,65 @@ export function ContractProvider({ children }: any) {
      * @param contentFlg コンテンツフラグ
      * @returns 
      */
-    const good = async() => {
-        alert("Good!");
+    const good = async(contentFlg: string) => {
+        //コンテンツコントラクトでcontentIdごと保持するgoodsの値を、加算する
+
+        const { web3FromSource } = await import('@polkadot/extension-dapp');
+    
+        // get content object
+        var contract = createContentContract(api);
+        //contentFlgに対応したcontentId
+        const contentId = ConvertContentFlgToContentId(contentFlg);
+
+        setIsLoading(true);
+
+        const gasLimit: any = api.registry.createType("WeightV2", {
+            refTime: new BN("10000000000"),
+            proofSize: new BN("10000000000"),
+        });
+
+        // ガス代などを取得する。
+        const { 
+            gasRequired, 
+            gasConsumed ,
+            result, 
+            output 
+        } = await contract.query.addGood(
+            actingAddress,
+            { 
+                value: 0, 
+                gasLimit: gasLimit,storageDepositLimit 
+            }, contentId
+        );
+        
+        const addGoodExtrinsic = await contract.tx.addGood({ value: 0, gasLimit: gasRequired }, contentId);
+      
+        let injector: any;
+
+        if (accounts.length == 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else if (accounts.length > 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else {
+            return;
+        }
+      
+        addGoodExtrinsic.signAndSend(actingAddress, { signer: injector.signer }, ({ status }) => {
+            if (status.isInBlock) {
+                console.log(`Completed at block hash #${status.asInBlock.toString()}`);
+            } else if (status.isFinalized) {
+                console.log('finalized');
+                alert("AddGood Success!!");
+                setIsLoading(false);
+            } else {
+                console.log(`Current status: ${status.type}`);
+            }
+        }).catch((error: any) => {
+            console.log(':( transaction failed', error);
+            alert("AddGood fail...");
+            setIsLoading(false);
+        });
+
         return;
     };
 
@@ -257,7 +314,7 @@ export function ContractProvider({ children }: any) {
             provider: wsProvider
         });
         //Get Distination Address from Content Contract
-        const contentId :number = ConvertContentFlgToContentId(contentFlg) ; //contentIdに変換
+        const contentId :number = ConvertContentFlgToContentId(contentFlg); //contentIdに変換
         const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
         console.log("[cheer] contentDataForContentId: ", contentDataForContentId)
         const distAddress :string = contentDataForContentId.creatorAddress;
@@ -270,8 +327,10 @@ export function ContractProvider({ children }: any) {
             .signAndSend(actingAddress, { signer: injector.signer }, 
                 (status) => { 
                     console.log("status", status); 
-                    alert("transaction success!! ");
-                    setIsLoading(false);
+                    if(status.isFinalized) {
+                        alert("transaction success!! ");
+                        setIsLoading(false);
+                    }
                 }).catch((error: any) => {
                     console.log(':( transaction failed', error);
                     alert("transaction fail...");
@@ -381,7 +440,7 @@ export function ContractProvider({ children }: any) {
         }
           
         // コントラクトインスタンスを格納する変数
-        var contract = createNftContract(contentFlg);
+        var contract = await createNftContract(contentFlg);
        
         console.log("nft contract:", contract);
         setIsLoading(true);
