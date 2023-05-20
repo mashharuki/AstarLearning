@@ -33,6 +33,7 @@ mod content {
         intro: String,
         content: String,
         goods: u64,
+        statement: String,
         quizs: Vec<String>,
         answer: u8,
         image_url: String,
@@ -97,6 +98,7 @@ mod content {
                     </ul>
                     ".to_string(),
                 goods: 0,
+                statement: "".to_string(),
                 quizs: vec![
                     "Sample question 1".to_string(),
                     "Sample question 2".to_string(),
@@ -130,6 +132,7 @@ mod content {
                 intro: "Sample introduction".to_string(),
                 content: "Sample content".to_string(),
                 goods: 0,
+                statement: "".to_string(),
                 quizs: vec![
                     "Sample question 1".to_string(),
                     "Sample question 2".to_string(),
@@ -187,6 +190,7 @@ mod content {
             title: String,
             intro: String,
             content :String,
+            statement: String,
             quizs: Vec<String>,
             answer: u8,
             url: String,
@@ -202,6 +206,7 @@ mod content {
                 intro,
                 content,
                 goods: 0,
+                statement,
                 quizs,
                 answer,
                 image_url: url,
@@ -317,6 +322,7 @@ mod content {
             let title = "Sample title".to_owned();
             let intro = "Sample intro".to_owned();
             let content = "Sample content".to_owned();
+            let statement = "Sample statement".to_owned();
             let quizs = vec![
                 "What is 1+1?".to_owned(),
                 "What is the capital of Japan?".to_owned(),
@@ -330,6 +336,7 @@ mod content {
                 title.clone(),
                 intro.clone(),
                 content.clone(),
+                statement.clone(),
                 quizs.clone(),
                 answer,
                 url.clone(),
@@ -343,6 +350,7 @@ mod content {
                 intro,
                 content,
                 goods: 0,
+                statement,
                 quizs,
                 answer,
                 image_url: url,

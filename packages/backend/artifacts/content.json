@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0xb7a665d3e30d5cab74dc8b1a0e91c2065c54bc43e925a9687f2db97264e766d1",
+    "hash": "0xcb42e95b8e65f82498660535ccf39ef7c60f3bbb388ce10531bbb745bfd178c4",
     "language": "ink! 4.0.0",
     "compiler": "rustc 1.69.0-nightly",
     "build_info": {
@@ -176,6 +176,15 @@
           },
           {
             "label": "content",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "statement",
             "type": {
               "displayName": [
                 "String"
@@ -428,6 +437,15 @@
                           "layout": {
                             "leaf": {
                               "key": "0xebabae47",
+                              "ty": 1
+                            }
+                          },
+                          "name": "statement"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xebabae47",
                               "ty": 2
                             }
                           },
@@ -670,6 +688,11 @@
                 "name": "goods",
                 "type": 0,
                 "typeName": "u64"
+              },
+              {
+                "name": "statement",
+                "type": 1,
+                "typeName": "String"
               },
               {
                 "name": "quizs",
