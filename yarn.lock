@@ -3476,6 +3476,11 @@ markdown-it@^12.3.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
+marked@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-5.0.2.tgz#ac79e78ea7ed9ad31de70b85e274595d9029e534"
+  integrity sha512-TXksm9GwqXCRNbFUZmMtqNLvy3K2cQHuWmyBDLOrY1e6i9UvZpOTJXoz7fBjYkJkaUFzV9hBFxMuZSyQt8R6KQ==
+
 mdast-util-definitions@^5.0.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/mdast-util-definitions/-/mdast-util-definitions-5.1.2.tgz#9910abb60ac5d7115d6819b57ae0bcef07a3f7a7"
