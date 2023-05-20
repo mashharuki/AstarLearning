@@ -4,11 +4,15 @@
 
 ![](./../imgs/Hackdot_en.drawio.png)
 
-## Problem Statements & Solutions
+## Problem to be solved & Solutions
 
-- Problem Statements
+- Problem to be solved
+
+
 
 - Solutions
+
+
 
 ## TechStack
 
