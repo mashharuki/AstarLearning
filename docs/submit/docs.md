@@ -19,6 +19,7 @@
 
     Our product seeks to solve the following three challenges in expanding the Astar Network ecosystem.
 
+
     - The number of WASM-compliant DApps has not increased significantly.
     - Not much is known about WASM in the first place.
     - Lack of educational content that simultaneously provides knowledge and hands-on experience of WASM-compliant Dapp
