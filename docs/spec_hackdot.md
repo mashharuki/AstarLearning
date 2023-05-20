@@ -61,11 +61,12 @@ WASMに対応したDAppは、EVMに比べるとまだまだ少ない。
 |3|intro|String|コンテンツ見出しの情報(HTMLの形式で保管)||
 |4|content|String|コンテンツ本体の情報(Markdownの形式で保管)||
 |5|goods|u64|「いいね」の数を保管(もしかしたら今回は、使わないかも)|0|
-|6|quizs|[String]|4択の問題文を配列で格納する変数||
-|7|answer|u8|問題の正解番号を格納する変数||
-|8|imageUrl|String|コンテンツで使う画像ファイルまでURLを格納する変数||
-|9|nftAddress|String|NFTコントラクトのアドレスを格納する変数||
-|10|creator|String|コンテンツ作成者のアドレスを格納する変数||
+|6|statement|String|問題文を格納する変数||
+|7|quizs|[String]|4択の選択肢を配列で格納する変数||
+|8|answer|u8|問題の正解番号を格納する変数||
+|9|imageUrl|String|コンテンツで使う画像ファイルまでURLを格納する変数||
+|10|nftAddress|String|NFTコントラクトのアドレスを格納する変数||
+|11|creator|String|コンテンツ作成者のアドレスを格納する変数||
 
 #### 関数
 

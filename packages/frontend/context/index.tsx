@@ -141,6 +141,8 @@ export function ContractProvider({ children }: any) {
         if (extensions.length === 0) {
             return;
         }
+
+        setIsLoading(true);
         // get Account info
         const account = await web3Accounts();
         setAccounts(account);
@@ -171,12 +173,10 @@ export function ContractProvider({ children }: any) {
             unsubscribe();
         });
 
-        setIsLoading(true);
         // get owned NFTs 
         await getNftInfos(api, account[0].address);
         // get content infos
-        await getContentInfos(api);
-        setIsLoading(false);
+        await getContentInfos(api).then(() => setIsLoading(false));
     };
 
     /**
@@ -367,8 +367,8 @@ export function ContractProvider({ children }: any) {
             // json形式にして再び取得する。
             const jsonData = JSON.parse(outputData.toString());
             console.log(`contents info: ${JSON.stringify(jsonData.ok)}`);
-            let list = [];
-            jsonData.ok.map( (e) => {
+            let list:any = [];
+            jsonData.ok.map( (e:any) => {
               console.log("content", e);
               let content: ContentInfo = {
                 content_id: e.contentId,
