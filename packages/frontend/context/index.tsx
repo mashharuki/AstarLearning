@@ -232,7 +232,7 @@ export function ContractProvider({ children }: any) {
      * @returns 
      */
     const cheer = async() => {
-        alert("Cheer!");
+        setIsLoading(true);
 
         const { web3FromSource } = await import('@polkadot/extension-dapp');
 
@@ -256,16 +256,17 @@ export function ContractProvider({ children }: any) {
             provider: wsProvider
         });
 
-        // transfer ASTAR
+        // transfer 0.0001d ASTAR
         api.tx.balances
-            .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 123)
+            .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 100000000000000)
             .signAndSend(actingAddress, { signer: injector.signer }, 
                 (status) => { 
                     console.log("status", status); 
+                    alert("transaction success!! ");
                 }).catch((error: any) => {
                     console.log(':( transaction failed', error);
-                    alert("Mint fail...");
-                    setIsLoading(false);
+                    alert("transaction fail...");
+                    setIsLoading(false)
                 });
 
 
