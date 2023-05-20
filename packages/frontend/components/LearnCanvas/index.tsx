@@ -5,13 +5,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContractContext } from '../../context';
 import Loading from "../common/Loading";
-import Astar from "./LearnContent/Astar";
-import Shiden from "./LearnContent/Shiden";
-import Wasm from "./LearnContent/Wasm";
 
 import { useState } from "react";
-//import Modal from 'react-modal'
 import QuizModal from "./QuizModal";
+
+
+import { marked } from 'marked';
 
 /**
  * LearnCanvas Component
@@ -33,20 +32,20 @@ const LearnCanvas = () => {
         quiz,
         cheer,
         isLoading,
+        contentInfos,
     }:any = useContractContext();
 
-    // Mock
-    let quiz_mock = {
-      question: "質問です。質問です。質問です。わかりますか？",
-      choices: [
-        "選択肢１",
-        "選択肢２",
-        "選択肢３",
-        "選択肢４",
-        "選択肢５",
-      ],
-      correct: "選択肢３"
-    };
+    // Search content
+    let content = null;
+    contentInfos.map((e) => {
+      if (contentFlg != e.content_id) {
+        return;
+      }
+      content = e;
+    });
+    if (content == null) {
+      alert("Not Found.");
+    }
 
     return (
         <div className="text-center">
@@ -61,20 +60,16 @@ const LearnCanvas = () => {
                             {/* フラグによってコンテンツの内容を書き換える。 */}
                             <div className="text-left  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
-                                    {contentFlg == 'wasm' && <img className="mx-auto rounded-t-lg" src="/wasm-logo.png" alt="Astar_ring" />}
-                                    {contentFlg == 'astar' && <img className="mx-auto rounded-t-lg" src="/Astar_ring.png" alt="Astar_ring" />}
-                                    {contentFlg == 'shiden' && <img className="mx-auto rounded-t-lg h-80" src="/Shiden-Symbol.png" alt="Astar_ring" />}
+                                    <img className="mx-auto rounded-t-lg" src={content.image_url} alt={content.title} />
                                 </a>
                                 <div className="p-5">
                                     <a href="#">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            {contentFlg} Learing Course
+                                            {content.title} Learing Course
                                         </h5>
                                     </a>
                                     <p className="text mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {contentFlg === 'wasm' && <Wasm/>}
-                                        {contentFlg === 'astar' && <Astar/>}
-                                        {contentFlg === 'shiden' && <Shiden/>}
+                                        <div dangerouslySetInnerHTML={{ __html: marked.parse(content.content)}} />
                                     </p>
                                     <div className="text-center">
                                         <Button 
@@ -98,8 +93,7 @@ const LearnCanvas = () => {
                             <Link href="/">
                                 <Button name="トップへ戻る" />
                             </Link>
-                            <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quiz={quiz_mock}>
-                            </QuizModal>
+                            <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} />
                         </> 
                     }
                 </>

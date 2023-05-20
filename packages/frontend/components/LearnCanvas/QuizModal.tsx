@@ -16,7 +16,7 @@ const QuizModal = (props) => {
     // local action
     const answer = () => {
       console.log("Your Choice is ", choice);
-      setCorrect(choice == props.quiz.correct);
+      setCorrect(choice == props.quizs[props.answer]);
     };
     const onChangeChoice = (e) => {
       setChoice(e.target.value);
@@ -33,9 +33,9 @@ const QuizModal = (props) => {
     <h1>QuizModal</h1>
   </header>
   <main>
-    <p>{props.quiz.question}</p>
+    <p>{props.intro}</p>
     <ul>
-      {props.quiz.choices.map((c) => {
+      {props.quizs.map((c) => {
         return <li key={c} className="my-1"><label><input type="radio" name="choice" value={c} onChange={onChangeChoice} />{c}</label></li>
       })}
     </ul>
