@@ -79,7 +79,7 @@ const LearnCanvas = () => {
                                     <div className="text-center">
                                         <Button 
                                             name="Good" 
-                                            onClick={() => good()}
+                                            onClick={() => good(contentFlg)}
                                         />
                                         &nbsp;
                                         <Button 
