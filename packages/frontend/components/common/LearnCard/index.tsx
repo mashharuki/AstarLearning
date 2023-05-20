@@ -1,7 +1,7 @@
 import Button from "../Button";
 import Link from 'next/link';
 
-import { useContractContext } from '../../../context';
+import { useContractContext, ContentInfo } from '../../../context';
 
 /**
  * Card Component
@@ -21,7 +21,7 @@ export default function Card() {
       <div className="border-[#d8d2c5] dark:border-[#323943] bg-[#f4efe2] dark:bg-[#121923]">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {contentInfos.map((content) => (
+            {contentInfos.map((content:any) => (
               <div key={content.content_id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
                   <img

@@ -37,8 +37,20 @@ const QuizModal = (props:any) => {
           <main className="w-3/4">
             <p className="text-red-600">TODO: no quiz sentence.</p>
             <ul>
-              {props.quizs.map((c) => {
-                return <li key={c} className="my-1"><label><input type="radio" name="choice" value={c} onChange={onChangeChoice} />{c}</label></li>
+              {props.quizs.map((c: any) => {
+                return (
+                  <li key={c} className="my-1">
+                    <label>
+                      <input 
+                        type="radio" 
+                        name="choice" 
+                        value={c} 
+                        onChange={onChangeChoice} 
+                      />
+                      {c}
+                    </label>
+                  </li>
+                );
               })}
             </ul>
             <div className="text-right">

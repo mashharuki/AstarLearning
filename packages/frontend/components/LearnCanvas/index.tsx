@@ -36,8 +36,9 @@ const LearnCanvas = () => {
     }:any = useContractContext();
 
     // Search content
-    let content = null;
-    contentInfos.map((e) => {
+    let content:any = null;
+
+    contentInfos.map((e:any) => {
       if (contentFlg != e.content_id) {
         return;
       }
@@ -61,7 +62,7 @@ const LearnCanvas = () => {
                                 </div>
                                 :
                                 <>
-                                  <a href="#" class="py-10 w-2/6">
+                                  <a href="#" className="py-10 w-2/6">
                                     <img className="mx-auto rounded-t-lg" src={content.image_url} alt={content.title} />
                                   </a>
                                   <div className="p-5 w-3/4">
