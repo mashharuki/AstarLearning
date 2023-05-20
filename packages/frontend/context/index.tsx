@@ -263,10 +263,11 @@ export function ContractProvider({ children }: any) {
                 (status) => { 
                     console.log("status", status); 
                     alert("transaction success!! ");
+                    setIsLoading(false);
                 }).catch((error: any) => {
                     console.log(':( transaction failed', error);
                     alert("transaction fail...");
-                    setIsLoading(false)
+                    setIsLoading(false);
                 });
 
 
