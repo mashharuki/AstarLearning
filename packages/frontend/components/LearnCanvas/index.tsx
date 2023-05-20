@@ -88,7 +88,7 @@ const LearnCanvas = () => {
                                         />
                                     </div>
                                   </div>
-                                  <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} />
+                                  <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quizs={content.quizs} answer={content.answer} intro={content.intro} onMintNft={() => mint(content.content_id)} />
                                 </>
                               }
                             </div> 

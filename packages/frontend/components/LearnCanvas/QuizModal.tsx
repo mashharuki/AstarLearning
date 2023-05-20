@@ -51,7 +51,7 @@ const QuizModal = (props:any) => {
               {choice == props.quizs[props.answer] ?
                 <>
                   <p className="mb-10 text-5xl leading-relaxed">Your answer is Correct!!<br />You can mint the NFT!!</p>
-                  <Button name="mint NFT" onClick={props.mint} />
+                  <Button name="mint NFT" onClick={props.onMintNft} />
                 </>
                 :
                 <>
