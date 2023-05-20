@@ -33,7 +33,7 @@ export default function Card() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-left text-sm text-gray-700">
-                      <a href={"https://google.com/?q=" + content.title}>
+                      <a href="#">
                         <span aria-hidden="true" className="ml-0" />
                         {content.title}
                       </a>
