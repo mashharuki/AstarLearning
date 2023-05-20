@@ -8,7 +8,7 @@ const Astar = ():JSX.Element => {
     
     return (
         <div>
-            <h1 className="underline">Astar Networkとは</h1>
+            <h1 className='underline'>Astar Networkとは</h1>
             <ul className="list-disc">
                 <li>
                     <p>Astar Network は日本発の Public Blockchain</p>

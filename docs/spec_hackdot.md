@@ -79,7 +79,7 @@ WASMに対応したDAppは、EVMに比べるとまだまだ少ない。
 |6|setImageUrl|&mut self,contentId, imageUrl||コンテンツに紐づかせる画像データを登録するための関数|
 |7|getImageUrl|&mut self,contentId|String|コンテンツに紐づく画像データを取得するための関数|
 |8|getIntro|&mut self,contentId|String|コンテンツの見出しを取得する関数|
-|9|||||
+|9|addGood|&mut self,contentId||コンテンツのgoodを加算する関数|
 
 
 ※ 将来的なコンテンツ作成画面の開発を見据えて、コンテンツ情報はコントラクト上で管理できるようにしておく。(今回は、コントラクトからgetするだけにとどめる。)
