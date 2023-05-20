@@ -14,6 +14,9 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import type { WeightV2 } from '@polkadot/types/interfaces';
 import { BN } from '@polkadot/util';
+import { useWallet } from "@polkadot/api";
+
+
 // Specify the metadata of the contract.
 import wasmNftAbi from '../metadata/nft.json';
 
@@ -31,6 +34,9 @@ export type ContextType = {
     isLoading: Boolean;
     nftInfos: NftInfo[];
     mint: (contentFlg: string) => Promise<void>;
+    good: () => Promise<void>;
+    quiz: () => Promise<void>;
+    cheer: () => Promise<void>;
 };
 
 const proofSize = 131072
@@ -173,6 +179,71 @@ export function ContractProvider({ children }: any) {
 
         console.log("nftInfos:", nfts);
         setNftInfos(nfts);
+    };
+
+    /**
+     * good function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const good = async() => {
+        alert("Good!");
+        return;
+    };
+
+    /**
+     * quiz function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const quiz = async() => {
+        alert("Quiz!");
+        return;
+    };
+
+    /**
+     * cheer function
+     * @param contentFlg コンテンツフラグ
+     * @returns 
+     */
+    const cheer = async() => {
+        alert("Cheer!");
+
+        const { web3FromSource } = await import('@polkadot/extension-dapp');
+
+        let injector: any;
+
+        if (accounts.length == 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else if (accounts.length > 1) {
+            injector = await web3FromSource(accounts[0].meta.source);
+        } else {
+            return;
+        }
+
+        console.log("injector", injector);
+        console.log("accounts", injector.accounts);
+        console.log("signer", injector.signer);
+        console.log("signer.address", actingAddress);
+
+        const wsProvider = new WsProvider(blockchainUrl);
+        const api = await ApiPromise.create({
+            provider: wsProvider
+        });
+
+        api.tx.balances
+        .transfer('5ExgZLoihMxCowyvi8J9rDq8rdTmct8VHU3YrwAGr58A7MnJ', 123)
+        .signAndSend(actingAddress, { signer: injector.signer }, 
+          (status) => { 
+            console.log("status", status); 
+          }).catch((error: any) => {
+            console.log(':( transaction failed', error);
+            alert("Mint fail...");
+            setIsLoading(false);
+          });
+
+
+        return;
     };
 
     /**
@@ -447,6 +518,9 @@ export function ContractProvider({ children }: any) {
                 isLoading,
                 nftInfos,
                 mint,
+                good,
+                quiz,
+                cheer,
             }}
         >
             {children}

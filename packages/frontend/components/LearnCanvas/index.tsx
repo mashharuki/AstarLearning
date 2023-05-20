@@ -9,11 +9,18 @@ import Astar from "./LearnContent/Astar";
 import Shiden from "./LearnContent/Shiden";
 import Wasm from "./LearnContent/Wasm";
 
+import { useState } from "react";
+//import Modal from 'react-modal'
+import QuizModal from "./QuizModal";
+
 /**
  * LearnCanvas Component
  * @returns 
  */
 const LearnCanvas = () => {
+    // state
+    const [isOpenModal, setOpenModal] = useState(false);
+
     const router = useRouter();
     // クエリパラメータから値を取得する。
     const { contentFlg } = router.query;
@@ -22,8 +29,24 @@ const LearnCanvas = () => {
     const {
         actingAddress,
         mint,
+        good,
+        quiz,
+        cheer,
         isLoading,
     }:any = useContractContext();
+
+    // Mock
+    let quiz_mock = {
+      question: "質問です。質問です。質問です。わかりますか？",
+      choices: [
+        "選択肢１",
+        "選択肢２",
+        "選択肢３",
+        "選択肢４",
+        "選択肢５",
+      ],
+      correct: "選択肢３"
+    };
 
     return (
         <div className="text-center">
@@ -55,8 +78,18 @@ const LearnCanvas = () => {
                                     </p>
                                     <div className="text-center">
                                         <Button 
-                                            name="Let's Mint NFT!" 
-                                            onClick={() => mint(contentFlg)}
+                                            name="Good" 
+                                            onClick={() => good()}
+                                        />
+                                        &nbsp;
+                                        <Button 
+                                            name="Quiz" 
+                                            onClick={() => setOpenModal(true)}
+                                        />
+                                        &nbsp;
+                                        <Button 
+                                            name="Cheer" 
+                                            onClick={() => cheer()}
                                         />
                                     </div>
                                 </div>
@@ -65,6 +98,8 @@ const LearnCanvas = () => {
                             <Link href="/">
                                 <Button name="トップへ戻る" />
                             </Link>
+                            <QuizModal isOpen={isOpenModal} onRequestClose={() => setOpenModal(false)} ariaHideApp={false} quiz={quiz_mock}>
+                            </QuizModal>
                         </> 
                     }
                 </>
