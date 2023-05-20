@@ -48,6 +48,12 @@ a {
 @tailwind components;
 @tailwind utilities;
 
+/* quizmodal */
+.dark .ReactModal__Content {
+  background: rgb(31, 41, 55) !important;
+}
+
+/* content */
 .content-container {
   background: #eee;
   padding: 15px;
