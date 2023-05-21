@@ -15,6 +15,7 @@ const NftCanvas = () => {
 
   // create contract
   const {
+    connectWallet,
     actingAddress,
     isLoading,
   }:any = useContractContext();
@@ -32,8 +33,13 @@ const NftCanvas = () => {
               <Card/>
               <div className="mt-5 mb-5"></div>
               <Link href="/">
-                  <Button name="return to Top" />
+                <Button name="return to Top"/>
               </Link>
+              &nbsp;
+              <Button 
+                name="refresh" 
+                onClick={() => connectWallet()}
+              />
             </> 
           }
         </>

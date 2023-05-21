@@ -700,11 +700,13 @@ export function ContractProvider({ children }: any) {
     return (
         <ContractContext.Provider 
             value={{
+                api,
                 connectWallet,
                 actingAddress,
                 isLoading,
                 nftInfos,
                 contentInfos,
+                getNftInfos,
                 mint,
                 good,
                 quiz,
