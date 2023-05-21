@@ -41,7 +41,7 @@ const Header = (): JSX.Element => {
         <div className="w-10/12 text-left">
           <h1 className="text-3xl">
             <Link href="/">
-              <a className="text-dark">Astar Learing Dapp</a>
+              <a className="text-dark">Astar Learing</a>
             </Link>
           </h1>
         </div>
