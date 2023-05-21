@@ -73,4 +73,4 @@ We would like to make use of this development experience as a foundation for fut
 
 ## Live Demo
 
-[Astar Learning's Live Demo is here]()
+[Astar Learning's Live Demo is here (Vercel)](https://wasm-nft-dapp-llxs.vercel.app/)
