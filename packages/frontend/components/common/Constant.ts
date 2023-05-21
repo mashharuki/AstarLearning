@@ -33,7 +33,7 @@ export const TWITTER_URL = "https://twitter.com/HARUKI05758694";
 export const WASM_NFT_CONTRACT_ADDRESS = "ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg";
 export const ASTAR_NFT_CONTRACT_ADDRESS = "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d";
 export const SHIDEN_NFT_CONTRACT_ADDRESS = "bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk";
-export const CONTENT_CONTRACT_ADDRESS = "WFMBxAz9dWjp5dxoDws9T5s7n99z6utK5WWgDroB9wKz6UZ";
+export const CONTENT_CONTRACT_ADDRESS = "av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP";
 
 // 各コントラクトのアドレス(Shiden Network)
 //export const WASM_NFT_CONTRACT_ADDRESS = "YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa";

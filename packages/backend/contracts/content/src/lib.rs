@@ -98,13 +98,13 @@ mod content {
                     </ul>
                     ".to_string(),
                 goods: 0,
-                statement: "".to_string(),
+                statement: "Which of the following options is NOT a correct programming language for developing WASM-compliant smart contracts?".to_string(),
                 quizs: vec![
-                    "Sample question 1".to_string(),
-                    "Sample question 2".to_string(),
-                    "Sample question 3".to_string(),
+                    "!ink".to_string(),
+                    "!ask".to_string(),
+                    "Solidity".to_string(),
                 ],
-                answer: 1,
+                answer: 2,
                 image_url: "/WasmContent.jpeg".to_string(),
                 nft_address: "ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg".to_string(),
                 creator_address: "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq".to_string(),

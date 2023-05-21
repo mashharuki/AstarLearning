@@ -51,13 +51,14 @@
     </ul>
     <p>A web3 version of RedHat's business model, offering packaged solutions such as Fireblocks, Circle, BitGo and other corporate custody solutions, as well as Astar-based metaverse and NFT solutions, for business to business.</p>
     ",
+    "statement": "Which of the following options is NOT a characteristic of Astar Network?",
     "quizs": [
-      "Sample question2 1",
-      "Sample question2 2",
-      "Sample question2 3",
-      "Sample question2 4"
+      "Multichain Application",
+      "XVM",
+      "dapp staking",
+      "Narwhal and Tusk"
     ],
-    "answer": "1",
+    "answer": "3",
     "imageUrl": "/AstarContent.jpeg",
     "nftAddress": "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d",
     "creatorAddress": "5DwLfNQqkLpDoKkHqZCC4EMcFjkn2sbEzqF3JVCZHx6zHoqq"
@@ -81,11 +82,11 @@
     <ul className='list-disc'>
         <li>swanky</li>
     </ul>",
+    "statement": "Which of the following options, Shiden Network is a para-chain that connects to which blockchain?",
     "quizs": [
-      "Sample question2 1",
-      "Sample question2 2",
-      "Sample question2 3",
-      "Sample question2 4"
+      "Polkadot",
+      "Kusama",
+      "Astar Network"
     ],
     "answer": "1",
     "imageUrl": "/ShidenContent.jpeg",

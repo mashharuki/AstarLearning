@@ -34,6 +34,7 @@ export type ContentInfo = {
     intro: string;
     content: string;
     goods: Number;
+    statement: string;
     quizs: string[];
     answer: Number;
     image_url: string;
@@ -376,6 +377,7 @@ export function ContractProvider({ children }: any) {
                 intro: e.intro,
                 content: e.content,
                 goods: e.goods,
+                statement: e.statement,
                 quizs: e.quizs,
                 answer: e.answer,
                 image_url: e.imageUrl,

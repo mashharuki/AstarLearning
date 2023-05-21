@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Modal from 'react-modal'
 
-import Button from "../common/Button";
+import Button from "../../common/Button";
 
 
 /**
@@ -35,7 +35,7 @@ const QuizModal = (props:any) => {
             <h2 className="text-2xl">Quiz</h2>
           </header>
           <main className="w-3/4">
-            <p className="text-red-600">TODO: no quiz sentence.</p>
+            <p >{props.statement}</p>
             <ul>
               {props.quizs.map((c: any) => {
                 return (
