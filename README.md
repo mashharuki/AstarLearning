@@ -1,6 +1,6 @@
 # Astar Learning
 
- This is a developing Astar Learning Repo.
+This is a developing Astar Learning Repo.
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
@@ -17,17 +17,17 @@
 
 ## 動作確認済み環境情報
 
-|No.|Name|Version|
-|---|---|---|
-|1|yarn|1.22.19|
-|2|Swanky|2.1.2|
-|3|Node.js|18.12.1|
-|4|cargo-contract |2.2.1|
-|5|cargo |nightly-2023-02-07-aarch64-apple-darwin|
-|6|!ink |4.0.0|
-|7|rustc| 1.69.0-nightly |
+| No. | Name           | Version                                 |
+| --- | -------------- | --------------------------------------- |
+| 1   | yarn           | 1.22.19                                 |
+| 2   | Swanky         | 2.1.2                                   |
+| 3   | Node.js        | 18.12.1                                 |
+| 4   | cargo-contract | 2.2.1                                   |
+| 5   | cargo          | nightly-2023-02-07-aarch64-apple-darwin |
+| 6   | !ink           | 4.0.0                                   |
+| 7   | rustc          | 1.69.0-nightly                          |
 
-## How to run 
+## How to run
 
 - モジュールのインストール
 
@@ -43,15 +43,15 @@
 
 - スマートコントラクトのコンパイル
 
-※ swankyのコマンドの問題で1回目は、生成したwasmファイルが読み込めないというエラーが出るので2回実行してください。
+※ swanky のコマンドの問題で 1 回目は、生成した wasm ファイルが読み込めないというエラーが出るので 2 回実行してください。
 
-  ```bash
-  yarn compile:nft
-  ``` 
+```bash
+yarn compile:nft
+```
 
-  ```bash
-  yarn compile:content
-  ``` 
+```bash
+yarn compile:content
+```
 
 ## コンセプト・キャッチフレーズ
 
@@ -81,9 +81,9 @@ AstarLearning は、気軽に WASM や Astar Network などブロックチェー
 
 ユーザーは、この Dapp に触れる一環で知識を得るだけでなく WASM コントラクトを利用した実装例を体感できるので、Dapp の実装イメージを膨らませることができます。
 
-これにより一人でも多くのエンジニアに WASM Dapp の魅力を伝え、まだまだ少数である WASM コントラクト開発者を増やし、Polkadotエコシステムを盛り上げていくきっかけを増やすことを目的としています。
+これにより一人でも多くのエンジニアに WASM Dapp の魅力を伝え、まだまだ少数である WASM コントラクト開発者を増やし、Polkadot エコシステムを盛り上げていくきっかけを増やすことを目的としています。
 
-将来的にはdapp stakingへの応募も視野に入れており、採択された場合にはその報酬をコンテンツ提供者に渡すようなアーキテクチャに進化させて行きたいと考えています。
+将来的には dapp staking への応募も視野に入れており、採択された場合にはその報酬をコンテンツ提供者に渡すようなアーキテクチャに進化させて行きたいと考えています。
 
 ## The problem it solves
 
@@ -93,11 +93,11 @@ AstarLearning は、気軽に WASM や Astar Network などブロックチェー
 - 気軽に WASM や Astar Network について学べるコンテンツが少ないこと
 - WASM を利用した Dapp の実装例がまだまだ世に広く知れ渡っておらず、メリットなどが伝わりにくいこと
 
-この課題を解決するためにAstar Learningでは次の機能を開発・提供することで課題解決に貢献します！
+この課題を解決するために Astar Learning では次の機能を開発・提供することで課題解決に貢献します！
 
 - 学習コンテンツを作成し、スマートコントラクト上に保管
 - 良い学習コンテンツを作成してくれたユーザーには報酬を支払う
-- 報酬の財源については現状はユーザーから少額のAstarを送るという仕組みだが、将来的にはdapp stakingに応募し採択されたここで得られる報酬から優良コンテンツ作成者に報酬を支払う
+- 報酬の財源については現状はユーザーから少額の Astar を送るという仕組みだが、将来的には dapp staking に応募し採択されたここで得られる報酬から優良コンテンツ作成者に報酬を支払う
 
 ## TechStack
 
@@ -128,7 +128,7 @@ AstarLearning は、気軽に WASM や Astar Network などブロックチェー
 | 6   | WASM NFT                                        | [YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa](https://contracts-ui.substrate.io/contract/YT4pXMbzftUFcjwH1yMtpB9yvgkJMbYboPyRsCYSD7pgqMa) | Shiden       |
 | 7   | Astar NFT                                       | [betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE](https://contracts-ui.substrate.io/contract/betwgtAMMVsLG3tZqDhUcQJ1TthvBkwowotAWyCGgcn9cgE) | Shiden       |
 | 8   | Shiden NFT                                      | [XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY](https://contracts-ui.substrate.io/contract/XNvt8RqjUSd8CZy2dvHS9GhhWjDBEtrPaqxC7fDwMCSzBaY) | Shiden       |
-| 9   | Content      | [av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP](https://contracts-ui.substrate.io/contract/av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP) | Shibuya       |
+| 9   | Content                                         | [av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP](https://contracts-ui.substrate.io/contract/av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP) | Shibuya      |
 
 ### NFT の画像コンテンツの URI 情報
 
@@ -223,3 +223,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 32. [PoL](https://pol.techtec.world/)
 33. [Submit Summer-HackaDOT-2023](https://github.com/mashharuki/Summer-HackaDOT-2023)
 34. [【npm】marked](https://www.npmjs.com/package/marked)
+35. [【Canva】pitch Hackadot](https://www.canva.com/design/DAFjjDnor5Q/jkP87B_Itj98TvJe34h0zg/edit?utm_content=DAFjjDnor5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)

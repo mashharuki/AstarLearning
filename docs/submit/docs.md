@@ -86,17 +86,17 @@ We would like to make use of this development experience as a foundation for fut
 
 As for the future of Astar Learning, we plan to upgrade its functionality by taking advantage of opportunities such as hackathons, and we hope to contribute to the expansion of the ecosystem by successfully incorporating dapp staking.
 
-1. Front-end enhancements 【2023 Q3】
+Of course, we have no problem adding content about technologies other than those related to Astar Network and Polkadot, and we would like to make the application an opportunity to share knowledge not only about Web3 but also about AI, quantum computers, and other advanced technologies.
 
+1. Front-end enhancements 【2023 Q3】
    - Add functionality to allow content creation from the front end.
    - Add functionality to allow NFTs to be created from the front end.
-
 2. Smart contract enhancements 【2023 Q3】
    - Add a method to pay rewards from content contracts.
 3. Apply for dapp staking 【2023 Q4】
    - Apply to dapp staking.
    - If adopted for dapp staking, the reward should be credited to the content contract and the reward paid from there.
-4. increased use 【2024 Q1〜】
+4. increased user 【2024 Q1〜】
    - To gradually increase the number of Astar Learning users.
    - In Japan, there is also a community for WASM contract developers led by official ambassadors, so we will gradually increase the number of users using the service from that starting point.
    - The ultimate goal is to have Dapp revolve completely around user-layer-only activities.

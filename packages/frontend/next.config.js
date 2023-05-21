@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   assetPrefix: "/flipper-ui",
-  trailingSlash: true,
   async rewrites() {
     return [
       {
