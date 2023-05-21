@@ -29,6 +29,12 @@ export const BLOCKCHAINS = [
 ];
 
 export const TWITTER_URL = "https://twitter.com/HARUKI05758694";
+// 各コントラクトのアドレス(Local Network)
+// export const WASM_NFT_CONTRACT_ADDRESS = "";
+// export const ASTAR_NFT_CONTRACT_ADDRESS = "";
+// export const SHIDEN_NFT_CONTRACT_ADDRESS = "";
+// export const CONTENT_CONTRACT_ADDRESS = "";
+
 // 各コントラクトのアドレス(Shibuya Network)
 export const WASM_NFT_CONTRACT_ADDRESS = "ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg";
 export const ASTAR_NFT_CONTRACT_ADDRESS = "a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d";
