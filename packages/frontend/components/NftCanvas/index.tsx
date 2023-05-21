@@ -4,7 +4,7 @@ import Card from '../common/Card';
 import Link from 'next/link';
 import Button from '../common/Button';
 import { useContractContext } from '../../context'
-import { useMemo } from 'react';
+import Loading from '../common/Loading';
 
 
 /**
@@ -16,6 +16,7 @@ const NftCanvas = () => {
   // create contract
   const {
     actingAddress,
+    isLoading,
   }:any = useContractContext();
 
   return (
@@ -23,15 +24,34 @@ const NftCanvas = () => {
       <Header />
       {actingAddress !== '' ?
         <>
-          <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">Your NFT</h2>
-          <Card/>
-          <div className="mt-5 mb-5"></div>
-          <Link href="/">
-              <Button name="return to Top" />
-          </Link>
+          {isLoading ?
+            <Loading/>
+          :
+            <>
+              <h2 className="text-2xl font-bold tracking-tight mb-5 text-white-900">Your NFT</h2>
+              <Card/>
+              <div className="mt-5 mb-5"></div>
+              <Link href="/">
+                  <Button name="return to Top" />
+              </Link>
+            </> 
+          }
         </>
       :
-        <h2 className="text-2xl font-bold tracking-tight h-screen w-screen flex justify-center items-center text-white-900">Please connect wallet</h2>
+        <h2 
+          className="
+            text-2xl 
+            font-bold 
+            tracking-tight 
+            h-screen 
+            w-screen 
+            flex 
+            justify-center 
+            items-center 
+            text-white-900"
+        >
+          Please connect wallet
+        </h2>
       }
       <Footer />
     </div>
