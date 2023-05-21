@@ -96,7 +96,7 @@ export function ContractProvider({ children }: any) {
      */
     const createNftContract = async(contentFlg: string) => {
         var contract;
-        const contentId: number = ConvertContentFlgToContentId(contentFlg);
+        const contentId: number = Number(contentFlg);
         
         //Get nftAddress from Content Contract
         const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
@@ -220,9 +220,10 @@ export function ContractProvider({ children }: any) {
     
         // get content object
         var contract = createContentContract(api);
-        //contentFlgに対応したcontentId
-        const contentId = ConvertContentFlgToContentId(contentFlg);
+        //contentFlgを文字列型から数値に変換しておく
+        const contentId: number = Number(contentFlg);
 
+        console.log("[good] give good to contentId: ", contentId);
         setIsLoading(true);
 
         const gasLimit: any = api.registry.createType("WeightV2", {
@@ -315,7 +316,7 @@ export function ContractProvider({ children }: any) {
             provider: wsProvider
         });
         //Get Distination Address from Content Contract
-        const contentId :number = ConvertContentFlgToContentId(contentFlg); //contentIdに変換
+        const contentId :number = Number(contentFlg); //contentIDを数値に変換
         const contentDataForContentId :any= await getContentInfo(api, contentId);//contentIdに対応したデータを取得
         console.log("[cheer] contentDataForContentId: ", contentDataForContentId)
         const distAddress :string = contentDataForContentId.creatorAddress;
@@ -690,27 +691,6 @@ export function ContractProvider({ children }: any) {
             console.error('error');
         }
     }; 
-
-    /**
-     * ConvertContentFlgToContentId
-     * @param contentFlg コンテンツフラグ
-     */
-    const ConvertContentFlgToContentId = (contentFlg: string) => {
-        //ContentFlgを、対応するContentIdに変換する。MVP向けの暫定メソッド。
-        //ContentFlgを使わずContentIdで各種処理を行うようにするのはバックログとする。
-
-        var contentId: number;
-
-        if(contentFlg === 'wasm'){
-            contentId = 0;
-        } else if(contentFlg === 'astar') {
-            contentId = 1;
-        } else {
-            contentId = 2;
-        }
-        console.log("[ConvertContentFlgToContentId] contentId: ", contentId);
-        return contentId;
-    };
 
     return (
         <ContractContext.Provider 
