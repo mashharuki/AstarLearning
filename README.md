@@ -31,27 +31,27 @@
 
 - モジュールのインストール
 
-```bash
-yarn
-```
+  ```bash
+  yarn
+  ```
 
 - フロントエンド
 
-```bash
-yarn frontend:start
-```
+  ```bash
+  yarn frontend:start
+  ```
 
 - スマートコントラクトのコンパイル
 
 ※ swankyのコマンドの問題で1回目は、生成したwasmファイルが読み込めないというエラーが出るので2回実行してください。
 
-```bash
-yarn compile:nft
-``` 
+  ```bash
+  yarn compile:nft
+  ``` 
 
-```bash
-yarn compile:content
-``` 
+  ```bash
+  yarn compile:content
+  ``` 
 
 ## コンセプト・キャッチフレーズ
 
@@ -222,3 +222,4 @@ const { result, output } = await contract.query["psp34::balanceOf"](
 31. [HackaDot Summer 2023](https://www.hackadot.xyz/)
 32. [PoL](https://pol.techtec.world/)
 33. [Submit Summer-HackaDOT-2023](https://github.com/mashharuki/Summer-HackaDOT-2023)
+34. [【npm】marked](https://www.npmjs.com/package/marked)

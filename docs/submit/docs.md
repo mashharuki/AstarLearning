@@ -34,11 +34,31 @@
 
     In this way, we would like to solve the above issues by making it a semi-permanent learning product with no administrator.
 
+## Overview of developed features
+
+|No. |Name        | Overview|
+|:--- |:----------- |:----------- |
+|1|Content heading information acquisition function|Functions to be implemented for displaying learning content heading information|
+|2|Contents body information acquisition function|Functions to be implemented to display the main body of the learning content|
+|3|Add "good" function|Ability for users to pay content creators a voluntary reward. Direct Transfer. (The destination address is registered in advance on the content contract side.)|
+|4|Transition function to quiz screen|Function for transitioning from the contents screen to the quiz screen|
+|5|Quiz information acquisition function|Function for displaying the four choices of questions to be displayed on the quiz screen|
+|6|Quiz answer function|Implement a function to select an answer from the choices and validate it, displaying a mint button if the answer is correct and an error message if it is not.|
+|7|NFT mint function|Function to issue NFT. |
+
+## Developed SmartContract
+
+| No. | Contract Name | Contract Address | Network |
+| :--- | :--------- | :------------ |:------------ |
+| 1   | WASM NFT                                        | [ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg](https://contracts-ui.substrate.io/contract/ZjCB8QVKytLmGRGXVCHCuUMnMiQTWU2V3696zqnQiD9kjMg) | Shibuya      |
+| 2   | Astar NFT                                       | [a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d](https://contracts-ui.substrate.io/contract/a6WkJRaZcy6cVkvRQmRmd1TVhAc1Dfq3d7cmpGUjjn9736d) | Shibuya      |
+| 3   | Shiden NFT                                      | [bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk](https://contracts-ui.substrate.io/contract/bezTq8fCqsG6X49e1KRmeVcatNWNaSHfNM218iHzFKPTxsk) | Shibuya      |
+| 4   | Content      | [av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP](https://contracts-ui.substrate.io/contract/av5MGBmkEMfKVfQerD1yjDBcQ1hkgu9GoaMN7DkeAMq4nyP) | Shibuya       |
 
 ## TechStack
 
-| No. | Name        | Purpose                                       |
-| --- | ----------- | ------------------------------------------ |
+|No. |Name        |Purpose      |
+|:--- |:----------- |:--------|
 | 1   | !ink        | Smart Contract Development Language               |
 | 2   | Next.js     | Front-end development framework          |
 | 3   | swanky      | Smart Contract Development Framework     |
@@ -52,7 +72,7 @@
 
 In addition to developing a WASM contract using `!ink`, we also developed a front-end program using Next.js+polkadot.js and connected them to develop a dapp that is comparable to using an EVM-compatible contract. 
 
- Also, for the first time, the team developed a dapp that supports WASM contracts. It was very difficult to set up the development environment for smart contracts.
+Also, for the first time, the team developed a dapp that supports WASM contracts. It was very difficult to set up the development environment for smart contracts.
 
 ## What we learned
 
