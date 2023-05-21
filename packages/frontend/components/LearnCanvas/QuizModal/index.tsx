@@ -57,22 +57,26 @@ const QuizModal = (props:any) => {
               <Button name="Answer" onClick={answer} />
             </div>
           </main>
-          <footer className="text-center mt-20">
+          <footer className="w-full text-center mt-20">
             {answered ?
               <>
-              {choice == props.quizs[props.answer] ?
-                <>
-                  <p className="mb-10 text-5xl leading-relaxed">Your answer is Correct!!<br />You can mint the NFT!!</p>
-                  <Button name="mint NFT" onClick={props.onMintNft} />
-                </>
-                :
-                <>
-                  <p className="mb-10 text-red-600 text-3xl leading-relaxed">Your answer is wrong!!<br />Please select the correct answer.</p>
-                  <Button name="back to Learn" onClick={props.onRequestClose} />
-                </>
-              }
+                {choice == props.quizs[props.answer] ?
+                  <>
+                    <p className="mb-10 text-5xl leading-relaxed">
+                      Your answer is Correct!!<br />You can mint the NFT!!
+                    </p>
+                    <Button name="mint NFT" onClick={props.onMintNft} />
+                  </>
+                  :
+                  <>
+                    <p className="mb-10 text-red-600 text-3xl leading-relaxed">
+                      Your answer is wrong!!<br />Please select the correct answer.
+                    </p>
+                    <Button name="back to Learn" onClick={props.onRequestClose} />
+                  </>
+                }
               </>
-              :
+            :
               <p className="mb-10 text-3xl leading-relaxed">You have not answered yet.</p>
             }
           </footer>

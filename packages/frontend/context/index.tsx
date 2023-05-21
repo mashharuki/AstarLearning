@@ -15,6 +15,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ContractPromise } from '@polkadot/api-contract';
 import type { WeightV2 } from '@polkadot/types/interfaces';
 import { BN } from '@polkadot/util';
+import { useRouter } from 'next/router';
 
 // Specify the metadata of the contract.
 import wasmNftAbi from '../metadata/nft.json';
@@ -89,6 +90,8 @@ export function ContractProvider({ children }: any) {
     const [contentInfos, setContentInfos] = useState<ContentInfo[]>([])
     const [width, setWidth] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
+
+    const router = useRouter();
     
     /**
      * createNftContract function
@@ -486,6 +489,8 @@ export function ContractProvider({ children }: any) {
                 console.log('finalized');
                 alert("Mint Success!!");
                 setIsLoading(false);
+                // redirect to NFT page
+                router.push('/nfts');
             } else {
                 console.log(`Current status: ${status.type}`);
             }
