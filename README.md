@@ -1,5 +1,9 @@
 # Astar Learning
 
+<div align="center">
+   <img width="200" src="./docs/imgs/AstarLearning.png"/>
+</div>
+
 This is a developing Astar Learning Repo.
 
 [![Built with ink!](https://raw.githubusercontent.com/paritytech/ink/master/.images/badge.svg)](https://github.com/paritytech/ink)
