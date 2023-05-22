@@ -1,23 +1,23 @@
 # ピッチ用メモ
 
 (ペルソナ)
-あなたは、これからWASMコントラクト開発・Astar Networkについて学び始めようとしています。
+あなたは、これから WASM コントラクト開発・Astar Network について学び始めようとしています。
 
 (問題定義)
-多くのWeb3界隈の人々がWASMコントラクト開発やAstar Networkに興味を持ち始めています。
-効率良くWASMコントラクト開発やAstarNetworkについてポイントを押さえながら学習もしたいし、Dappにも触れてみたいと考えています。
+多くの Web3 界隈の人々が WASM コントラクト開発や Astar Network に興味を持ち始めています。
+効率良く WASM コントラクト開発や AstarNetwork についてポイントを押さえながら学習もしたいし、Dapp にも触れてみたいと考えています。
 
 (アプリを作った必要性)
-このAstar Learning は、このような人々のニーズに応えるために開発しました。
+この Astar Learning は、このような人々のニーズに応えるために開発しました。
 
 1. WASM コントラクト初学者
-2. Astar Networkを知りたい人
-3. WASMコントラクトを使ったDappに触れてみたい人
+2. Astar Network を知りたい人
+3. WASM コントラクトを使った Dapp に触れてみたい人
 
 (解決アプローチ)
-このアプリ自体がWASMコントラクトと連動したDappになっていて、学習コンテンツを読み終えればNFTを発行することができます。
-ここで獲得したNFTは、将来の雇用主や大学入学委員会に提出することができますし、学習した直後に実際に動くDappに触れることができます。
-知識と実体験に基づくinputを得る機会を提供します。
+このアプリ自体が WASM コントラクトと連動した Dapp になっていて、学習コンテンツを読み終えれば NFT を発行することができます。
+ここで獲得した NFT は、将来の雇用主や大学入学委員会に提出することができますし、学習した直後に実際に動く Dapp に触れることができます。
+知識と実体験に基づく input を得る機会を提供します。
 
 (結局何ができるのかと今後の将来像)
 このアプリは、これからエコシステムに参入してくる人々へのハードルを下げることができます。(学習や理解を得る機会を提供します。)
@@ -42,3 +42,52 @@
 ![](./14.jpg)
 ![](./15.jpg)
 ![](./16.jpg)
+
+### Hackadot Pitch
+
+- intro
+
+      Hello, everyone.
+      Let's start presenpetion of Astar Learning.
+
+- Concept
+
+      Astar Learning is a product that help to provide a mechanism  to actively share knowledge and learn from each other on Astar Network.
+
+- Problems
+
+      There are the three problems we hope to solve with Astar Learning.
+
+      ①The number of WASM-compliant DApps has not increased significantly.
+      ②Not much is known about WASM in the first place.
+      ③Lack of educational content that simultaneously provides knowledge and hands-on experience of WASM-compliant Dapp
+
+- soluves
+
+      Astar Learning offers two solutions to that challenge.
+
+      ① provide a place where engineers and non-engineers alike can learn about Astar Network and WASM.
+      ② Incentivize Astar Learning participants by having a system that pays rewards to those who provide quality learning content.
+
+- demo
+
+      Now for a demonstration.
+      We will show you a demonstration of five different functions that we have developed.
+
+      Information on NFT contracts and content contracts is registered from contracts-UI now.
+
+      The NFT appears to have been minted and will be confirmed from the screen.
+
+      users can throw in a small amount of Astar for the content if they think it is good quality learning content.This is an incentive for the content provider.
+
+      Users can give high ratings to quality learning content.
+
+- milestone
+
+      We envision the following milestones for the future of Astar Learning.
+
+      We think to expand front-end and back-end functionality in 2023 Q3.
+
+      Seconed, we want to apply to AstarLearning in 2023 Q4.
+
+      Third, If adopted by dapp staking, we want to expand the number of users.
