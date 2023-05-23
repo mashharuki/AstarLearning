@@ -15,6 +15,7 @@ const IndexCanvas = () => {
 
   // create contract
   const {
+    connectWallet,
     actingAddress,
     isLoading
   }:any = useContractContext();
@@ -34,11 +35,20 @@ const IndexCanvas = () => {
               <Link href="/nfts">
                 <Button name="View Your NFT" />
               </Link>
+              &nbsp;
+              <Button 
+                name="refresh" 
+                onClick={() => connectWallet()}
+              />
             </>
           )}
         </>
       :  
-        <h2 className="text-2xl font-bold tracking-tight h-screen w-screen flex justify-center items-center text-white-900">Please connect wallet</h2>
+        <h2 
+          className="text-2xl font-bold tracking-tight h-screen w-screen flex justify-center items-center text-white-900"
+        >
+          Please connect wallet
+        </h2>
       }
       <Footer />
     </div>
