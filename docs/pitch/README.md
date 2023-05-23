@@ -58,16 +58,16 @@
 
       There are the three problems we hope to solve with Astar Learning.
 
-      ①The number of WASM-compliant DApps has not increased significantly.
+      ①The number of WASM-compliant DApps has not increased enougth.
       ②Not much is known about WASM in the first place.
-      ③Lack of educational content that simultaneously provides knowledge and hands-on experience of WASM-compliant Dapp
+      ③Lack of educational content that provides knowledge and hands-on experience of WASM-compliant Dapp in parallel.
 
 - soluves
 
       Astar Learning offers two solutions to that challenge.
 
       ① provide a place where engineers and non-engineers alike can learn about Astar Network and WASM.
-      ② Incentivize Astar Learning participants by having a system that pays rewards to those who provide quality learning content.
+      ② Astar Learning provides an incentive rule. Incentivize Astar Learning participants by having a system that pays rewards to those who provide quality learning content.
 
 - demo
 
@@ -82,12 +82,12 @@
 
       Users can give high ratings to quality learning content.
 
-- milestone
+- lastly, milestone
 
-      We envision the following milestones for the future of Astar Learning.
+      We think of taking four milestones for the future of Astar learning.
 
       We think to expand front-end and back-end functionality in 2023 Q3.
 
-      Seconed, we want to apply to AstarLearning in 2023 Q4.
+      Seconed, we want to apply to dappstaking in 2023 Q4.
 
       Third, If adopted by dapp staking, we want to expand the number of users.
