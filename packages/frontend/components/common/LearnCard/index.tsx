@@ -45,6 +45,9 @@ export default function Card() {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between">
+                  {content.goods} 👍
+                </div>
+                <div className="mt-4 flex justify-between">
                   <Link href={{ pathname: '/learn', query: { contentFlg: `${content.content_id}` } }}>
                     <Button name="Learn More →" />
                   </Link>
