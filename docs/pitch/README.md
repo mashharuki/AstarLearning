@@ -49,6 +49,7 @@
 
       Hello, everyone.
       Let's start presenpetion of Astar Learning.
+      This is the table of contents of the presentation
 
 - Concept
 
@@ -58,9 +59,9 @@
 
       There are the three problems we hope to solve with Astar Learning.
 
-      ①The number of WASM-compliant DApps has not increased enougth.
-      ②Not much is known about WASM in the first place.
-      ③Lack of educational content that provides knowledge and hands-on experience of WASM-compliant Dapp in parallel.
+      ① The number of WASM-compliant DApps has not increased enougth.
+      ② Not much is known about WASM in the first place.
+      ③ Lack of educational content that provides knowledge and hands-on experience of WASM-compliant Dapp in parallel.
 
 - soluves
 
@@ -72,7 +73,9 @@
 - demo
 
       Now for a demonstration.
-      We will show you a demonstration of five different functions that we have developed.
+      We will show you a demonstration of four different functions that we have developed.
+
+      Now, this account has no NFT. So Let's mint NFT after learning.
 
       Information on NFT contracts and content contracts is registered from contracts-UI now.
 
@@ -82,12 +85,16 @@
 
       Users can give high ratings to quality learning content.
 
+      Users can answer quiezzes after learning. The quiz is choice-based. If the user can answer the quiz correctly, the NFT will be minted.
+
 - lastly, milestone
 
       We think of taking four milestones for the future of Astar learning.
 
-      We think to expand front-end and back-end functionality in 2023 Q3.
+      We think to expand front-end and back-end functionality in thrid Q 2023.
 
-      Seconed, we want to apply to dappstaking in 2023 Q4.
+      Seconed, we want to apply to dappstaking in fourth Q 2023.
 
       Third, If adopted by dapp staking, we want to expand the number of users.
+
+      OK, our presentation is done. bye!
